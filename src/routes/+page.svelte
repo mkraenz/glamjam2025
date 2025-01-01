@@ -39,7 +39,12 @@
 
 <footer>
 	<div class="footer-container">
-		<p>Author: Mirco Kraenz aka TypeScriptTeatime.</p>
+		<p>By TypeScriptTeatime</p>
+		<p>
+			<a href="https://github.com/mkraenz/glamjam2025" target="_blank" referrerpolicy="no-referrer"
+				>Github</a
+			>
+		</p>
 		<p><a href="/imprint">Acknowledgement</a></p>
 	</div>
 </footer>
@@ -63,6 +68,7 @@
 	}
 	.footer-container {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 1rem;
 		justify-content: center;
 		width: 100vw;
