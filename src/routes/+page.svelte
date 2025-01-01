@@ -18,7 +18,9 @@
 			referrerpolicy="no-referrer">Glam Jam 2025</a
 		>
 	</p>
-	<a href="/glamjam"><button class="pyutiful">Play</button></a>
+	<div>
+		<a href="/glamjam"><button class="pyutiful">Play</button></a>
+	</div>
 </main>
 
 <footer>
@@ -64,6 +66,10 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		/* min-width:; */
+	}
+	@media screen and (min-width: 600px) {
+		h1 {
+			font-size: 96px;
+		}
 	}
 </style>
