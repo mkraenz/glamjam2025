@@ -25,8 +25,9 @@
 			var(--gradient-color) 100%
 		);
 		animation: highlighter 3s linear infinite;
+		animation-delay: 0.7s;
 		background-size: 150% 100%;
-		background-position-x: -50px;
+		background-position-x: -25vw;
 		background-clip: text;
 		color: transparent;
 	}
