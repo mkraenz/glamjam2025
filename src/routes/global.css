@@ -55,6 +55,7 @@ button {
 
 input {
 	cursor: var(--cursor-laugh), text;
+	background-color: var(--peach-pastel);
 }
 
 .star {

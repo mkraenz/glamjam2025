@@ -1,4 +1,4 @@
-<script module>
+<script module lang="ts">
 	const sparkle: MouseEventHandler<EventTarget> = (e) => {
 		const maxLifetimeMs = 600;
 		const arr = [1, 0.9, 0.8, 0.5, 0.2];
