@@ -1,17 +1,7 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"add": "Hinzufügen",
-	"completed_items": "{totalDoneCount} erledigte Aufgaben",
 	"errors_oops": "Etwas ist schief gelaufen. Bitte versuche es noch einmal.",
-	"export_please_wait": "Dein Export wird vorbereitet... bitte warten.",
-	"export_tasks": "Exportiere zu Datei",
-	"get_started": "Füge eine Aufgabe hinzu, um zu beginnen.",
-	"home_title": "Dyn.dyd.yd Aufgaben",
-	"remove_task": "Aufgabe entfernen",
-	"page_head_description": "Erledige Zeug und rufe 'I dyn dyd yd'",
-	"service_worker_update_available": "Neues Update verfügbar. Jetzt updaten?",
-	"shift_done_tasks": "Erledigte Aufgaben unten",
-	"task": "Aufgabe",
-	"title": "Dyn.dyd.yd",
-	"html_head_content": "Neues Update verfügbar. Jetzt updaten?"
+	"home_title": "My Little Bubble Tea Shop",
+	"page_head_description": "My Little Bubble Tea Shop Spiel",
+	"title": "My Little Bubble Tea Shop"
 }
