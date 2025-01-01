@@ -1,6 +1,6 @@
 {
-	"name": "dyndydyd",
-	"short_name": "dyndydyd",
+	"name": "My Own Bubble Tea Shop",
+	"short_name": "Bubble Tea Shop",
 	"start_url": "./",
 	"display": "standalone",
 	"background_color": "#13171f",

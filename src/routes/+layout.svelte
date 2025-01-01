@@ -1,3 +1,26 @@
+<script module>
+	const starPool: HTMLDivElement[] = [];
+	const sparkle: MouseEventHandler<EventTarget> = (e) => {
+		const maxLifetimeMs = 600;
+		const arr = [1, 0.9, 0.8, 0.5, 0.2];
+		arr.forEach(function (i) {
+			let x = (1 - i) * 75;
+			let star = document.createElement('div');
+			star.className = 'star';
+			star.style.top = e.pageY + Math.round(Math.random() * x - x / 2) + 'px';
+			star.style.left = e.pageX + Math.round(Math.random() * x - x / 2) + 'px';
+			document.body.appendChild(star);
+
+			window.setTimeout(
+				() => {
+					document.body.removeChild(star);
+				},
+				Math.round(Math.random() * i * maxLifetimeMs)
+			);
+		});
+	};
+</script>
+
 <script lang="ts">
 	import { i18n } from '$lib/i18n';
 	import { ParaglideJS } from '@inlang/paraglide-sveltekit';
@@ -5,6 +28,7 @@
 	import './global.css';
 	import { detectServiceWorkerUpdate } from '$lib/pwa';
 	import * as m from '$lib/paraglide/messages';
+	import type { MouseEventHandler } from 'svelte/elements';
 	// import { pwaInfo } from 'virtual:pwa-info';
 
 	// let webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : '';
@@ -24,3 +48,5 @@
 <ParaglideJS {i18n}>
 	{@render children()}
 </ParaglideJS>
+
+<svelte:window onmousemove={sparkle} />

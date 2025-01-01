@@ -2,9 +2,6 @@
 	let page = $state('intro');
 </script>
 
-<h1>My Own Bubble Tea Shop</h1>
-<h2>Glam Jam 2025</h2>
-
 {#snippet intro()}
 	<p>What's your name?</p>
 	<p>My name is <span style="display: inline;"><input style="max-width: 320px" /></span>.</p>
