@@ -1,5 +1,10 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages';
+	import { getBgmContext } from '$lib/state/BgmContext.svelte';
+	import Bubbles from './Bubbles.svelte';
+	import HighlightedTitle from './HighlightedTitle.svelte';
+
+	const bgm = getBgmContext();
 </script>
 
 <svelte:head>
@@ -9,7 +14,7 @@
 
 <main class="main">
 	<div class="v-center">
-		<h1 class="pico-color-fuchsia-500">My Little Bubble Tea Shop</h1>
+		<HighlightedTitle />
 	</div>
 	<p>
 		TypeScriptTeatime's project for <a
@@ -19,9 +24,18 @@
 		>
 	</p>
 	<div>
-		<a href="/glamjam"><button class="pyutiful">Play</button></a>
+		<a href="/glamjam" role="button" class="pyutiful">Play</a>
+		<button class="outline" onclick={() => bgm.toggleAudio()}
+			>BGM
+			{#if bgm.paused}
+				off
+			{:else}
+				on
+			{/if}
+		</button>
 	</div>
 </main>
+<Bubbles />
 
 <footer>
 	<div class="footer-container">
@@ -58,18 +72,10 @@
 		font-weight: bold;
 		min-width: 12rem;
 	}
-	h1 {
-		font-size: 64px;
-	}
 	.v-center {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-	}
-	@media screen and (min-width: 600px) {
-		h1 {
-			font-size: 96px;
-		}
 	}
 </style>

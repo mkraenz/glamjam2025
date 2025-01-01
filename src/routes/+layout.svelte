@@ -1,5 +1,4 @@
 <script module>
-	const starPool: HTMLDivElement[] = [];
 	const sparkle: MouseEventHandler<EventTarget> = (e) => {
 		const maxLifetimeMs = 600;
 		const arr = [1, 0.9, 0.8, 0.5, 0.2];
@@ -29,21 +28,29 @@
 	import { detectServiceWorkerUpdate } from '$lib/pwa';
 	import * as m from '$lib/paraglide/messages';
 	import type { MouseEventHandler } from 'svelte/elements';
-	// import { pwaInfo } from 'virtual:pwa-info';
-
-	// let webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : '';
+	import { getBgmContext, setBgmContext } from '$lib/state/BgmContext.svelte';
 	type Props = {
 		children: Snippet;
 	};
 	let { children }: Props = $props();
 
 	onMount(detectServiceWorkerUpdate);
+	setBgmContext();
+	const bgm = getBgmContext();
 </script>
 
 <svelte:head>
 	<title>{m.home_title()}</title>
-	<!-- {@html webManifestLink} -->
 </svelte:head>
+
+<audio
+	src="/audio/relax-girl.mp3"
+	autoplay
+	loop
+	volume={0.2}
+	bind:paused={bgm.paused}
+	bind:this={bgm.audioElement}
+></audio>
 
 <ParaglideJS {i18n}>
 	{@render children()}

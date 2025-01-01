@@ -2,6 +2,12 @@
 	const data = [
 		{
 			type: 'a',
+			href: 'https://opengameart.org/content/relax-girl',
+			title: 'Background Music "Relax Girl"',
+			innerHTML: 'Background Music "Relax Girl" created by Alex McCulloch.'
+		},
+		{
+			type: 'a',
 			href: 'https://www.flaticon.com/free-icon/bubble-tea_7519908?term=bubble+tea&page=1&position=88&origin=tag&related_id=7519908',
 			title: 'Bear bubble tea icon',
 			innerHTML: 'Bear Bubble tea icon created by Smashicons - Flaticon'
@@ -17,6 +23,12 @@
 			href: 'https://www.flaticon.com/free-icon/laugh_7301959?term=bubble+tea&page=1&position=22&origin=tag&related_id=7301959',
 			title: 'Laughing Bubble tea',
 			innerHTML: 'Laughing Bubble tea icon created by Rohim - Flaticon'
+		},
+		{
+			type: 'a',
+			href: 'https://codepen.io/Mark_Bowley/pen/PozwyP',
+			title: 'Title screen bubble animation',
+			innerHTML: 'Title screen bubble css-only animation by Mark_Bowley'
 		}
 	] as const;
 </script>
@@ -26,8 +38,12 @@
 	<ul>
 		{#each data as date}
 			<li>
-				<svelte:element this={date.type} href={date.type} title={date.title}
-					>{date.innerHTML}</svelte:element
+				<svelte:element
+					this={date.type}
+					href={date.href}
+					title={date.title}
+					target="_blank"
+					referrerpolicy="no-referrer">{date.innerHTML}</svelte:element
 				>
 			</li>
 		{/each}
