@@ -16,10 +16,12 @@
 	<div class="v-center">
 		<HighlightedTitle />
 	</div>
-	<p>
-		TypeScriptTeatime's project for
-		<ExternalLink href="https://itch.io/jam/glam-jam">Glam Jam 2025</ExternalLink>
-	</p>
+	<div class="v-center">
+		<p>
+			For best experience, play at
+			<ExternalLink href="https://glamjam.kraenz.eu">glamjam.kraenz.eu</ExternalLink>
+		</p>
+	</div>
 	<div>
 		<a href="/glamjam" role="button" class="pyutiful">Play</a>
 		<BgmOnOff />
