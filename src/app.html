@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="%paraglide.lang%" dir="%paraglide.textDirection%">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#212121">
+	<!-- currently we're only ever serving dark mode, even if the user prefers light -->
+	<meta name="theme-color" media="(prefers-color-scheme: light)" content="#212121">
+	<link rel="stylesheet" href="%sveltekit.assets%/pico.jade.min.css" />
+	<link rel="manifest" href="%sveltekit.assets%/manifest.webmanifest">
+	%sveltekit.head%
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">%sveltekit.body%</div>
+</body>
+
+</html>
