@@ -25,12 +25,17 @@
 	--pico-font-family: 'DynaPuff', serif;
 
 	--peach-pastel: #ffecd9;
-	background-color: var(--peach-pastel);
+	--blue-pastel: #d1e9f6;
+	background-color: var(--blue-pastel);
 
 	--cursor-happy: url('/icons/cursors/bubble-tea-happy-24.png');
 	--cursor-bear: url('/icons/cursors/bubble-tea-bear-24.png');
 	--cursor-laugh: url('/icons/cursors/bubble-tea-laugh-24.png');
 	cursor: var(--cursor-happy), auto;
+
+	/* --pico-primary-hover-background: var(--pico-color-fuchsia-400);
+	--pico-primary-hover-background: var(--pico-color-fuchsia-400);
+	--pico-background-color: var(--pico-color-fuchsia-300); */
 }
 
 [role='button'],
@@ -40,6 +45,7 @@
 [type='submit'],
 button {
 	cursor: var(--cursor-bear), pointer;
+	/* background-color: var(--pico-color-fuchsia-300); */
 }
 
 :where(a:not([role='button'])),

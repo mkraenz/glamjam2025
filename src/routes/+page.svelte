@@ -77,6 +77,9 @@
 		text-transform: uppercase;
 		font-weight: bold;
 		min-width: 12rem;
+		letter-spacing: 0.2rem;
+		font-size: xx-large;
+		text-shadow: 1px 1px 1px #0f3f57;
 	}
 	.v-center {
 		display: flex;
