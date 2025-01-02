@@ -13,7 +13,7 @@
 	<div class="straw" class:hidden={!straw}></div>
 </div>
 <div class="cup" class:hidden={!cup}>
-	<div class="milk-tea" class:hidden={!tea}></div>
+	<div class="milk-tea" class:hidden={!tea} class:fill-anim={tea}></div>
 	<div class="tapioca" class:hidden={!tapioca}></div>
 </div>
 
@@ -51,7 +51,7 @@
 		border-bottom: 0;
 	}
 	.milk-tea {
-		--tea-fill: 1;
+		--tea-fill: 0;
 		background: var(--color-matcha);
 		height: calc((var(--cup-height) - var(--tea-offset-y)) * var(--tea-fill));
 		width: calc(var(--cup-width) - var(--tea-offset-x));
@@ -59,7 +59,9 @@
 		left: calc(var(--tea-offset-x) * 0.5);
 		bottom: calc(var(--tea-offset-y) * 0.66);
 		border-radius: 4px 4px 20px 20px;
-		animation: fill 8s infinite;
+	}
+	.fill-anim {
+		animation: fill 2s forwards;
 	}
 	.straw {
 		background: var(--pico-color-fuchsia);
@@ -74,17 +76,8 @@
 		0% {
 			--tea-fill: 0;
 		}
-		45% {
-			--tea-fill: 1;
-		}
-		55% {
-			--tea-fill: 1;
-		}
-		95% {
-			--tea-fill: 0;
-		}
 		100% {
-			--tea-fill: 0;
+			--tea-fill: 1;
 		}
 	}
 	.hidden {

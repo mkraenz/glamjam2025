@@ -3,7 +3,6 @@
 	import { BubbleTeaState } from '$lib/state/BubbleTeaState.svelte';
 	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import type { Page } from '$lib/state/GameStateContext.svelte';
-	import { tail } from 'lodash';
 
 	type Props = { nextGood: Page; nextBad: Page };
 	let { nextGood, nextBad }: Props = $props();
@@ -25,11 +24,11 @@
 		checkLose();
 	}
 	function addFluid() {
-		tea.fluid = true;
+		tea.addFluid();
 		checkLose();
 	}
 	function addTapioca() {
-		tea.tapioca = true;
+		tea.addTapioca();
 		checkLose();
 	}
 	function serve() {

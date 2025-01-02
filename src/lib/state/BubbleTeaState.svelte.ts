@@ -21,18 +21,43 @@ export class BubbleTeaState {
 		debugger;
 		if (!this.baseReady) {
 			this.mistakes++;
-			return { success: false };
+			return this.fail();
 		}
 		this.cap = true;
-		return { success: true };
+		return this.success();
 	}
 
 	addStraw() {
 		if (!this.baseReady || !this.cap) {
 			this.mistakes++;
-			return { success: false };
+			return this.fail();
 		}
 		this.straw = true;
+		return this.success();
+	}
+
+	addFluid() {
+		if (!this.cup) {
+			this.mistakes++;
+			return this.fail();
+		}
+		this.fluid = true;
+		return this.success();
+	}
+
+	addTapioca() {
+		if (!this.cup) {
+			this.mistakes++;
+			return this.fail();
+		}
+		this.tapioca = true;
+		return this.success();
+	}
+
+	private fail() {
+		return { success: false };
+	}
+	private success() {
 		return { success: true };
 	}
 }

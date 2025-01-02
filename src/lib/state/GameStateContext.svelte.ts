@@ -7,7 +7,9 @@ export const fallback = {
 
 const initialState = {
 	name: '',
-	favColor: fallback.favColor
+	favColor: fallback.favColor,
+	skipTutorial: false,
+	initialPage: 'theNewOwner' as const
 };
 
 export type Page =
@@ -25,16 +27,18 @@ export type Page =
 class GameState {
 	name: string = $state(initialState.name);
 	favColor: string = $state(initialState.favColor);
-	page = $state<Page>('theNewOwner');
+	page = $state<Page>();
+	skipTutorial = $state(initialState.skipTutorial);
 
-	constructor(initialPage: Page) {
+	constructor(initialPage: Page = initialState.initialPage) {
 		this.page = initialPage;
 	}
 
 	reset() {
 		this.name = initialState.name;
 		this.favColor = initialState.favColor;
-		this.page = 'theNewOwner';
+		this.page = initialState.initialPage;
+		this.skipTutorial = initialState.skipTutorial;
 	}
 
 	navigate(to: Page) {
@@ -43,7 +47,7 @@ class GameState {
 }
 
 const key = Symbol('GameState');
-export function setGameStateContext(initialPage: Page = 'theNewOwner') {
+export function setGameStateContext(initialPage: Page = initialState.initialPage) {
 	return setContext(key, new GameState(initialPage));
 }
 export function getGameStateContext() {

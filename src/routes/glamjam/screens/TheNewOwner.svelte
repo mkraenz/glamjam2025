@@ -13,6 +13,13 @@
 <p>Glad to get to know you. I'm <span class="character-name">Brandon<span>.</span></span></p>
 <group>
 	<NextButton onclick={() => game.navigate(next)} />
-	<NextButton onclick={() => game.navigate(skip)} text="Your order?" classes="outline" />
+	<NextButton
+		onclick={() => {
+			game.skipTutorial = true;
+			game.navigate(skip);
+		}}
+		text="Your order?"
+		classes="outline"
+	/>
 </group>
 <!-- <Brandon /> -->

@@ -21,7 +21,10 @@
 	{#if page === 'yourName'}<YourName next="favColor" />{/if}
 	{#if page === 'favColor'}<FavColor next="favColorWow" />{/if}
 	{#if page === 'favColorWow'}<FavColorWow next="backToBusiness" />{/if}
-	{#if page === 'backToBusiness'}<BackToBusiness nextGood="tutorial" nextBad="iAmBusy" />{/if}
+	{#if page === 'backToBusiness'}<BackToBusiness
+			nextGood={game.skipTutorial ? 'barCounter' : 'tutorial'}
+			nextBad="iAmBusy"
+		/>{/if}
 	{#if page === 'gameover'}<GameOver />{/if}
 	{#if page === 'tutorial'}<Tutorial next="barCounter" />{/if}
 	{#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
