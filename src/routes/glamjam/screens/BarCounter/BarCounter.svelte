@@ -1,8 +1,9 @@
 <script lang="ts">
-	import BubbleTea from '../../components/BubbleTea.svelte';
+	import BubbleTea from './BubbleTea.svelte';
 	import { BubbleTeaState } from '$lib/state/BubbleTeaState.svelte';
 	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import type { Page } from '$lib/state/GameStateContext.svelte';
+	import Mistakes from './Mistakes.svelte';
 
 	type Props = { nextGood: Page; nextBad: Page };
 	let { nextGood, nextBad }: Props = $props();
@@ -51,5 +52,4 @@
 	<button onclick={serve}>Serve</button>
 </group>
 
-<p>Ready to be served: {tea.readyToServe}</p>
-<p>Mistakes: {tea.mistakes}</p>
+<Mistakes count={tea.mistakes} />

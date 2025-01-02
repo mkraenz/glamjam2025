@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BarCounter from '../screens/BarCounter.svelte';
+	import BarCounter from '../screens/BarCounter/BarCounter.svelte';
 </script>
 
 <main><BarCounter /></main>

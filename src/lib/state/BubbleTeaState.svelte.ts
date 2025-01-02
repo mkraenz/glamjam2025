@@ -18,7 +18,6 @@ export class BubbleTeaState {
 	baseReady = $derived(this.cup && this.fluid && this.tapioca);
 
 	addCap() {
-		debugger;
 		if (!this.baseReady) {
 			this.mistakes++;
 			return this.fail();

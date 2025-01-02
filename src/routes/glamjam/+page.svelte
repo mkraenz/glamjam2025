@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getGameStateContext, setGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import BackToBusiness from './screens/BackToBusiness.svelte';
-	import BarCounter from './screens/BarCounter.svelte';
+	import BarCounter from './screens/BarCounter/BarCounter.svelte';
 	import CustomerLeaves from './screens/CustomerLeaves.svelte';
 	import FavColor from './screens/FavColor.svelte';
 	import FavColorWow from './screens/FavColorWow.svelte';
