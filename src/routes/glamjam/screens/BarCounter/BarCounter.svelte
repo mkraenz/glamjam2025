@@ -67,7 +67,14 @@
 </script>
 
 <h2>Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span></h2>
-<BubbleTea cap={tea.cap} cup={tea.cup} tapioca={tea.tapioca} tea={tea.fluid} straw={tea.straw} />
+<BubbleTea
+	cap={tea.cap}
+	cup={tea.cup}
+	tapioca={tea.tapioca}
+	tea={tea.fluid}
+	straw={tea.straw}
+	strawColor={game.favColor}
+/>
 
 <group>
 	{#each buttons as aButton}
