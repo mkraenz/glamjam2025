@@ -29,6 +29,12 @@
 			href: 'https://codepen.io/Mark_Bowley/pen/PozwyP',
 			title: 'Title screen bubble animation',
 			innerHTML: 'Title screen bubble css-only animation by Mark_Bowley'
+		},
+		{
+			type: 'a',
+			href: 'https://erika-l-o.itch.io/vn-characther',
+			title: 'Male character sprite',
+			innerHTML: 'Male character sprite by Erika_L_O'
 		}
 	] as const;
 </script>
