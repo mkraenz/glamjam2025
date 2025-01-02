@@ -55,6 +55,7 @@ button {
 
 input {
 	cursor: var(--cursor-laugh), text;
+	caret-color: var(--pico-color-fuchsia);
 	background-color: var(--peach-pastel);
 }
 
@@ -78,4 +79,8 @@ input {
 	background: var(--pico-color-fuchsia-500);
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
+}
+
+.bg-default {
+	background-color: var(--blue-pastel);
 }
