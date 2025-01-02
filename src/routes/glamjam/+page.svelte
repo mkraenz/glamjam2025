@@ -9,7 +9,7 @@
 	import TheNewOwner from './screens/TheNewOwner.svelte';
 	import YourName from './screens/YourName.svelte';
 
-	setGameStateContext('barCounter');
+	setGameStateContext();
 	const game = getGameStateContext();
 	let page = $derived(game.page);
 </script>
