@@ -2,8 +2,15 @@
 	type Props = {
 		onclick: () => void;
 		text?: string;
+		classes?: string;
 	};
-	let { onclick, text = 'Continue' }: Props = $props();
+	let { onclick, text = 'Continue', classes }: Props = $props();
 </script>
 
-<button {onclick}>{text}</button>
+<button {onclick} class={classes}>{text}</button>
+
+<style>
+	button {
+		min-width: 180px;
+	}
+</style>

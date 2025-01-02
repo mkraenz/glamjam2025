@@ -54,6 +54,7 @@ button {
 }
 
 input {
+	max-width: 320px;
 	cursor: var(--cursor-laugh), text;
 	caret-color: var(--pico-color-fuchsia);
 	background-color: var(--peach-pastel);
@@ -83,4 +84,23 @@ input {
 
 .bg-default {
 	background-color: var(--blue-pastel);
+}
+
+.character-name {
+	display: inline;
+	text-decoration: underline;
+	text-decoration-color: var(--pico-color-fuchsia);
+	color: var(--pico-color-fuchsia);
+}
+
+.h2-emphasis {
+	margin-bottom: var(--pico-typography-spacing-vertical);
+	margin-top: var(--pico-typography-spacing-vertical);
+	text-decoration: underline;
+	text-decoration-color: var(--pico-color-fuchsia);
+	color: var(--pico-color-fuchsia);
+}
+
+.mb-0 {
+	margin-bottom: 0;
 }
