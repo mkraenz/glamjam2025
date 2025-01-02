@@ -34,8 +34,10 @@
 		checkLose();
 	}
 	function serve() {
-		if (tea.readyToServe) game.navigate(nextGood);
-		else {
+		if (tea.readyToServe) {
+			game.stopStopwatch();
+			game.navigate(nextGood);
+		} else {
 			tea.mistakes++;
 			checkLose();
 		}
@@ -61,6 +63,7 @@
 		// 	text: 'Matcha Latte'
 		// }
 	]);
+	game.startStopwatch();
 </script>
 
 <h2>Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span></h2>

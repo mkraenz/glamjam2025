@@ -1,4 +1,5 @@
 import { getContext, setContext } from 'svelte';
+import { SvelteDate } from 'svelte/reactivity';
 
 export const fallback = {
 	name: 'Kelly',
@@ -30,6 +31,9 @@ class GameState {
 	favColor: string = $state(initialState.favColor);
 	page = $state<Page>();
 	skipTutorial = $state(initialState.skipTutorial);
+	#stopwatchStart = new SvelteDate();
+	#stopwatchEnd = new SvelteDate();
+	stopwatchMs = $derived(this.#stopwatchEnd.getTime() - this.#stopwatchStart.getTime());
 
 	constructor(initialPage: Page = initialState.initialPage) {
 		this.page = initialPage;
@@ -44,6 +48,16 @@ class GameState {
 
 	navigate(to: Page) {
 		this.page = to;
+	}
+
+	startStopwatch() {
+		const now = new Date().getTime();
+		this.#stopwatchStart.setTime(now);
+		this.#stopwatchEnd.setTime(now);
+	}
+
+	stopStopwatch() {
+		this.#stopwatchEnd.setTime(new Date().getTime());
 	}
 }
 
