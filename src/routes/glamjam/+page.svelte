@@ -2,11 +2,13 @@
 	import { getGameStateContext, setGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import BackToBusiness from './screens/BackToBusiness.svelte';
 	import BarCounter from './screens/BarCounter.svelte';
+	import CustomerLeaves from './screens/CustomerLeaves.svelte';
 	import FavColor from './screens/FavColor.svelte';
 	import FavColorWow from './screens/FavColorWow.svelte';
 	import GameOver from './screens/GameOver.svelte';
 	import IAmBusy from './screens/IAmBusy.svelte';
 	import TheNewOwner from './screens/TheNewOwner.svelte';
+	import Tutorial from './screens/Tutorial.svelte';
 	import YourName from './screens/YourName.svelte';
 
 	setGameStateContext();
@@ -19,10 +21,12 @@
 	{#if page === 'yourName'}<YourName next="favColor" />{/if}
 	{#if page === 'favColor'}<FavColor next="favColorWow" />{/if}
 	{#if page === 'favColorWow'}<FavColorWow next="backToBusiness" />{/if}
-	{#if page === 'backToBusiness'}<BackToBusiness nextGood="barCounter" nextBad="iAmBusy" />{/if}
+	{#if page === 'backToBusiness'}<BackToBusiness nextGood="tutorial" nextBad="iAmBusy" />{/if}
 	{#if page === 'gameover'}<GameOver />{/if}
+	{#if page === 'tutorial'}<Tutorial next="barCounter" />{/if}
 	{#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
-	{#if page === 'barCounter'}<BarCounter />{/if}
+	{#if page === 'barCounter'}<BarCounter nextGood="backToBusiness" nextBad="customerLeaves" />{/if}
+	{#if page === 'customerLeaves'}<CustomerLeaves next="backToBusiness" />{/if}
 </main>
 
 <style>

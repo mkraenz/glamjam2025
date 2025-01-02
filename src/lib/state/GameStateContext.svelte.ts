@@ -17,7 +17,9 @@ export type Page =
 	| 'gameover'
 	| 'favColorWow'
 	| 'backToBusiness'
+	| 'tutorial'
 	| 'barCounter'
+	| 'customerLeaves'
 	| 'iAmBusy';
 
 class GameState {

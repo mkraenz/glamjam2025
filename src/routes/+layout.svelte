@@ -45,7 +45,6 @@
 
 <audio
 	src="/audio/relax-girl.mp3"
-	autoplay
 	loop
 	volume={0.2}
 	bind:paused={bgm.paused}
