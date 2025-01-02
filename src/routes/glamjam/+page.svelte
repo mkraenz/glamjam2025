@@ -9,7 +9,7 @@
 	import TheNewOwner from './screens/TheNewOwner.svelte';
 	import YourName from './screens/YourName.svelte';
 
-	setGameStateContext();
+	setGameStateContext('barCounter');
 	const game = getGameStateContext();
 	let page = $derived(game.page);
 </script>
@@ -19,7 +19,7 @@
 	{#if page === 'yourName'}<YourName next="favColor" />{/if}
 	{#if page === 'favColor'}<FavColor next="favColorWow" />{/if}
 	{#if page === 'favColorWow'}<FavColorWow next="backToBusiness" />{/if}
-	{#if page === 'backToBusiness'}<BackToBusiness nextGood="gameover" nextBad="iAmBusy" />{/if}
+	{#if page === 'backToBusiness'}<BackToBusiness nextGood="barCounter" nextBad="iAmBusy" />{/if}
 	{#if page === 'gameover'}<GameOver />{/if}
 	{#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
 	{#if page === 'barCounter'}<BarCounter />{/if}

@@ -25,6 +25,10 @@ class GameState {
 	favColor: string = $state(initialState.favColor);
 	page = $state<Page>('theNewOwner');
 
+	constructor(initialPage: Page) {
+		this.page = initialPage;
+	}
+
 	reset() {
 		this.name = initialState.name;
 		this.favColor = initialState.favColor;
@@ -37,8 +41,8 @@ class GameState {
 }
 
 const key = Symbol('GameState');
-export function setGameStateContext() {
-	return setContext(key, new GameState());
+export function setGameStateContext(initialPage: Page = 'theNewOwner') {
+	return setContext(key, new GameState(initialPage));
 }
 export function getGameStateContext() {
 	return getContext(key) as ReturnType<typeof setGameStateContext>;
