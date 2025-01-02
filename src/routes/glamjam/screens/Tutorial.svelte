@@ -20,8 +20,8 @@
 <ol>
 	<li>First, put the <span class="inline-emphasis">Cup</span> on the counter before you.</li>
 	<li>
-		Next, pour <span class="inline-emphasis">Milk Tea</span> or add
-		<span class="inline-emphasis">Tapioca Pearls</span>. The order doesn't matter.
+		Next, pour <span class="inline-emphasis">Strawberry Milk or Milk Tea</span> or add
+		<span class="inline-emphasis">Tapioca Pearls</span>.<br /> The order doesn't matter.
 	</li>
 	<li>
 		Your customers expect a service. So let's add the <span class="inline-emphasis">Cap</span> next.

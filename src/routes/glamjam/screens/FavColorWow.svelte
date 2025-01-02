@@ -8,7 +8,13 @@
 </script>
 
 <p>Wow, really!?</p>
-<input class="bg-default" type="color" value={game.favColor} />
+<input class="bg-default" type="color" value={game.favColor} disabled />
 <p>is my favorite color, too! You're amazing. We should hang out together one of these days.</p>
 
 <NextButton onclick={() => game.navigate(next)} />
+
+<style>
+	input:disabled {
+		opacity: 1;
+	}
+</style>

@@ -41,13 +41,19 @@
 	}
 </script>
 
-<BubbleTea cap={tea.cap} cup={tea.cup} tapioca={tea.tapioca} tea={tea.fluid} straw={tea.straw} />
+<BubbleTea
+	cap={tea.cap}
+	cup={tea.cup}
+	tapioca={tea.tapioca}
+	tea={tea.fluid ? 'strawberry milk' : false}
+	straw={tea.straw}
+/>
 
 <group>
 	{#if !tea.cup}<button onclick={addCup}>Cup</button>{/if}
 	{#if !tea.cap}<button onclick={addCap}>Cap</button>{/if}
 	{#if !tea.straw}<button onclick={addStraw}>Straw</button>{/if}
-	{#if !tea.fluid}<button onclick={addFluid}>Milk tea</button>{/if}
+	{#if !tea.fluid}<button onclick={addFluid}>Strawberry Milk</button>{/if}
 	{#if !tea.tapioca}<button onclick={addTapioca}>Tapioca</button>{/if}
 	<button onclick={serve}>Serve</button>
 </group>

@@ -2,7 +2,7 @@
 	type Props = {
 		straw: boolean;
 		cup: boolean;
-		tea: boolean;
+		tea: false | 'matcha' | 'strawberry milk';
 		tapioca: boolean;
 		cap: boolean;
 	};
@@ -13,7 +13,13 @@
 	<div class="straw" class:hidden={!straw}></div>
 </div>
 <div class="cup" class:hidden={!cup}>
-	<div class="milk-tea" class:hidden={!tea} class:fill-anim={tea}></div>
+	<div
+		class="milk-tea"
+		class:hidden={!tea}
+		class:fill-anim={tea}
+		class:matcha={tea === 'matcha'}
+		class:strawberry-milk={tea === 'strawberry milk'}
+	></div>
 	<div class="tapioca" class:hidden={!tapioca}></div>
 </div>
 
@@ -30,6 +36,7 @@
 		--tea-offset-y: 32px;
 		--tea-offset-x: 32px;
 		--color-matcha: #8ac583;
+		--color-strawberry: #ffd9e7;
 	}
 	.cup {
 		transform: perspective(10px) rotateX(-1deg);
@@ -59,6 +66,12 @@
 		left: calc(var(--tea-offset-x) * 0.5);
 		bottom: calc(var(--tea-offset-y) * 0.66);
 		border-radius: 4px 4px 20px 20px;
+	}
+	.matcha {
+		background: var(--color-matcha);
+	}
+	.strawberry-milk {
+		background: var(--color-strawberry);
 	}
 	.fill-anim {
 		animation: fill 2s forwards;
