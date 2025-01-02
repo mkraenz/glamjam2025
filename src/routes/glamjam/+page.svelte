@@ -15,7 +15,7 @@
 </script>
 
 <main>
-	{#if page === 'theNewOwner'}<TheNewOwner next="yourName" />{/if}
+	{#if page === 'theNewOwner'}<TheNewOwner next="yourName" skip="backToBusiness" />{/if}
 	{#if page === 'yourName'}<YourName next="favColor" />{/if}
 	{#if page === 'favColor'}<FavColor next="favColorWow" />{/if}
 	{#if page === 'favColorWow'}<FavColorWow next="backToBusiness" />{/if}

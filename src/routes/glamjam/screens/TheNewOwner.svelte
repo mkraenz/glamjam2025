@@ -3,13 +3,16 @@
 	import Brandon from '../../components/chars/Brandon.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 
-	type Props = { next: Page };
-	let { next }: Props = $props();
+	type Props = { next: Page; skip: Page };
+	let { next, skip }: Props = $props();
 	const game = getGameStateContext();
 </script>
 
 <h2>Welcome!</h2>
 <p>You must be the new owner of the Bubble Tea shop next door, right?</p>
 <p>Glad to get to know you. I'm <span class="character-name">Brandon<span>.</span></span></p>
-<NextButton onclick={() => game.navigate(next)} />
+<group>
+	<NextButton onclick={() => game.navigate(next)} />
+	<NextButton onclick={() => game.navigate(skip)} text="Your order?" classes="outline" />
+</group>
 <!-- <Brandon /> -->
