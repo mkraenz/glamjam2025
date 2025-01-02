@@ -1,5 +1,5 @@
-<script>
-	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
+<script lang="ts">
+	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 
 	const game = getGameStateContext();

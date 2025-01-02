@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getGameStateContext, setGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import BackToBusiness from './screens/BackToBusiness.svelte';
+	import BarCounter from './screens/BarCounter.svelte';
 	import FavColor from './screens/FavColor.svelte';
 	import FavColorWow from './screens/FavColorWow.svelte';
 	import GameOver from './screens/GameOver.svelte';
@@ -10,16 +11,18 @@
 
 	setGameStateContext();
 	const game = getGameStateContext();
+	let page = $derived(game.page);
 </script>
 
 <main>
-	{#if game.page === 'theNewOwner'}<TheNewOwner />{/if}
-	{#if game.page === 'yourName'}<YourName />{/if}
-	{#if game.page === 'favColor'}<FavColor />{/if}
-	{#if game.page === 'favColorWow'}<FavColorWow />{/if}
-	{#if game.page === 'backToBusiness'}<BackToBusiness />{/if}
-	{#if game.page === 'gameover'}<GameOver />{/if}
-	{#if game.page === 'iAmBusy'}<IAmBusy />{/if}
+	{#if page === 'theNewOwner'}<TheNewOwner next="yourName" />{/if}
+	{#if page === 'yourName'}<YourName next="favColor" />{/if}
+	{#if page === 'favColor'}<FavColor next="favColorWow" />{/if}
+	{#if page === 'favColorWow'}<FavColorWow next="backToBusiness" />{/if}
+	{#if page === 'backToBusiness'}<BackToBusiness nextGood="gameover" nextBad="iAmBusy" />{/if}
+	{#if page === 'gameover'}<GameOver />{/if}
+	{#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
+	{#if page === 'barCounter'}<BarCounter />{/if}
 </main>
 
 <style>

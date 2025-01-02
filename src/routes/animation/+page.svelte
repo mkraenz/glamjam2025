@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { Tween } from 'svelte/motion';
 	import { cubicInOut as cubic } from 'svelte/easing';
 	let progressTop = new Tween(0, { duration: 2000, easing: cubic });

@@ -1,7 +1,9 @@
-<script>
-	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
+<script lang="ts">
+	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 
+	type Props = { next: Page };
+	let { next }: Props = $props();
 	const game = getGameStateContext();
 </script>
 
@@ -11,5 +13,5 @@
 </p>
 
 <group>
-	<NextButton text="Bye, Brandon!" onclick={() => game.navigate('gameover')} />
+	<NextButton text="Bye, Brandon!" onclick={() => game.navigate(next)} />
 </group>

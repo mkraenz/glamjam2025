@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import ExternalLink from './components/common/ExternalLink.svelte';
 </script>
 

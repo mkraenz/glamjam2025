@@ -1,6 +1,10 @@
-<script>
+<script lang="ts">
+	import type { Page } from '$lib/state/GameStateContext.svelte';
 	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
+
+	type Props = { nextBad: Page; nextGood: Page };
+	let { nextBad, nextGood }: Props = $props();
 
 	const game = getGameStateContext();
 </script>
@@ -10,6 +14,6 @@
 <p>Since you're the new shop owner, could you make me a cup, please?</p>
 
 <group>
-	<NextButton text="Sure!" onclick={() => game.navigate('gameover')} />
-	<NextButton text="I'm busy." classes="outline" onclick={() => game.navigate('iAmBusy')} />
+	<NextButton text="Sure!" onclick={() => game.navigate(nextGood)} />
+	<NextButton text="I'm busy." classes="outline" onclick={() => game.navigate(nextBad)} />
 </group>

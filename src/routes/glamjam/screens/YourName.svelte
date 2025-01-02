@@ -1,7 +1,10 @@
-<script>
+<script lang="ts">
+	import type { Page } from '$lib/state/GameStateContext.svelte';
 	import { fallback, getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 
+	type Props = { next: Page };
+	let { next }: Props = $props();
 	const game = getGameStateContext();
 </script>
 
@@ -14,6 +17,6 @@
 <NextButton
 	onclick={() => {
 		game.name ||= fallback.name;
-		game.navigate('favColor');
+		game.navigate(next);
 	}}
 />

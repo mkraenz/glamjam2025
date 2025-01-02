@@ -10,13 +10,14 @@ const initialState = {
 	favColor: fallback.favColor
 };
 
-type Page =
+export type Page =
 	| 'theNewOwner'
 	| 'yourName'
 	| 'favColor'
 	| 'gameover'
 	| 'favColorWow'
 	| 'backToBusiness'
+	| 'barCounter'
 	| 'iAmBusy';
 
 class GameState {
