@@ -9,7 +9,7 @@
 
 <p>Oh, that's too bad. I guess you're still preparing for the grand opening.</p>
 <p>
-	Alright then. See you around, {game.name}!
+	Alright then. See you around{#if game.name}, {game.name}{/if}!
 </p>
 
 <group>
