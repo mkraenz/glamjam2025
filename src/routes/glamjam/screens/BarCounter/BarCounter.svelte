@@ -4,6 +4,7 @@
 	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import type { Page } from '$lib/state/GameStateContext.svelte';
 	import Mistakes from './Mistakes.svelte';
+	import { shuffle } from '$lib/utils/shuffle';
 
 	type Props = { nextGood: Page; nextBad: Page };
 	let { nextGood, nextBad }: Props = $props();
@@ -43,19 +44,40 @@
 		matcha: 'Matcha Latte Bubble Tea',
 		'strawberry milk': 'Strawberry Milk Bubble Tea'
 	};
+
+	const buttons = shuffle([
+		{ condition: () => !tea.cup, onclick: addCup, text: 'Cup' },
+		{ condition: () => !tea.cap, onclick: addCap, text: 'Cap' },
+		{ condition: () => !tea.straw, onclick: addStraw, text: 'Straw' },
+		{ condition: () => !tea.tapioca, onclick: addTapioca, text: 'Tapioca' },
+		{
+			condition: () => !tea.fluid,
+			onclick: () => addFluid('strawberry milk'),
+			text: 'Strawberry Milk'
+		}
+		// {
+		// 	condition: () => !tea.fluid,
+		// 	onclick: () => addFluid('matcha'),
+		// 	text: 'Matcha Latte'
+		// }
+	]);
 </script>
 
 <h2>Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span></h2>
 <BubbleTea cap={tea.cap} cup={tea.cup} tapioca={tea.tapioca} tea={tea.fluid} straw={tea.straw} />
 
 <group>
-	{#if !tea.cup}<button onclick={addCup}>Cup</button>{/if}
-	{#if !tea.cap}<button onclick={addCap}>Cap</button>{/if}
-	{#if !tea.straw}<button onclick={addStraw}>Straw</button>{/if}
-	{#if !tea.fluid}<button onclick={() => addFluid('strawberry milk')}>Strawberry Milk</button>{/if}
-	<!-- {#if !tea.fluid}<button onclick={() => addFluid('matcha')}>Matcha Latte</button>{/if} -->
-	{#if !tea.tapioca}<button onclick={addTapioca}>Tapioca</button>{/if}
+	{#each buttons as aButton}
+		{#if aButton.condition()}<button onclick={aButton.onclick}>{aButton.text}</button>{/if}
+	{/each}
 	<button onclick={serve}>Serve</button>
 </group>
 
 <Mistakes count={tea.mistakes} />
+
+<style>
+	group {
+		display: flex;
+		gap: 1rem;
+	}
+</style>

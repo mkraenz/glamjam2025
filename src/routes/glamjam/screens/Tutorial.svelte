@@ -32,6 +32,11 @@
 	</li>
 </ol>
 <p>
+	Easy enough, right? The problem is only those little chipmunks who <span class="inline-emphasis"
+		>changing the placement</span
+	> of the parts every time.
+</p>
+<p>
 	Before I forget: You're customers will <span class="inline-emphasis">leave</span> if you make too many
 	mistakes. I guess one or two mistakes are fine but no more than that.
 </p>
