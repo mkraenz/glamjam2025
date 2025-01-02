@@ -1,9 +1,17 @@
+export type TeaType = 'matcha' | 'strawberry milk' | false;
+
+type Order = {
+	fluid: Exclude<TeaType, false>;
+};
+
 export class BubbleTeaState {
 	private maxMistakes = 3;
 
+	order: Order = $state({ fluid: 'strawberry milk' });
+
 	cap = $state(false);
 	cup = $state(false);
-	fluid = $state(false);
+	fluid = $state<TeaType>(false);
 	straw = $state(false);
 	tapioca = $state(false);
 
@@ -35,12 +43,16 @@ export class BubbleTeaState {
 		return this.success();
 	}
 
-	addFluid() {
+	addFluid(type: TeaType) {
 		if (!this.cup) {
 			this.mistakes++;
 			return this.fail();
 		}
-		this.fluid = true;
+		if (type !== this.order.fluid) {
+			this.mistakes++;
+			return this.fail();
+		}
+		this.fluid = type;
 		return this.success();
 	}
 

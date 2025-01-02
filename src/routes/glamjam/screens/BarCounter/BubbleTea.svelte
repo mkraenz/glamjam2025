@@ -1,8 +1,10 @@
 <script lang="ts">
+	import type { TeaType } from '$lib/state/BubbleTeaState.svelte';
+
 	type Props = {
 		straw: boolean;
 		cup: boolean;
-		tea: false | 'matcha' | 'strawberry milk';
+		tea: TeaType;
 		tapioca: boolean;
 		cap: boolean;
 	};
