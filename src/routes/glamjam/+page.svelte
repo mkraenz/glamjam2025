@@ -57,13 +57,16 @@
 	</p>
 	<p>(click the box above to select your color)</p>
 
-	<NextButton text="New Game" onclick={() => navigate('gameover')} />
+	<NextButton onclick={() => navigate('gameover')} />
 {/snippet}
 
 {#snippet gameover()}
 	<h2>Game Over</h2>
 	<p>Thanks for playing!</p>
-	<NextButton onclick={restartGame} />
+	<group>
+		<NextButton text="New Game" onclick={restartGame} />
+		<a href="/" role="button" class="outline">Back to Title</a>
+	</group>
 {/snippet}
 
 <main>
