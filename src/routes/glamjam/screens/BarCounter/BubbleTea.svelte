@@ -26,7 +26,7 @@
 		style:background-color={strawColor}
 	></div>
 </div>
-<div class="cup" class:hidden={!cup}>
+<div class="cup" class:hidden={!cup} class:cup-appearing={cup}>
 	<div class="milk-tea tapioca-pearls" class:hidden={!tapioca}>
 		{#each range(32)}
 			<div class="tapioca" class:tapioca-falling={tapioca}></div>
@@ -74,7 +74,10 @@
 		animation: tapioca-fall-down 1s forwards;
 	}
 	.cap-falling {
-		animation: cap-fall-down 1s forwards;
+		animation: cap-fall-down 0.3s forwards;
+	}
+	.cup-appearing {
+		animation: cup-appear 0.5s forwards;
 	}
 	@property --tea-fill {
 		syntax: '<number>';
@@ -139,7 +142,7 @@
 		left: 50%;
 	}
 	.straw-falling {
-		animation: straw-fall-down 0.5s forwards;
+		animation: straw-fall-down 0.3s forwards;
 	}
 	@keyframes straw-fall-down {
 		0% {
@@ -178,6 +181,15 @@
 			transform: translateY(12px);
 		}
 	}
+	@keyframes cup-appear {
+		0% {
+			transform: translateX(-100vw) perspective(10px) rotateX(-1deg);
+		}
+		100% {
+			transform: translateX(0vw) perspective(10px) rotateX(-1deg);
+		}
+	}
+
 	.hidden {
 		opacity: 0;
 	}
