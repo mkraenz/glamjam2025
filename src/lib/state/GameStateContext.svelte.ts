@@ -22,6 +22,7 @@ export type Page =
 	| 'tutorial'
 	| 'barCounter'
 	| 'customerLeaves'
+	| 'thanks'
 	| 'iAmBusy';
 
 class GameState {

@@ -7,6 +7,7 @@
 	import FavColorWow from './screens/FavColorWow.svelte';
 	import GameOver from './screens/GameOver.svelte';
 	import IAmBusy from './screens/IAmBusy.svelte';
+	import Thanks from './screens/Thanks.svelte';
 	import TheNewOwner from './screens/TheNewOwner.svelte';
 	import Tutorial from './screens/Tutorial.svelte';
 	import YourName from './screens/YourName.svelte';
@@ -28,8 +29,9 @@
 	{#if page === 'gameover'}<GameOver />{/if}
 	{#if page === 'tutorial'}<Tutorial next="barCounter" />{/if}
 	{#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
-	{#if page === 'barCounter'}<BarCounter nextGood="backToBusiness" nextBad="customerLeaves" />{/if}
+	{#if page === 'barCounter'}<BarCounter nextGood="thanks" nextBad="customerLeaves" />{/if}
 	{#if page === 'customerLeaves'}<CustomerLeaves next="backToBusiness" />{/if}
+	{#if page === 'thanks'}<Thanks next="backToBusiness" />{/if}
 </main>
 
 <style>
