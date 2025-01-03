@@ -1,16 +1,27 @@
 <script lang="ts">
 	import ExternalLink from './components/common/ExternalLink.svelte';
+	import * as m from '$lib/paraglide/messages';
 </script>
 
 <footer class="animate fade transparent">
 	<div class="footer-container">
-		<p>By TypeScriptTeatime</p>
-		<p><ExternalLink href="https://github.com/mkraenz/glamjam2025">Github</ExternalLink></p>
+		<p>{m.title__footer__author()}</p>
 		<p>
-			<ExternalLink href="https://mkraenz.itch.io/my-little-bubble-tea-shop">Itch</ExternalLink>
+			<ExternalLink href={m.title__footer__github_href()}
+				>{m.title__footer__github_label()}</ExternalLink
+			>
 		</p>
-		<p><ExternalLink href="https://itch.io/jam/glam-jam">Glam Jam</ExternalLink></p>
-		<p><a href="/imprint">Acknowledgement</a></p>
+		<p>
+			<ExternalLink href={m.title__footer__itch_href()}
+				>{m.title__footer__itch_label()}</ExternalLink
+			>
+		</p>
+		<p>
+			<ExternalLink href={m.title__footer__glamjam_href()}
+				>{m.title__footer__glamjam_label()}</ExternalLink
+			>
+		</p>
+		<p><a href="/imprint">{m.title__footer__acknowledgement_label()}</a></p>
 	</div>
 </footer>
 

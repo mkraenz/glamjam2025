@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import * as m from '$lib/paraglide/messages';
 
 	let flipping = $state(true);
 	onMount(() => {
@@ -10,7 +11,7 @@
 </script>
 
 <h1 class="pico-color-fuchsia-500 animate highlight" class:scale-bounce={flipping}>
-	My Little Bubble Tea Shop
+	{m.title()}
 </h1>
 
 <style>

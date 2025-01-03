@@ -29,12 +29,15 @@
 		</div>
 		<div class="v-center">
 			<p class="animate fade transparent">
-				For best experience, play at
-				<ExternalLink href="https://glamjam.kraenz.eu">glamjam.kraenz.eu</ExternalLink>
+				{m.title__best_experience()}
+				<ExternalLink href={m.title__best_experience_href()}
+					>{m.title__best_experience_label()}</ExternalLink
+				>
 			</p>
 		</div>
 		<div>
-			<a href="/glamjam" role="button" class="pyutiful animate fade transparent">Play</a>
+			<a href="/glamjam" role="button" class="pyutiful animate fade transparent">{m.title__cta()}</a
+			>
 			<BgmOnOff />
 		</div>
 	</main>

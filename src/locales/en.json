@@ -3,5 +3,19 @@
 	"errors_oops": "Something went wrong. Please try again.",
 	"home_title": "My Little Bubble Tea Shop",
 	"page_head_description": "My Little Bubble Tea Shop Game",
-	"title": "My Little Bubble Tea Shop"
+	"title": "My Little Bubble Tea Shop",
+	"title__best_experience": "For best experience, play at ",
+	"title__best_experience_href": "https://glamjam.kraenz.eu",
+	"title__best_experience_label": "glamjam.kraenz.eu",
+	"title__cta": "Play",
+	"title__footer__author": "By TypeScriptTeatime",
+	"title__footer__github_label": "GitHub",
+	"title__footer__github_href": "https://github.com/mkraenz/glamjam2025",
+	"title__footer__itch_label": "Itch",
+	"title__footer__itch_href": "https://mkraenz.itch.io/my-little-bubble-tea-shop",
+	"title__footer__glamjam_label": "Glam Jam",
+	"title__footer__glamjam_href": "https://itch.io/jam/glam-jam",
+	"title__footer__acknowledgement_label": "Acknowledgement",
+	"bgm__aria_off": "Background music is off",
+	"bgm__aria_on": "Background music is on"
 }
