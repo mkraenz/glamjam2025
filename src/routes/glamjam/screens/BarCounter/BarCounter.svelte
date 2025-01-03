@@ -79,7 +79,7 @@
 </Side>
 
 <Main>
-	<h2>
+	<h2 class="pb-2">
 		Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span>
 	</h2>
 	<BubbleTea
@@ -111,5 +111,8 @@
 		display: flex;
 		gap: 1rem;
 		flex-wrap: wrap;
+	}
+	.pb-2 {
+		padding-bottom: 4rem;
 	}
 </style>

@@ -6,11 +6,13 @@
 	let { children }: Props = $props();
 </script>
 
-<div class="area-side sidebar" in:sceneIn out:sceneOut>{@render children()}</div>
+<div class="area-header sidebar" in:sceneIn out:sceneOut>{@render children()}</div>
 
 <style>
 	.sidebar {
-		padding: 0.5rem;
+		padding-top: 0.5rem;
+		padding-right: 0.5rem;
+		padding-left: 0.5rem;
 	}
 	@media (max-width: 700px) {
 		.sidebar {

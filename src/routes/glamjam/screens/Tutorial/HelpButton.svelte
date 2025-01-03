@@ -5,8 +5,8 @@
 	type Props = { open: boolean; onClose: () => void; onOpen: () => void };
 	let { open, onClose, onOpen: onclick }: Props = $props();
 	let innerWidth = $state(0);
-	const mdIcon = `width: 2rem; height: 2rem;`;
-	const xsIcon = `width: 2rem; height: 2rem;`;
+	const mdIcon = `width: 1.5rem; height: 1.5rem;`;
+	const xsIcon = `width: 1rem; height: 1rem;`;
 </script>
 
 <svelte:window bind:innerWidth />
@@ -19,14 +19,6 @@
 
 <style>
 	.help-btn {
-		/* position: absolute; */
-		top: 1rem;
-		right: 1rem;
-		padding: 0.5rem;
-	}
-	@media (max-width: 1024px) {
-		.help-btn {
-			padding: 0.25rem;
-		}
+		padding-top: 0.25rem;
 	}
 </style>

@@ -14,10 +14,9 @@
 <style>
 	.layout {
 		grid-template-areas:
-			'side  main'
-			'side  main'
-			'side  main';
-		grid-template-columns: min-content 1fr;
+			'header'
+			'main';
+		grid-template-rows: min-content 1fr;
 		display: grid;
 	}
 </style>
