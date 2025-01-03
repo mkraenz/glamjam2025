@@ -42,6 +42,10 @@
 </p>
 
 <group>
-	<NextButton onclick={() => game.navigate(next)} text="Thanks for the reminder!" />
+	<NextButton
+		onclick={() => game.navigate(next)}
+		onEnterKeyPressed={() => game.navigate(next)}
+		text="Thanks for the reminder!"
+	/>
 	<NextButton onclick={() => game.navigate(next)} text="I knew that already..." classes="outline" />
 </group>

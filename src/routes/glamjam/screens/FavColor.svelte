@@ -18,4 +18,4 @@
 </p>
 <p>(click the box above to select your color)</p>
 
-<NextButton onclick={() => game.navigate(next)} />
+<NextButton onclick={() => game.navigate(next)} onEnterKeyPressed={() => game.navigate(next)} />

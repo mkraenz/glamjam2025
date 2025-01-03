@@ -37,6 +37,12 @@
 	onMount(detectServiceWorkerUpdate);
 	setBgmContext();
 	const bgm = getBgmContext();
+	function onkeyup(e: KeyboardEvent) {
+		if (e.key === 'm') {
+			e.preventDefault();
+			bgm.toggleAudio();
+		}
+	}
 </script>
 
 <svelte:head>
@@ -55,4 +61,4 @@
 	{@render children()}
 </ParaglideJS>
 
-<svelte:window onmousemove={sparkle} />
+<svelte:window onmousemove={sparkle} {onkeyup} />

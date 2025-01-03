@@ -12,7 +12,7 @@
 <p>You must be the new owner of the Bubble Tea shop next door, right?</p>
 <p>Glad to get to know you. I'm <span class="character-name">Brandon<span>.</span></span></p>
 <group>
-	<NextButton onclick={() => game.navigate(next)} />
+	<NextButton onEnterKeyPressed={() => game.navigate(next)} onclick={() => game.navigate(next)} />
 	<NextButton
 		onclick={() => {
 			game.skipTutorial = true;

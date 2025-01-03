@@ -14,6 +14,10 @@
 <p>Since you're the new shop owner, could you make me a cup, please?</p>
 
 <group>
-	<NextButton text="Sure!" onclick={() => game.navigate(nextGood)} />
+	<NextButton
+		text="Sure!"
+		onclick={() => game.navigate(nextGood)}
+		onEnterKeyPressed={() => game.navigate(nextGood)}
+	/>
 	<NextButton text="I'm busy." classes="outline" onclick={() => game.navigate(nextBad)} />
 </group>

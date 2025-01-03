@@ -13,5 +13,9 @@
 </p>
 
 <group>
-	<NextButton text="Bye, Brandon!" onclick={() => game.navigate(next)} />
+	<NextButton
+		text="Bye, Brandon!"
+		onclick={() => game.navigate(next)}
+		onEnterKeyPressed={() => game.navigate(next)}
+	/>
 </group>

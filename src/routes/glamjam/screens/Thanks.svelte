@@ -19,4 +19,8 @@
 {:else}
 	<p>Bye.</p>
 {/if}
-<NextButton onclick={() => game.navigate(next)} text="Thank you!" />
+<NextButton
+	onclick={() => game.navigate(next)}
+	onEnterKeyPressed={() => game.navigate(next)}
+	text="Thank you!"
+/>

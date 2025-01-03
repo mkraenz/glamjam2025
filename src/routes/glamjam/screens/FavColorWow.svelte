@@ -11,7 +11,7 @@
 <input class="bg-default" type="color" value={game.favColor} disabled />
 <p>is my favorite color, too! You're amazing. We should hang out together one of these days.</p>
 
-<NextButton onclick={() => game.navigate(next)} />
+<NextButton onclick={() => game.navigate(next)} onEnterKeyPressed={() => game.navigate(next)} />
 
 <style>
 	input:disabled {
