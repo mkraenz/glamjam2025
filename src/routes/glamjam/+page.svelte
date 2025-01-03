@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { getGameStateContext, setGameStateContext } from '$lib/state/GameStateContext.svelte';
+	import { fade } from 'svelte/transition';
 	import BackToBusiness from './screens/BackToBusiness.svelte';
 	import BarCounter from './screens/BarCounter/BarCounter.svelte';
 	import CustomerLeaves from './screens/CustomerLeaves.svelte';
@@ -17,7 +18,7 @@
 	let page = $derived(game.page);
 </script>
 
-<main>
+<main transition:fade>
 	{#if page === 'theNewOwner'}<TheNewOwner next="yourName" skip="backToBusiness" />{/if}
 	{#if page === 'yourName'}<YourName next="favColor" />{/if}
 	{#if page === 'favColor'}<FavColor next="favColorWow" />{/if}

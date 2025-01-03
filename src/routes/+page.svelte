@@ -1,10 +1,18 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages';
+	import { fade } from 'svelte/transition';
 	import BgmOnOff from './BgmOnOff.svelte';
 	import Bubbles from './Bubbles.svelte';
 	import ExternalLink from './components/common/ExternalLink.svelte';
 	import Footer from './Footer.svelte';
 	import HighlightedTitle from './HighlightedTitle.svelte';
+
+	function onkeyup(e: KeyboardEvent) {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			window.location.href = '/glamjam';
+		}
+	}
 </script>
 
 <svelte:head>
@@ -12,23 +20,27 @@
 	<meta name="description" content={m.page_head_description()} />
 </svelte:head>
 
-<main class="main">
-	<div class="v-center">
-		<HighlightedTitle />
-	</div>
-	<div class="v-center">
-		<p class="animate fade hidden">
-			For best experience, play at
-			<ExternalLink href="https://glamjam.kraenz.eu">glamjam.kraenz.eu</ExternalLink>
-		</p>
-	</div>
-	<div>
-		<a href="/glamjam" role="button" class="pyutiful animate fade hidden">Play</a>
-		<BgmOnOff />
-	</div>
-</main>
-<Bubbles />
-<Footer />
+<svelte:window {onkeyup} />
+
+<div transition:fade>
+	<main class="main">
+		<div class="v-center">
+			<HighlightedTitle />
+		</div>
+		<div class="v-center">
+			<p class="animate fade transparent">
+				For best experience, play at
+				<ExternalLink href="https://glamjam.kraenz.eu">glamjam.kraenz.eu</ExternalLink>
+			</p>
+		</div>
+		<div>
+			<a href="/glamjam" role="button" class="pyutiful animate fade transparent">Play</a>
+			<BgmOnOff />
+		</div>
+	</main>
+	<Bubbles />
+	<Footer />
+</div>
 
 <style>
 	.main {
@@ -61,9 +73,6 @@
 	.animate.fade {
 		animation: animate-fade 0.5s forwards;
 		animation-delay: 3s; /* matching HighlightedTitle animation */
-	}
-	.hidden {
-		opacity: 0;
 	}
 	@keyframes animate-fade {
 		0% {

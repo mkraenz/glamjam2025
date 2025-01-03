@@ -124,3 +124,7 @@ li,
 a {
 	user-select: none;
 }
+
+.transparent {
+	opacity: 0;
+}
