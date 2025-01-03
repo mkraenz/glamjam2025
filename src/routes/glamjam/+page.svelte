@@ -37,7 +37,7 @@
 <style>
 	main {
 		text-align: center;
-		height: 100vh;
+		min-height: 100vh;
 		margin: 0 auto;
 		padding: 1rem;
 		display: flex;

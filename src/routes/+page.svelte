@@ -17,13 +17,13 @@
 		<HighlightedTitle />
 	</div>
 	<div class="v-center">
-		<p>
+		<p class="animate fade hidden">
 			For best experience, play at
 			<ExternalLink href="https://glamjam.kraenz.eu">glamjam.kraenz.eu</ExternalLink>
 		</p>
 	</div>
 	<div>
-		<a href="/glamjam" role="button" class="pyutiful">Play</a>
+		<a href="/glamjam" role="button" class="pyutiful animate fade hidden">Play</a>
 		<BgmOnOff />
 	</div>
 </main>
@@ -56,5 +56,21 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.animate.fade {
+		animation: animate-fade 0.5s forwards;
+		animation-delay: 3s; /* matching HighlightedTitle animation */
+	}
+	.hidden {
+		opacity: 0;
+	}
+	@keyframes animate-fade {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
 	}
 </style>

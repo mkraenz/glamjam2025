@@ -89,5 +89,6 @@
 	group {
 		display: flex;
 		gap: 1rem;
+		flex-wrap: wrap;
 	}
 </style>

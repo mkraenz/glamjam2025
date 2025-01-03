@@ -2,7 +2,7 @@
 	import ExternalLink from './components/common/ExternalLink.svelte';
 </script>
 
-<footer>
+<footer class="animate fade hidden">
 	<div class="footer-container">
 		<p>By TypeScriptTeatime</p>
 		<p><ExternalLink href="https://github.com/mkraenz/glamjam2025">Github</ExternalLink></p>
@@ -25,5 +25,21 @@
 		column-gap: 1rem;
 		justify-content: center;
 		width: 100vw;
+	}
+
+	.animate.fade {
+		animation: animate-fade 0.5s forwards;
+		animation-delay: 3s; /* matching HighlightedTitle animation */
+	}
+	.hidden {
+		opacity: 0;
+	}
+	@keyframes animate-fade {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
 	}
 </style>
