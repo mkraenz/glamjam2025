@@ -18,32 +18,17 @@
 	let page = $derived(game.page);
 </script>
 
-<main transition:fade>
-	{#if page === 'theNewOwner'}<TheNewOwner next="yourName" skip="backToBusiness" />{/if}
-	{#if page === 'yourName'}<YourName next="favColor" />{/if}
-	{#if page === 'favColor'}<FavColor next="favColorWow" />{/if}
-	{#if page === 'favColorWow'}<FavColorWow next="backToBusiness" />{/if}
-	{#if page === 'backToBusiness'}<BackToBusiness
-			nextGood={game.skipTutorial ? 'barCounter' : 'tutorial'}
-			nextBad="iAmBusy"
-		/>{/if}
-	{#if page === 'gameover'}<GameOver />{/if}
-	{#if page === 'tutorial'}<Tutorial next="barCounter" />{/if}
-	{#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
-	{#if page === 'barCounter'}<BarCounter nextGood="thanks" nextBad="customerLeaves" />{/if}
-	{#if page === 'customerLeaves'}<CustomerLeaves next="backToBusiness" />{/if}
-	{#if page === 'thanks'}<Thanks next="backToBusiness" />{/if}
-</main>
-
-<style>
-	main {
-		text-align: center;
-		min-height: 100vh;
-		margin: 0 auto;
-		padding: 1rem;
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
-		align-items: center;
-	}
-</style>
+{#if page === 'theNewOwner'}<TheNewOwner next="yourName" skip="backToBusiness" />{/if}
+{#if page === 'yourName'}<YourName next="favColor" />{/if}
+{#if page === 'favColor'}<FavColor next="favColorWow" />{/if}
+{#if page === 'favColorWow'}<FavColorWow next="backToBusiness" />{/if}
+{#if page === 'backToBusiness'}<BackToBusiness
+		nextGood={game.skipTutorial ? 'barCounter' : 'tutorial'}
+		nextBad="iAmBusy"
+	/>{/if}
+{#if page === 'gameover'}<GameOver />{/if}
+{#if page === 'tutorial'}<Tutorial next="barCounter" />{/if}
+{#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
+{#if page === 'barCounter'}<BarCounter nextGood="thanks" nextBad="customerLeaves" />{/if}
+{#if page === 'customerLeaves'}<CustomerLeaves next="backToBusiness" />{/if}
+{#if page === 'thanks'}<Thanks next="backToBusiness" />{/if}

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
 	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 
@@ -7,15 +8,17 @@
 	const game = getGameStateContext();
 </script>
 
-<p>Oh, that's too bad. I guess you're still preparing for the grand opening.</p>
-<p>
-	Alright then. See you around{#if game.name}, {game.name}{/if}!
-</p>
+<main class="ingame" in:sceneIn out:sceneOut>
+	<p>Oh, that's too bad. I guess you're still preparing for the grand opening.</p>
+	<p>
+		Alright then. See you around{#if game.name}, {game.name}{/if}!
+	</p>
 
-<group>
-	<NextButton
-		text="Bye, Brandon!"
-		onclick={() => game.navigate(next)}
-		onEnterKeyPressed={() => game.navigate(next)}
-	/>
-</group>
+	<group>
+		<NextButton
+			text="Bye, Brandon!"
+			onclick={() => game.navigate(next)}
+			onEnterKeyPressed={() => game.navigate(next)}
+		/>
+	</group>
+</main>

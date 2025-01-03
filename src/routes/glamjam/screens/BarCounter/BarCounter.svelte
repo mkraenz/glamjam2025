@@ -66,29 +66,31 @@
 	game.startStopwatch();
 </script>
 
-<h2>Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span></h2>
-<BubbleTea
-	cap={tea.cap}
-	cup={tea.cup}
-	tapioca={tea.tapioca}
-	tea={tea.fluid}
-	straw={tea.straw}
-	strawColor={game.favColor}
-/>
+<main class="ingame">
+	<h2>Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span></h2>
+	<BubbleTea
+		cap={tea.cap}
+		cup={tea.cup}
+		tapioca={tea.tapioca}
+		tea={tea.fluid}
+		straw={tea.straw}
+		strawColor={game.favColor}
+	/>
 
-<group>
-	{#each buttons as aButton}
-		<button
-			onclick={aButton.onclick}
-			class:transparent={aButton.hideIf()}
-			aria-hidden={aButton.hideIf()}
-			disabled={aButton.hideIf()}>{aButton.text}</button
-		>
-	{/each}
-	<button onclick={serve}>Serve</button>
-</group>
+	<group>
+		{#each buttons as aButton}
+			<button
+				onclick={aButton.onclick}
+				class:transparent={aButton.hideIf()}
+				aria-hidden={aButton.hideIf()}
+				disabled={aButton.hideIf()}>{aButton.text}</button
+			>
+		{/each}
+		<button onclick={serve}>Serve</button>
+	</group>
 
-<Mistakes count={tea.mistakes} />
+	<Mistakes count={tea.mistakes} />
+</main>
 
 <style>
 	group {
