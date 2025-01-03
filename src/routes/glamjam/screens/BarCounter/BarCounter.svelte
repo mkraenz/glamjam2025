@@ -78,7 +78,7 @@
 	/>
 </Header>
 
-<Main>
+<Main justifyContent="flex-start">
 	<h2 class="pb-2">
 		Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span>
 	</h2>
@@ -113,6 +113,6 @@
 		flex-wrap: wrap;
 	}
 	.pb-2 {
-		padding-bottom: 4rem;
+		padding-bottom: 2rem;
 	}
 </style>
