@@ -48,6 +48,7 @@
 <svelte:head>
 	<title>{m.home_title()}</title>
 </svelte:head>
+<svelte:window onmousemove={sparkle} {onkeyup} />
 
 <audio
 	src="/audio/relax-girl.mp3"
@@ -60,5 +61,3 @@
 <ParaglideJS {i18n}>
 	{@render children()}
 </ParaglideJS>
-
-<svelte:window onmousemove={sparkle} {onkeyup} />

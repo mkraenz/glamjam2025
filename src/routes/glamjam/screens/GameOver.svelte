@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
 	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
+	import Main from '../../components/layout/Main.svelte';
 
 	const game = getGameStateContext();
 </script>
 
-<main class="ingame" in:sceneIn out:sceneOut>
+<Main>
 	<h2>Game Over</h2>
 	<p>Thanks for playing!</p>
 	<group>
@@ -17,4 +17,4 @@
 		/>
 		<a href="/" role="button" class="outline">Back to Title</a>
 	</group>
-</main>
+</Main>

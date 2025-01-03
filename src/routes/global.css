@@ -139,3 +139,15 @@ a {
 	flex-direction: column;
 	align-items: center;
 }
+
+button:has(svg) {
+	padding: 0.5rem;
+}
+
+.area-main {
+	grid-area: main;
+}
+
+.area-side {
+	grid-area: side;
+}

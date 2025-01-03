@@ -4,17 +4,29 @@
 
 	type Props = { open: boolean; onClose: () => void; onOpen: () => void };
 	let { open, onClose, onOpen: onclick }: Props = $props();
+	let innerWidth = $state(0);
+	const mdIcon = `width: 2rem; height: 2rem;`;
+	const xsIcon = `width: 2rem; height: 2rem;`;
 </script>
 
+<svelte:window bind:innerWidth />
+
+<!-- style={`width: 1rem; height: 1rem;`} -->
 <button {onclick} class="outline help-btn"
-	><HelpIcon width="2rem" height="2rem" opacity={0.5} /></button
+	><HelpIcon opacity={0.5} style={innerWidth > 1024 ? mdIcon : xsIcon} /></button
 >
 <TutorialDialog {open} {onClose} />
 
 <style>
 	.help-btn {
-		position: absolute;
+		/* position: absolute; */
 		top: 1rem;
 		right: 1rem;
+		padding: 0.5rem;
+	}
+	@media (max-width: 1024px) {
+		.help-btn {
+			padding: 0.25rem;
+		}
 	}
 </style>

@@ -5,8 +5,9 @@
 	import type { Page } from '$lib/state/GameStateContext.svelte';
 	import Mistakes from './Mistakes.svelte';
 	import { shuffle } from '$lib/utils/shuffle';
-	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
 	import HelpButton from '../Tutorial/HelpButton.svelte';
+	import Side from '../../../components/layout/Side.svelte';
+	import Main from '../../../components/layout/Main.svelte';
 
 	type Props = { nextGood: Page; nextBad: Page };
 	let { nextGood, nextBad }: Props = $props();
@@ -69,13 +70,18 @@
 	let tutorialOpen = $state(false);
 </script>
 
-<main class="ingame" in:sceneIn out:sceneOut>
+<Side>
 	<HelpButton
 		onClose={() => (tutorialOpen = false)}
 		onOpen={() => (tutorialOpen = true)}
 		open={tutorialOpen}
 	/>
-	<h2>Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span></h2>
+</Side>
+
+<Main>
+	<h2>
+		Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span>
+	</h2>
 	<BubbleTea
 		cap={tea.cap}
 		cup={tea.cup}
@@ -98,7 +104,7 @@
 	</group>
 
 	<Mistakes count={tea.mistakes} />
-</main>
+</Main>
 
 <style>
 	group {

@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
-	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
+	import Main from '../../components/layout/Main.svelte';
 
 	type Props = { next: Page };
 	let { next }: Props = $props();
 	const game = getGameStateContext();
 </script>
 
-<main class="ingame" in:sceneIn out:sceneOut>
+<Main>
 	<p>That's a beautiful name.<br />Nice to meet you, {game.name}.</p>
 	<h2>What's your favorite color?</h2>
 	<p>
@@ -21,4 +21,4 @@
 	<p>(click the box above to select your color)</p>
 
 	<NextButton onclick={() => game.navigate(next)} onEnterKeyPressed={() => game.navigate(next)} />
-</main>
+</Main>

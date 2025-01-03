@@ -2,7 +2,7 @@
 	import type { Page } from '$lib/state/GameStateContext.svelte';
 	import { fallback, getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
-	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
+	import Main from '../../components/layout/Main.svelte';
 
 	type Props = { next: Page };
 	let { next }: Props = $props();
@@ -18,7 +18,7 @@
 	}
 </script>
 
-<main class="ingame" in:sceneIn out:sceneOut>
+<Main>
 	<h2>What's your name?</h2>
 	<div>
 		<p>
@@ -31,4 +31,4 @@
 		</p>
 	</div>
 	<NextButton onEnterKeyPressed={onclick} {onclick} />
-</main>
+</Main>

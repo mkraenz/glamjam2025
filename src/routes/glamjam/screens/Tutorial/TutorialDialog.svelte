@@ -6,7 +6,6 @@
 	let { open, onClose: onclick }: Props = $props();
 </script>
 
-<!-- TODO this is broken on mobile :/ -->
 <dialog {open} class="ingame">
 	<button {onclick} class="outline close-btn"><CloseIcon width="2rem" height="2rem" /></button>
 	<TutorialText />

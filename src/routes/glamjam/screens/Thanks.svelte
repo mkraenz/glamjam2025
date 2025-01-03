@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
-	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
+	import Main from '../../components/layout/Main.svelte';
 
 	type Props = { next: Page };
 	let { next }: Props = $props();
@@ -11,7 +11,7 @@
 	}
 </script>
 
-<main class="ingame" in:sceneIn out:sceneOut>
+<Main>
 	<h2>Thanks a lot!</h2>
 	{#if game.name}<p>You're the best, {game.name}</p>{/if}
 	<p>It only took you {formatSecs(game.stopwatchMs)} seconds.</p>
@@ -26,4 +26,4 @@
 		onEnterKeyPressed={() => game.navigate(next)}
 		text="Thank you!"
 	/>
-</main>
+</Main>
