@@ -6,7 +6,7 @@
 	import Mistakes from './Mistakes.svelte';
 	import { shuffle } from '$lib/utils/shuffle';
 	import HelpButton from '../Tutorial/HelpButton.svelte';
-	import Side from '../../../components/layout/Side.svelte';
+	import Header from '../../../components/layout/Header.svelte';
 	import Main from '../../../components/layout/Main.svelte';
 
 	type Props = { nextGood: Page; nextBad: Page };
@@ -70,13 +70,13 @@
 	let tutorialOpen = $state(false);
 </script>
 
-<Side>
+<Header>
 	<HelpButton
 		onClose={() => (tutorialOpen = false)}
 		onOpen={() => (tutorialOpen = true)}
 		open={tutorialOpen}
 	/>
-</Side>
+</Header>
 
 <Main>
 	<h2 class="pb-2">
