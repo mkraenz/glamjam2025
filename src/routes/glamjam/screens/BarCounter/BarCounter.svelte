@@ -91,7 +91,7 @@
 		strawColor={game.favColor}
 	/>
 
-	<group>
+	<group class="hstack">
 		{#each buttons as aButton}
 			<button
 				onclick={aButton.onclick}

@@ -13,7 +13,7 @@
 	<p>You do? Thanks!</p>
 	<p>I'm sure you already know but let me give you a quick reminder of</p>
 	<TutorialText />
-	<group>
+	<group class="hstack">
 		<NextButton
 			onclick={() => game.navigate(next)}
 			onEnterKeyPressed={() => game.navigate(next)}

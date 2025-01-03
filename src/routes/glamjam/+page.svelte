@@ -10,9 +10,11 @@
 	import Thanks from './screens/Thanks.svelte';
 	import TheNewOwner from './screens/TheNewOwner.svelte';
 	import Tutorial from './screens/Tutorial/Tutorial.svelte';
+	import TutorialFinished from './screens/TutorialFinished.svelte';
+	import WhatToDo from './screens/WhatToDo.svelte';
 	import YourName from './screens/YourName.svelte';
 
-	setGameStateContext();
+	setGameStateContext('tutorial');
 	const game = getGameStateContext();
 	let page = $derived(game.page);
 </script>
@@ -29,5 +31,11 @@
 {#if page === 'tutorial'}<Tutorial next="barCounter" />{/if}
 {#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
 {#if page === 'barCounter'}<BarCounter nextGood="thanks" nextBad="customerLeaves" />{/if}
+{#if page === 'thanks'}<Thanks next="tutorialFinished" />{/if}
+{#if page === 'tutorialFinished'}<TutorialFinished next="whatToDo" />{/if}
+{#if page === 'whatToDo'}<WhatToDo
+		makeTea="barCounter"
+		design="backToBusiness"
+		shop="backToBusiness"
+	/>{/if}
 {#if page === 'customerLeaves'}<CustomerLeaves next="backToBusiness" />{/if}
-{#if page === 'thanks'}<Thanks next="backToBusiness" />{/if}

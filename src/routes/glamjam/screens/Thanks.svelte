@@ -14,13 +14,11 @@
 <Main>
 	<h2>Thanks a lot!</h2>
 	{#if game.name}<p>You're the best, {game.name}</p>{/if}
-	<p>It only took you {formatSecs(game.stopwatchMs)} seconds.</p>
+	<p>
+		And it took you only <span class="inline-emphasis">{formatSecs(game.stopwatchMs)} seconds</span
+		>.
+	</p>
 	<p>Wow, this Strawberry Milk Bubble Tea is amazing! You're really good at this.</p>
-	{#if game.name}
-		<p>I've gotta go now. See you soon, {game.name}.</p>
-	{:else}
-		<p>Bye.</p>
-	{/if}
 	<NextButton
 		onclick={() => game.navigate(next)}
 		onEnterKeyPressed={() => game.navigate(next)}

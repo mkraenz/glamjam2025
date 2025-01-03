@@ -15,7 +15,7 @@
 	<h2 class="h2-emphasis">Strawberry Milk Bubble Tea!</h2>
 	<p>Since you're the new shop owner, could you make me a cup, please?</p>
 
-	<group>
+	<group class="hstack">
 		<NextButton
 			text="Sure!"
 			onclick={() => game.navigate(nextGood)}

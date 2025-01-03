@@ -9,7 +9,7 @@
 <Main>
 	<h2>Game Over</h2>
 	<p>Thanks for playing!</p>
-	<group>
+	<group class="hstack">
 		<NextButton
 			text="New Game"
 			onclick={() => game.reset()}

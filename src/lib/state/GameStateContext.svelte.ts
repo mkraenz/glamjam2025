@@ -14,6 +14,7 @@ const initialState = {
 };
 
 export type Page =
+	| 'whatToDo'
 	| 'theNewOwner'
 	| 'yourName'
 	| 'favColor'
@@ -24,6 +25,7 @@ export type Page =
 	| 'barCounter'
 	| 'customerLeaves'
 	| 'thanks'
+	| 'tutorialFinished'
 	| 'iAmBusy';
 
 class GameState {

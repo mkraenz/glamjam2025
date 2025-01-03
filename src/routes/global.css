@@ -151,3 +151,11 @@ button:has(svg) {
 .area-side {
 	grid-area: side;
 }
+
+.hstack {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
