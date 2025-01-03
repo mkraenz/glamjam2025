@@ -33,6 +33,9 @@ class GameState {
 	favColor: string = $state(initialState.favColor);
 	page = $state<Page>();
 	skipTutorial = $state(initialState.skipTutorial);
+
+	money = $state(0);
+
 	#stopwatchStart = new SvelteDate();
 	#stopwatchEnd = new SvelteDate();
 	stopwatchMs = $derived(this.#stopwatchEnd.getTime() - this.#stopwatchStart.getTime());

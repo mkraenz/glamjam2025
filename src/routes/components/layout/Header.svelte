@@ -2,16 +2,21 @@
 	import type { Snippet } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	type Props = { children: Snippet };
-	let { children }: Props = $props();
+	type Props = { left?: Snippet; main?: Snippet };
+	let { left, main }: Props = $props();
 </script>
 
 <div
-	class="area-header sidebar"
+	class="area-header sidebar header"
 	in:fade={{ delay: 400, duration: 200 }}
 	out:fade={{ duration: 200 }}
 >
-	{@render children()}
+	<div>
+		{@render left?.()}
+	</div>
+	<div class="main">
+		{@render main?.()}
+	</div>
 </div>
 
 <style>
@@ -24,5 +29,15 @@
 		.sidebar {
 			display: none;
 		}
+	}
+	.header {
+		display: grid;
+		grid-template-columns: min-content 1fr;
+	}
+	.main {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 	}
 </style>
