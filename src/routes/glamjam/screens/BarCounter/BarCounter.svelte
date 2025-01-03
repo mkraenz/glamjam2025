@@ -48,17 +48,17 @@
 	};
 
 	const buttons = shuffle([
-		{ condition: () => !tea.cup, onclick: addCup, text: 'Cup' },
-		{ condition: () => !tea.cap, onclick: addCap, text: 'Cap' },
-		{ condition: () => !tea.straw, onclick: addStraw, text: 'Straw' },
-		{ condition: () => !tea.tapioca, onclick: addTapioca, text: 'Tapioca' },
+		{ hideIf: () => tea.cup, onclick: addCup, text: 'Cup' },
+		{ hideIf: () => tea.cap, onclick: addCap, text: 'Cap' },
+		{ hideIf: () => tea.straw, onclick: addStraw, text: 'Straw' },
+		{ hideIf: () => tea.tapioca, onclick: addTapioca, text: 'Tapioca' },
 		{
-			condition: () => !tea.fluid,
+			hideIf: () => !!tea.fluid,
 			onclick: () => addFluid('strawberry milk'),
 			text: 'Strawberry Milk'
 		}
 		// {
-		// 	condition: () => !tea.fluid,
+		// 	hideIf: () => !!tea.fluid,
 		// 	onclick: () => addFluid('matcha'),
 		// 	text: 'Matcha Latte'
 		// }
@@ -78,7 +78,12 @@
 
 <group>
 	{#each buttons as aButton}
-		{#if aButton.condition()}<button onclick={aButton.onclick}>{aButton.text}</button>{/if}
+		<button
+			onclick={aButton.onclick}
+			class:transparent={aButton.hideIf()}
+			aria-hidden={aButton.hideIf()}
+			disabled={aButton.hideIf()}>{aButton.text}</button
+		>
 	{/each}
 	<button onclick={serve}>Serve</button>
 </group>
