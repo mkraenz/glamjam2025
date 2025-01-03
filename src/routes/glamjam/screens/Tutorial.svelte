@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
-	import { scale } from 'svelte/transition';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
 
@@ -11,13 +10,12 @@
 
 <main class="ingame" in:sceneIn out:sceneOut>
 	<p>You do? Thanks!</p>
-	<p>
-		I'm sure you already know <span class="inline-emphasis">how to make Bubble Tea</span> but let me
-		give you a quick reminder. Just in case.
-	</p>
+	<p>I'm sure you already know but let me give you a quick reminder of</p>
+	<h2 class="h2-emphasis">How to make Bubble Tea</h2>
 
 	<p>
-		To make Bubble Tea, the most important thing is the <span class="inline-emphasis">order</span>.
+		To make Bubble Tea, the most important thing is the <span class="inline-emphasis">order</span> of
+		doing.
 	</p>
 
 	<ol>

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
-	import { scale } from 'svelte/transition';
 	import Brandon from '../../components/chars/Brandon.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
