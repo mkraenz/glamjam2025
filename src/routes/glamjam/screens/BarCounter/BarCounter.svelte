@@ -5,6 +5,7 @@
 	import type { Page } from '$lib/state/GameStateContext.svelte';
 	import Mistakes from './Mistakes.svelte';
 	import { shuffle } from '$lib/utils/shuffle';
+	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
 
 	type Props = { nextGood: Page; nextBad: Page };
 	let { nextGood, nextBad }: Props = $props();
@@ -66,7 +67,7 @@
 	game.startStopwatch();
 </script>
 
-<main class="ingame">
+<main class="ingame" in:sceneIn out:sceneOut>
 	<h2>Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span></h2>
 	<BubbleTea
 		cap={tea.cap}
