@@ -14,7 +14,7 @@
 	import WhatToDo from './screens/WhatToDo.svelte';
 	import YourName from './screens/YourName.svelte';
 
-	setGameStateContext('tutorial');
+	setGameStateContext();
 	const game = getGameStateContext();
 	let page = $derived(game.page);
 </script>
