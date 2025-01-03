@@ -18,23 +18,23 @@
 	// 	tea = 'matcha';
 </script>
 
-<div class="cap" class:hidden={!cap} class:cap-falling={cap}>
+<div class="cap" class:transparent={!cap} class:cap-falling={cap}>
 	<div
 		class="straw"
-		class:hidden={!straw}
+		class:transparent={!straw}
 		class:straw-falling={straw}
 		style:background-color={strawColor}
 	></div>
 </div>
-<div class="cup" class:hidden={!cup} class:cup-appearing={cup}>
-	<div class="milk-tea tapioca-pearls" class:hidden={!tapioca}>
+<div class="cup" class:transparent={!cup} class:cup-appearing={cup}>
+	<div class="milk-tea tapioca-pearls" class:transparent={!tapioca}>
 		{#each range(32)}
 			<div class="tapioca" class:tapioca-falling={tapioca}></div>
 		{/each}
 	</div>
 	<div
 		class="milk-tea"
-		class:hidden={!tea}
+		class:transparent={!tea}
 		class:fill-anim={tea}
 		class:matcha={tea === 'matcha'}
 		class:strawberry-milk={tea === 'strawberry milk'}
@@ -188,9 +188,5 @@
 		100% {
 			transform: translateX(0vw) perspective(10px) rotateX(-1deg);
 		}
-	}
-
-	.hidden {
-		opacity: 0;
 	}
 </style>

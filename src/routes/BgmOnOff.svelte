@@ -6,7 +6,7 @@
 	const bgm = getBgmContext();
 </script>
 
-<button class="outline animate fade hidden" onclick={() => bgm.toggleAudio()}>
+<button class="outline animate fade transparent" onclick={() => bgm.toggleAudio()}>
 	{#if bgm.paused}
 		<VolumeOff width="1.5rem" height="1.5rem" aria-label="BGM is off" />
 	{:else}
@@ -18,9 +18,6 @@
 	.animate.fade {
 		animation: animate-fade 0.5s forwards;
 		animation-delay: 3s; /* matching HighlightedTitle animation */
-	}
-	.hidden {
-		opacity: 0;
 	}
 	@keyframes animate-fade {
 		0% {
