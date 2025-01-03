@@ -33,7 +33,7 @@
 </ol>
 <p>
 	Easy enough, right? The problem is only those little chipmunks who <span class="inline-emphasis"
-		>changing the placement</span
+		>change the placement</span
 	> of the parts every time.
 </p>
 <p>
