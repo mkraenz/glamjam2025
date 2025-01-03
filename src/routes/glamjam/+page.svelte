@@ -9,7 +9,7 @@
 	import IAmBusy from './screens/IAmBusy.svelte';
 	import Thanks from './screens/Thanks.svelte';
 	import TheNewOwner from './screens/TheNewOwner.svelte';
-	import Tutorial from './screens/Tutorial.svelte';
+	import Tutorial from './screens/Tutorial/Tutorial.svelte';
 	import YourName from './screens/YourName.svelte';
 
 	setGameStateContext();

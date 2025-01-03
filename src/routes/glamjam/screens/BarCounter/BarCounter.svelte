@@ -6,6 +6,7 @@
 	import Mistakes from './Mistakes.svelte';
 	import { shuffle } from '$lib/utils/shuffle';
 	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
+	import HelpButton from '../Tutorial/HelpButton.svelte';
 
 	type Props = { nextGood: Page; nextBad: Page };
 	let { nextGood, nextBad }: Props = $props();
@@ -65,9 +66,15 @@
 		// }
 	]);
 	game.startStopwatch();
+	let tutorialOpen = $state(false);
 </script>
 
 <main class="ingame" in:sceneIn out:sceneOut>
+	<HelpButton
+		onClose={() => (tutorialOpen = false)}
+		onOpen={() => (tutorialOpen = true)}
+		open={tutorialOpen}
+	/>
 	<h2>Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span></h2>
 	<BubbleTea
 		cap={tea.cap}
