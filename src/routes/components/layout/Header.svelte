@@ -1,12 +1,18 @@
 <script lang="ts">
-	import { sceneIn, sceneOut } from '$lib/animations/sceneInOut';
 	import type { Snippet } from 'svelte';
+	import { fade } from 'svelte/transition';
 
 	type Props = { children: Snippet };
 	let { children }: Props = $props();
 </script>
 
-<div class="area-header sidebar" in:sceneIn out:sceneOut>{@render children()}</div>
+<div
+	class="area-header sidebar"
+	in:fade={{ delay: 400, duration: 200 }}
+	out:fade={{ duration: 200 }}
+>
+	{@render children()}
+</div>
 
 <style>
 	.sidebar {
