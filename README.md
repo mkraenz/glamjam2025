@@ -16,4 +16,6 @@ We are opting out of SSR in `src/routes/+layout.ts` in order to enable an easy i
 
 ## Other tools
 
+- [easing.net](https://easings.net/) - one-stop shopping for easing functions
 - [epiceasing.com](https://epiceasing.com/?curve=282.000%2C12.000%2C11.000&language=css&kind=spring&benzier=in&style=relaxed&ms=2000&animation=height) to generate css keyframes for custom easing functions
+- [cubic bezier designer](https://cubic-bezier.com/#.3,.65,.78,.36) - copy the `cubic-bezier(...)` directly as easing function for css animations

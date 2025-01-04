@@ -1,20 +1,10 @@
 <script lang="ts">
-	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
-	import NextButton from '../../components/common/NextButton.svelte';
 	import Main from '../../components/layout/Main.svelte';
-
-	const game = getGameStateContext();
+	import * as m from '$lib/paraglide/messages';
 </script>
 
 <Main>
-	<h2>Game Over</h2>
-	<p>Thanks for playing!</p>
-	<group class="hstack">
-		<NextButton
-			text="New Game"
-			onclick={() => game.reset()}
-			onEnterKeyPressed={() => game.reset()}
-		/>
-		<a href="/" role="button" class="outline">Back to Title</a>
-	</group>
+	<h2>{m.gameover__heading()}</h2>
+	<p>{m.gameover__description()}</p>
+	<a href="/" role="button">{m.gameover__cta()}</a>
 </Main>
