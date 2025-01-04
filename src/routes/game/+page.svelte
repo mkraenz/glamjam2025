@@ -5,6 +5,7 @@
 	import CustomerLeaves from './screens/CustomerLeaves.svelte';
 	import FavColor from './screens/FavColor.svelte';
 	import FavColorWow from './screens/FavColorWow.svelte';
+	import FavTea from './screens/FavTea.svelte';
 	import GameOver from './screens/GameOver.svelte';
 	import IAmBusy from './screens/IAmBusy.svelte';
 	import Thanks from './screens/Thanks.svelte';
@@ -15,7 +16,7 @@
 	import WhatToDo from './screens/WhatToDo.svelte';
 	import YourName from './screens/YourName.svelte';
 
-	setGameStateContext('thanks');
+	setGameStateContext();
 	const game = getGameStateContext();
 	let page = $derived(game.page);
 </script>
@@ -23,7 +24,8 @@
 {#if page === 'theNewOwner'}<TheNewOwner next="yourName" skip="backToBusiness" />{/if}
 {#if page === 'yourName'}<YourName next="favColor" />{/if}
 {#if page === 'favColor'}<FavColor next="favColorWow" />{/if}
-{#if page === 'favColorWow'}<FavColorWow next="backToBusiness" />{/if}
+{#if page === 'favColorWow'}<FavColorWow next="favTea" />{/if}
+{#if page === 'favTea'}<FavTea next="backToBusiness" />{/if}
 {#if page === 'backToBusiness'}<BackToBusiness
 		nextGood={game.skipTutorial ? 'barCounter' : 'tutorial'}
 		nextBad="iAmBusy"

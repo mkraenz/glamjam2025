@@ -4,10 +4,12 @@
 	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import type { Page } from '$lib/state/GameStateContext.svelte';
 	import Mistakes from './Mistakes.svelte';
-	import { shuffle } from '$lib/utils/shuffle';
+	import { shuffle } from '$lib/utils/random';
 	import HelpButton from '../Tutorial/HelpButton.svelte';
 	import Appbar from '../../../components/layout/Appbar.svelte';
 	import Main from '../../../components/layout/Main.svelte';
+	import * as m from '$lib/paraglide/messages';
+	import { teaDataMap } from '$lib/state/teas.data';
 
 	type Props = { nextGood: Page; nextBad: Page };
 	let { nextGood, nextBad }: Props = $props();
@@ -46,10 +48,6 @@
 			checkLose();
 		}
 	}
-	const teaTypeToDisplay: { [type in Exclude<TeaType, false>]: string } = {
-		matcha: 'Matcha Latte Bubble Tea',
-		'strawberry milk': 'Strawberry Milk Bubble Tea'
-	};
 
 	const buttons = shuffle([
 		{ hideIf: () => tea.cup, onclick: addCup, text: 'Cup' },
@@ -58,8 +56,8 @@
 		{ hideIf: () => tea.tapioca, onclick: addTapioca, text: 'Tapioca' },
 		{
 			hideIf: () => !!tea.fluid,
-			onclick: () => addFluid('strawberry milk'),
-			text: 'Strawberry Milk'
+			onclick: () => addFluid('strawberry'),
+			text: m[teaDataMap[game.order].tKeyShort]()
 		}
 		// {
 		// 	hideIf: () => !!tea.fluid,
@@ -83,7 +81,7 @@
 
 <Main justifyContent="flex-start">
 	<h2 class="pb-2">
-		Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span>
+		Let's make some <span class="h2-emphasis">{m[teaDataMap[game.order].tKey]()}</span>
 	</h2>
 	<BubbleTea
 		lid={tea.lid}

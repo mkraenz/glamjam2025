@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TeaType } from '$lib/state/BubbleTeaState.svelte';
+	import type { TeaType, TeaData } from '$lib/state/types';
 	import { range } from '$lib/utils/range';
 
 	type Props = {
@@ -9,12 +9,14 @@
 		tapioca: boolean;
 		lid: boolean;
 		strawColor?: string;
+		teaData?: TeaData; // TODO
 	};
 	let { lid, cup, straw, tapioca, tea, strawColor }: Props = $props();
 	// const lid = true,
 	// 	cup = true,
 	// 	straw = true,
 	// 	tapioca = true,
+	// 	strawColor = 'pink',
 	// 	tea = 'matcha';
 </script>
 
@@ -37,7 +39,7 @@
 		class:transparent={!tea}
 		class:fill-anim={tea}
 		class:matcha={tea === 'matcha'}
-		class:strawberry-milk={tea === 'strawberry milk'}
+		class:strawberry-milk={tea === 'strawberry'}
 	></div>
 </div>
 

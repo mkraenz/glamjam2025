@@ -1,5 +1,8 @@
+import { sample } from '$lib/utils/random';
 import { getContext, setContext } from 'svelte';
 import { SvelteDate } from 'svelte/reactivity';
+import { teaDataArray } from './teas.data';
+import type { TeaType } from './types';
 
 export const fallback = {
 	name: 'Kelly',
@@ -10,15 +13,30 @@ const initialState = {
 	name: '',
 	favColor: fallback.favColor,
 	skipTutorial: false,
-	initialPage: 'theNewOwner' as const,
+	page: 'theNewOwner',
+	favTea: 'strawberry',
+	order: 'lychee',
 	tutorialCompleted: false
+} satisfies {
+	name: string;
+	favColor: string;
+	skipTutorial: boolean;
+	tutorialCompleted: boolean;
+	page: Page;
+	favTea: TeaType;
+	order: TeaType;
 };
+
+export function randomTeaType() {
+	return sample(teaDataArray);
+}
 
 export type Page =
 	| 'whatToDo'
 	| 'theNewOwner'
 	| 'yourName'
 	| 'favColor'
+	| 'favTea'
 	| 'gameover'
 	| 'favColorWow'
 	| 'backToBusiness'
@@ -33,9 +51,11 @@ export type Page =
 class GameState {
 	name: string = $state(initialState.name);
 	favColor: string = $state(initialState.favColor);
+	favTea: string = $state(initialState.favTea);
 	page = $state<Page>();
 	skipTutorial = $state(initialState.skipTutorial);
 	tutorialCompleted = $state(initialState.tutorialCompleted);
+	order = $state<TeaType>(initialState.order);
 
 	money = $state(0);
 
@@ -43,14 +63,15 @@ class GameState {
 	#stopwatchEnd = new SvelteDate();
 	stopwatchMs = $derived(this.#stopwatchEnd.getTime() - this.#stopwatchStart.getTime());
 
-	constructor(initialPage: Page = initialState.initialPage) {
-		this.page = initialPage;
+	constructor(page: Page = initialState.page, order: TeaType = initialState.order) {
+		this.page = page;
+		this.order = order;
 	}
 
 	reset() {
 		this.name = initialState.name;
 		this.favColor = initialState.favColor;
-		this.page = initialState.initialPage;
+		this.page = initialState.page;
 		this.skipTutorial = initialState.skipTutorial;
 	}
 
@@ -70,8 +91,8 @@ class GameState {
 }
 
 const key = Symbol('GameState');
-export function setGameStateContext(initialPage: Page = initialState.initialPage) {
-	return setContext(key, new GameState(initialPage));
+export function setGameStateContext(initialPage: Page = initialState.page, initialOrder?: TeaType) {
+	return setContext(key, new GameState(initialPage, initialOrder));
 }
 export function getGameStateContext() {
 	return getContext(key) as ReturnType<typeof setGameStateContext>;

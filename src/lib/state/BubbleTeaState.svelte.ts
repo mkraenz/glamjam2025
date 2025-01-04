@@ -1,17 +1,18 @@
-export type TeaType = 'matcha' | 'strawberry milk' | false;
+import type { TeaType } from './types';
 
 type Order = {
-	fluid: Exclude<TeaType, false>;
+	fluid: TeaType;
 };
 
 export class BubbleTeaState {
 	private maxMistakes = 3;
 
-	order: Order = $state({ fluid: 'strawberry milk' });
+	// TODO inject in constructor + make static?
+	order: Order = $state({ fluid: 'strawberry' });
 
 	lid = $state(false);
 	cup = $state(false);
-	fluid = $state<TeaType>(false);
+	fluid = $state<TeaType | false>(false);
 	straw = $state(false);
 	tapioca = $state(false);
 

@@ -4,3 +4,7 @@ export function shuffle<T extends unknown[]>(arr: T) {
 		.sort((a, b) => a.sort - b.sort)
 		.map(({ value }) => value) as T;
 }
+
+export function sample<T extends unknown[]>(arr: T) {
+	return shuffle(arr)[0] as T;
+}
