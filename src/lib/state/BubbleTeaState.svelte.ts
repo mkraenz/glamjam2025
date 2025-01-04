@@ -9,7 +9,7 @@ export class BubbleTeaState {
 
 	order: Order = $state({ fluid: 'strawberry milk' });
 
-	cap = $state(false);
+	lid = $state(false);
 	cup = $state(false);
 	fluid = $state<TeaType>(false);
 	straw = $state(false);
@@ -20,22 +20,22 @@ export class BubbleTeaState {
 	failure = $derived(this.mistakes >= this.maxMistakes);
 
 	readyToServe = $derived.by(() => {
-		return this.cap && this.cup && this.fluid && this.straw && this.tapioca;
+		return this.lid && this.cup && this.fluid && this.straw && this.tapioca;
 	});
 
 	baseReady = $derived(this.cup && this.fluid && this.tapioca);
 
-	addCap() {
+	addLid() {
 		if (!this.baseReady) {
 			this.mistakes++;
 			return this.fail();
 		}
-		this.cap = true;
+		this.lid = true;
 		return this.success();
 	}
 
 	addStraw() {
-		if (!this.baseReady || !this.cap) {
+		if (!this.baseReady || !this.lid) {
 			this.mistakes++;
 			return this.fail();
 		}

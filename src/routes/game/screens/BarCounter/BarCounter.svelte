@@ -16,8 +16,8 @@
 	function checkLose() {
 		if (tea.failure) game.navigate(nextBad);
 	}
-	function addCap() {
-		tea.addCap();
+	function addLid() {
+		tea.addLid();
 		checkLose();
 	}
 	function addCup() {
@@ -52,7 +52,7 @@
 
 	const buttons = shuffle([
 		{ hideIf: () => tea.cup, onclick: addCup, text: 'Cup' },
-		{ hideIf: () => tea.cap, onclick: addCap, text: 'Cap' },
+		{ hideIf: () => tea.lid, onclick: addLid, text: 'Lid' },
 		{ hideIf: () => tea.straw, onclick: addStraw, text: 'Straw' },
 		{ hideIf: () => tea.tapioca, onclick: addTapioca, text: 'Tapioca' },
 		{
@@ -85,7 +85,7 @@
 		Let's make some <span class="h2-emphasis">{teaTypeToDisplay[tea.order.fluid]}</span>
 	</h2>
 	<BubbleTea
-		cap={tea.cap}
+		lid={tea.lid}
 		cup={tea.cup}
 		tapioca={tea.tapioca}
 		tea={tea.fluid}

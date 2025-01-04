@@ -7,18 +7,18 @@
 		cup: boolean;
 		tea: TeaType;
 		tapioca: boolean;
-		cap: boolean;
+		lid: boolean;
 		strawColor?: string;
 	};
-	let { cap, cup, straw, tapioca, tea, strawColor }: Props = $props();
-	// const cap = true,
+	let { lid, cup, straw, tapioca, tea, strawColor }: Props = $props();
+	// const lid = true,
 	// 	cup = true,
 	// 	straw = true,
 	// 	tapioca = true,
 	// 	tea = 'matcha';
 </script>
 
-<div class="cap" class:transparent={!cap} class:cap-falling={cap}>
+<div class="lid" class:transparent={!lid} class:lid-falling={lid}>
 	<div
 		class="straw"
 		class:transparent={!straw}
@@ -73,8 +73,8 @@
 	.tapioca-falling {
 		animation: tapioca-fall-down 1s forwards;
 	}
-	.cap-falling {
-		animation: cap-fall-down 0.3s forwards;
+	.lid-falling {
+		animation: lid-fall-down 0.3s forwards;
 	}
 	.cup-appearing {
 		animation: cup-appear 0.5s forwards;
@@ -102,7 +102,7 @@
 		border: 1px solid var(--pico-color);
 		border-radius: 10px 10px 20px 20px;
 	}
-	.cap {
+	.lid {
 		position: relative;
 		transform: translateY(12px);
 		width: calc(var(--cup-height) - 20px);
@@ -173,7 +173,7 @@
 			opacity: 1;
 		}
 	}
-	@keyframes cap-fall-down {
+	@keyframes lid-fall-down {
 		0% {
 			transform: translateY(-300px);
 		}
