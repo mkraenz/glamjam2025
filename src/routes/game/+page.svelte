@@ -17,6 +17,7 @@
 	import WhatToDo from './screens/WhatToDo.svelte';
 	import YourName from './screens/YourName.svelte';
 
+	// reminder: i did try to use the actual sveltekit routing and it did work. basically i can ensure gamestatecontext is set in the +layout.svelte but i lose the overview of which route leads where and injecting params.
 	setGameStateContext();
 	const game = getGameStateContext();
 	let page = $derived(game.page);
