@@ -16,7 +16,7 @@
 		<NextButton
 			onclick={() => game.navigate(makeTea)}
 			onEnterKeyPressed={() => game.navigate(makeTea)}
-			text="Make Bubble Tea"
+			text="Take a new order"
 		/>
 		<NextButton
 			onclick={() => game.navigate(design)}

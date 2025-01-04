@@ -6,7 +6,7 @@ export const teaDataMap: Record<TeaType, TeaData> = {
 		id: 'classic',
 		tKey: 'teas__classic',
 		tKeyShort: 'teas__classic_short',
-		fluidColor: 'b18f6aaa'
+		fluidColor: '#e08d31aa'
 	},
 	strawberry: {
 		fluid: 'strawberry',

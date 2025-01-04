@@ -1,5 +1,6 @@
 <script lang="ts">
-	import type { TeaType, TeaData } from '$lib/state/types';
+	import { teaDataMap } from '$lib/state/teas.data';
+	import type { TeaType, TeaRenderData } from '$lib/state/types';
 	import { range } from '$lib/utils/range';
 
 	type Props = {
@@ -9,38 +10,42 @@
 		tapioca: boolean;
 		lid: boolean;
 		strawColor?: string;
-		teaData?: TeaData; // TODO
+		teaData: TeaRenderData;
 	};
-	let { lid, cup, straw, tapioca, tea, strawColor }: Props = $props();
-	// const lid = true,
+	let { lid, cup, straw, tapioca, tea, strawColor, teaData }: Props = $props();
+	// const {
+	// 	lid = true,
 	// 	cup = true,
 	// 	straw = true,
 	// 	tapioca = true,
 	// 	strawColor = 'pink',
-	// 	tea = 'matcha';
+	// 	tea = 'taro',
+	// 	teaData = teaDataMap[tea || 'classic']
+	// } = {} as Props;
 </script>
 
-<div class="lid" class:transparent={!lid} class:lid-falling={lid}>
-	<div
-		class="straw"
-		class:transparent={!straw}
-		class:straw-falling={straw}
-		style:background-color={strawColor}
-	></div>
-</div>
-<div class="cup" class:transparent={!cup} class:cup-appearing={cup}>
-	<div class="milk-tea tapioca-pearls" class:transparent={!tapioca}>
-		{#each range(32)}
-			<div class="tapioca" class:tapioca-falling={tapioca}></div>
-		{/each}
+<div style:--fluid-color={teaData.fluidColor}>
+	<div class="lid" class:transparent={!lid} class:lid-falling={lid}>
+		<div
+			class="straw"
+			class:transparent={!straw}
+			class:straw-falling={straw}
+			style:background-color={strawColor}
+		></div>
 	</div>
-	<div
-		class="milk-tea"
-		class:transparent={!tea}
-		class:fill-anim={tea}
-		class:matcha={tea === 'matcha'}
-		class:strawberry-milk={tea === 'strawberry'}
-	></div>
+	<div class="cup" class:transparent={!cup} class:cup-appearing={cup}>
+		<div class="milk-tea tapioca-pearls" class:transparent={!tapioca}>
+			{#each range(32)}
+				<div class="tapioca" class:tapioca-falling={tapioca}></div>
+			{/each}
+		</div>
+		<div
+			class="milk-tea"
+			class:transparent={!tea}
+			class:fill-anim={tea}
+			class:colored-fluid={tea}
+		></div>
+	</div>
 </div>
 
 <style lang="scss">
@@ -113,6 +118,8 @@
 		border-radius: calc(var(--cup-height) * 0.5) calc(var(--cup-height) * 0.5) 0 0;
 		border: 1px solid var(--pico-color);
 		border-bottom: 0;
+		margin-right: auto;
+		margin-left: auto;
 	}
 	.milk-tea {
 		--tea-fill: 0;
@@ -124,11 +131,8 @@
 		bottom: calc(var(--tea-offset-y) * 0.66);
 		border-radius: 4px 4px 20px 20px;
 	}
-	.matcha {
-		background: var(--color-matcha);
-	}
-	.strawberry-milk {
-		background: var(--color-strawberry);
+	.colored-fluid {
+		background: var(--fluid-color);
 	}
 	.fill-anim {
 		animation: fill 2s forwards;

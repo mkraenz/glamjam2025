@@ -6,5 +6,5 @@ export function shuffle<T extends unknown[]>(arr: T) {
 }
 
 export function sample<T extends unknown[]>(arr: T) {
-	return shuffle(arr)[0] as T;
+	return shuffle(arr)[0] as Unpack<T>;
 }

@@ -8,6 +8,7 @@
 	import FavTea from './screens/FavTea.svelte';
 	import GameOver from './screens/GameOver.svelte';
 	import IAmBusy from './screens/IAmBusy.svelte';
+	import NewCustomerOrder from './screens/NewCustomerOrder.svelte';
 	import Thanks from './screens/Thanks.svelte';
 	import TheNewOwner from './screens/TheNewOwner.svelte';
 	import Tutorial from './screens/Tutorial/Tutorial.svelte';
@@ -38,11 +39,14 @@
 		nextGood="thanks"
 		nextBad={game.tutorialCompleted ? 'customerLeaves' : 'tutorialFailed'}
 	/>{/if}
-{#if page === 'thanks'}<Thanks next="tutorialFinished" />{/if}
+{#if page === 'thanks'}<Thanks
+		next={game.tutorialCompleted ? 'whatToDo' : 'tutorialFinished'}
+	/>{/if}
 {#if page === 'tutorialFinished'}<TutorialFinished next="whatToDo" />{/if}
 {#if page === 'whatToDo'}<WhatToDo
-		makeTea="barCounter"
+		makeTea="newCustomerOrder"
 		design="backToBusiness"
 		shop="backToBusiness"
 	/>{/if}
-{#if page === 'customerLeaves'}<CustomerLeaves next="backToBusiness" />{/if}
+{#if page === 'newCustomerOrder'}<NewCustomerOrder next="barCounter" />{/if}
+{#if page === 'customerLeaves'}<CustomerLeaves next="whatToDo" />{/if}

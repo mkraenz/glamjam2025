@@ -1,18 +1,25 @@
 <script lang="ts">
-	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
+	import {
+		getGameStateContext,
+		randomTeaData,
+		type Page
+	} from '$lib/state/GameStateContext.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import * as m from '$lib/paraglide/messages';
-	import { teaDataMap } from '$lib/state/teas.data';
+	import Main from '../../components/layout/Main.svelte';
 
 	type Props = { next: Page };
 	let { next }: Props = $props();
 	const game = getGameStateContext();
-	const orderedItem = game.order;
+	const orderedItem = randomTeaData();
+	game.order = orderedItem.id;
 	function onclick() {
 		game.navigate(next);
 	}
 </script>
 
-<p>Hi, I'd like a cup of</p>
-<h2 class="h2-emphasis">{m[teaDataMap[orderedItem].tKey]()}</h2>
-<NextButton onEnterKeyPressed={onclick} {onclick} text="Coming right up!" />
+<Main>
+	<p>Hi, I'd like a cup of</p>
+	<h2 class="h2-emphasis">{m[orderedItem.tKey]()}</h2>
+	<NextButton onEnterKeyPressed={onclick} {onclick} text="Coming right up!" />
+</Main>

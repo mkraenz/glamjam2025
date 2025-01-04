@@ -5,5 +5,8 @@ export type TeaData = {
 	fluid: TeaType;
 	tKey: `teas__${TeaType}`;
 	tKeyShort: `teas__${TeaType}_short`;
+} & TeaRenderData;
+
+export type TeaRenderData = {
 	fluidColor: string;
 };

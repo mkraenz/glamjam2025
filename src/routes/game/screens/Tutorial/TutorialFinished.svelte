@@ -7,6 +7,10 @@
 	type Props = { next: Page };
 	let { next }: Props = $props();
 	const game = getGameStateContext();
+	function onclick() {
+		game.tutorialCompleted = true;
+		game.navigate(next);
+	}
 </script>
 
 <DefaultAppbar />
@@ -16,9 +20,5 @@
 		I've gotta go now. I will be <span class="inline-emphasis">back tomorrow</span> for more
 		delicious Bubble Tea. Thanks{#if game.name}, {game.name}{/if}!
 	</p>
-	<NextButton
-		onclick={() => game.navigate(next)}
-		onEnterKeyPressed={() => game.navigate(next)}
-		text="Bye, Brandon!"
-	/>
+	<NextButton {onclick} onEnterKeyPressed={onclick} text="Bye, Brandon!" />
 </Main>

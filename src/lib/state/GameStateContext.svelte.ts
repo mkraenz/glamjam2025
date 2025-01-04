@@ -27,7 +27,7 @@ const initialState = {
 	order: TeaType;
 };
 
-export function randomTeaType() {
+export function randomTeaData() {
 	return sample(teaDataArray);
 }
 
@@ -46,6 +46,7 @@ export type Page =
 	| 'thanks'
 	| 'tutorialFinished'
 	| 'tutorialFailed'
+	| 'newCustomerOrder'
 	| 'iAmBusy';
 
 class GameState {

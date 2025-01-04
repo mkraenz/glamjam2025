@@ -42,7 +42,6 @@
 	function serve() {
 		if (tea.readyToServe) {
 			game.stopStopwatch();
-			game.tutorialCompleted = true;
 			game.navigate(nextGood);
 		} else {
 			tea.mistakes++;
@@ -91,6 +90,7 @@
 		tea={tea.fluid}
 		straw={tea.straw}
 		strawColor={game.favColor}
+		teaData={teaDataMap[game.order]}
 	/>
 
 	<group class="hstack">
