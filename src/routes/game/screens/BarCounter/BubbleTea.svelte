@@ -5,7 +5,7 @@
 	type Props = {
 		straw: boolean;
 		cup: boolean;
-		tea: TeaType;
+		tea: TeaType | false;
 		tapioca: boolean;
 		lid: boolean;
 		strawColor?: string;

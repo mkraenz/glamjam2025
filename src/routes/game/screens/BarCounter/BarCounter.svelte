@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BubbleTea from './BubbleTea.svelte';
-	import { BubbleTeaState, type TeaType } from '$lib/state/BubbleTeaState.svelte';
+	import { BubbleTeaState } from '$lib/state/BubbleTeaState.svelte';
 	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import type { Page } from '$lib/state/GameStateContext.svelte';
 	import Mistakes from './Mistakes.svelte';
@@ -10,6 +10,7 @@
 	import Main from '../../../components/layout/Main.svelte';
 	import * as m from '$lib/paraglide/messages';
 	import { teaDataMap } from '$lib/state/teas.data';
+	import type { TeaType } from '$lib/state/types';
 
 	type Props = { nextGood: Page; nextBad: Page };
 	let { nextGood, nextBad }: Props = $props();

@@ -17,7 +17,7 @@ const initialState = {
 	favTea: 'strawberry',
 	order: 'lychee',
 	tutorialCompleted: false
-} satisfies {
+} as {
 	name: string;
 	favColor: string;
 	skipTutorial: boolean;
