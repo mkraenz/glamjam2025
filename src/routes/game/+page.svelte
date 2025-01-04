@@ -1,4 +1,6 @@
 <script lang="ts">
+	import db from '$lib/db';
+	import type { DbGame } from '$lib/db/types';
 	import { getGameStateContext, setGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import BackToBusiness from './screens/BackToBusiness.svelte';
 	import BarCounter from './screens/BarCounter/BarCounter.svelte';
@@ -21,6 +23,19 @@
 	setGameStateContext();
 	const game = getGameStateContext();
 	let page = $derived(game.page);
+
+	$effect(() => {
+		async function save(data: DbGame) {
+			if (!data.id) return;
+			const savefile = await db.games.findOne(data.id);
+			if (savefile) {
+				await db.games.update(data.id, data);
+			} else {
+				await db.games.create(data);
+			}
+		}
+		save(game.toJSON());
+	});
 </script>
 
 {#if page === 'theNewOwner'}<TheNewOwner next="yourName" skip="backToBusiness" />{/if}

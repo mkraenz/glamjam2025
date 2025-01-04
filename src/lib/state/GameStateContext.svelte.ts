@@ -1,3 +1,4 @@
+import type { DbGame } from '$lib/db/types';
 import { sample } from '$lib/utils/random';
 import { getContext, setContext } from 'svelte';
 import { SvelteDate } from 'svelte/reactivity';
@@ -50,13 +51,16 @@ export type Page =
 	| 'iAmBusy';
 
 class GameState {
-	name: string = $state(initialState.name);
-	favColor: string = $state(initialState.favColor);
-	favTea: string = $state(initialState.favTea);
-	page = $state<Page>();
+	id = $state('testtest');
+	name = $state(initialState.name);
+	favColor = $state(initialState.favColor);
+	favTea = $state<TeaType>(initialState.favTea);
+	page = $state<Page>(initialState.page);
 	skipTutorial = $state(initialState.skipTutorial);
 	tutorialCompleted = $state(initialState.tutorialCompleted);
 	order = $state<TeaType>(initialState.order);
+	createdAt = new Date();
+	updatedAt = new Date();
 
 	money = $state(0);
 
@@ -88,6 +92,22 @@ class GameState {
 
 	stopStopwatch() {
 		this.#stopwatchEnd.setTime(new Date().getTime());
+	}
+
+	toJSON(): DbGame {
+		return {
+			favColor: this.favColor,
+			favTea: this.favTea,
+			id: this.id,
+			name: this.name,
+			order: this.order,
+			page: this.page,
+			skipTutorial: this.skipTutorial,
+			tutorialCompleted: this.tutorialCompleted,
+			createdAt: this.createdAt,
+			updatedAt: this.updatedAt,
+			money: this.money
+		};
 	}
 }
 
