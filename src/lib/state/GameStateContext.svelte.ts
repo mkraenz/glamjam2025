@@ -10,7 +10,8 @@ const initialState = {
 	name: '',
 	favColor: fallback.favColor,
 	skipTutorial: false,
-	initialPage: 'theNewOwner' as const
+	initialPage: 'theNewOwner' as const,
+	tutorialCompleted: false
 };
 
 export type Page =
@@ -26,6 +27,7 @@ export type Page =
 	| 'customerLeaves'
 	| 'thanks'
 	| 'tutorialFinished'
+	| 'tutorialFailed'
 	| 'iAmBusy';
 
 class GameState {
@@ -33,6 +35,7 @@ class GameState {
 	favColor: string = $state(initialState.favColor);
 	page = $state<Page>();
 	skipTutorial = $state(initialState.skipTutorial);
+	tutorialCompleted = $state(initialState.tutorialCompleted);
 
 	money = $state(0);
 

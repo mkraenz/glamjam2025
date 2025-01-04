@@ -1,9 +1,8 @@
 <script lang="ts">
 	import type { Page } from '$lib/state/GameStateContext.svelte';
 	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
-	import DefaultAppbar from '../../components/common/DefaultAppbar.svelte';
-	import NextButton from '../../components/common/NextButton.svelte';
-	import Main from '../../components/layout/Main.svelte';
+	import NextButton from '../../../components/common/NextButton.svelte';
+	import Main from '../../../components/layout/Main.svelte';
 
 	type Props = { next: Page };
 	let { next }: Props = $props();
@@ -11,11 +10,11 @@
 	const game = getGameStateContext();
 </script>
 
-<DefaultAppbar />
 <Main>
-	<p>I'm sorry but I think I forgot to switch off the oven at home. I have to leave. Bye!</p>
+	<h2>Oops...</h2>
+	<p>I guess that was a bit too much information at once, right? I'm sorry.</p>
 	<NextButton
-		text="But your Bubble Tea..."
+		text="Let me try again."
 		onclick={() => game.navigate(next)}
 		onEnterKeyPressed={() => game.navigate(next)}
 	/>

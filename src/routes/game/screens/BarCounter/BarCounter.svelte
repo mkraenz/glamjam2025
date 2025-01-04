@@ -39,6 +39,7 @@
 	function serve() {
 		if (tea.readyToServe) {
 			game.stopStopwatch();
+			game.tutorialCompleted = true;
 			game.navigate(nextGood);
 		} else {
 			tea.mistakes++;

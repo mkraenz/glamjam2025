@@ -10,7 +10,8 @@
 	import Thanks from './screens/Thanks.svelte';
 	import TheNewOwner from './screens/TheNewOwner.svelte';
 	import Tutorial from './screens/Tutorial/Tutorial.svelte';
-	import TutorialFinished from './screens/TutorialFinished.svelte';
+	import TutorialFailed from './screens/Tutorial/TutorialFailed.svelte';
+	import TutorialFinished from './screens/Tutorial/TutorialFinished.svelte';
 	import WhatToDo from './screens/WhatToDo.svelte';
 	import YourName from './screens/YourName.svelte';
 
@@ -29,8 +30,12 @@
 	/>{/if}
 {#if page === 'gameover'}<GameOver />{/if}
 {#if page === 'tutorial'}<Tutorial next="barCounter" />{/if}
+{#if page === 'tutorialFailed'}<TutorialFailed next="backToBusiness" />{/if}
 {#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
-{#if page === 'barCounter'}<BarCounter nextGood="thanks" nextBad="customerLeaves" />{/if}
+{#if page === 'barCounter'}<BarCounter
+		nextGood="thanks"
+		nextBad={game.tutorialCompleted ? 'customerLeaves' : 'tutorialFailed'}
+	/>{/if}
 {#if page === 'thanks'}<Thanks next="tutorialFinished" />{/if}
 {#if page === 'tutorialFinished'}<TutorialFinished next="whatToDo" />{/if}
 {#if page === 'whatToDo'}<WhatToDo
