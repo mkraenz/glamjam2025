@@ -1,17 +1,19 @@
 <h2 class="h2-emphasis">How to make Bubble Tea</h2>
 
 <p>
-	To make Bubble Tea, the most important thing is the <span class="inline-emphasis">order</span> of doing.
+	To make Bubble Tea, the most important is doing things in <span class="inline-emphasis">
+		the right order</span
+	>.
 </p>
 
 <ol>
 	<li>First, put the <span class="inline-emphasis">Cup</span> on the counter before you.</li>
 	<li>
 		Next, pour <span class="inline-emphasis">Strawberry Milk or Milk Tea</span> or add
-		<span class="inline-emphasis">Tapioca Pearls</span>.<br /> The order doesn't matter.
+		<span class="inline-emphasis">Tapioca Pearls</span>.<br /> The order doesn't matter here.
 	</li>
 	<li>
-		Your customers expect a service. So let's add the <span class="inline-emphasis">Cap</span> next.
+		Your customers expect some service so you add the <span class="inline-emphasis">Lid</span> next.
 	</li>
 	<li>
 		Finally, no Bubble Tea is perfect without the <span class="inline-emphasis">Straw</span>.

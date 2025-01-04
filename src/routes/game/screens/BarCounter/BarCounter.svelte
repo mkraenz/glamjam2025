@@ -71,11 +71,13 @@
 </script>
 
 <Header>
-	<HelpButton
-		onClose={() => (tutorialOpen = false)}
-		onOpen={() => (tutorialOpen = true)}
-		open={tutorialOpen}
-	/>
+	{#snippet left()}
+		<HelpButton
+			onClose={() => (tutorialOpen = false)}
+			onOpen={() => (tutorialOpen = true)}
+			open={tutorialOpen}
+		/>
+	{/snippet}
 </Header>
 
 <Main justifyContent="flex-start">

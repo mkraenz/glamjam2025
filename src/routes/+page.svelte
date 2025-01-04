@@ -10,7 +10,7 @@
 	function onkeyup(e: KeyboardEvent) {
 		if (e.key === 'Enter') {
 			e.preventDefault();
-			window.location.href = '/glamjam';
+			window.location.href = '/game';
 		}
 	}
 </script>
@@ -36,8 +36,7 @@
 			</p>
 		</div>
 		<div>
-			<a href="/glamjam" role="button" class="pyutiful animate fade transparent">{m.title__cta()}</a
-			>
+			<a href="/game" role="button" class="pyutiful animate fade transparent">{m.title__cta()}</a>
 			<BgmOnOff />
 		</div>
 	</main>
