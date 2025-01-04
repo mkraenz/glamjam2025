@@ -14,7 +14,7 @@
 	<div>
 		{@render left?.()}
 	</div>
-	<div class="main">
+	<div class="header-main">
 		{@render main?.()}
 	</div>
 </div>
@@ -34,7 +34,7 @@
 		display: grid;
 		grid-template-columns: min-content 1fr;
 	}
-	.main {
+	.header-main {
 		display: flex;
 		flex-direction: row;
 		align-items: center;

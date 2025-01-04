@@ -21,8 +21,14 @@
 		{
 			type: 'a',
 			href: 'https://www.flaticon.com/free-icon/laugh_7301959?term=bubble+tea&page=1&position=22&origin=tag&related_id=7301959',
-			title: 'Laughing Bubble tea',
+			title: 'Laughing Bubble tea icon',
 			innerHTML: 'Laughing Bubble tea icon created by Rohim - Flaticon'
+		},
+		{
+			type: 'a',
+			href: 'https://www.flaticon.com/free-icon/profits_733186?term=money&page=1&position=76&origin=search&related_id=733186',
+			title: 'Money icon',
+			innerHTML: 'Money icon created by Chanut-is-Industries - Flaticon'
 		},
 		{
 			type: 'a',

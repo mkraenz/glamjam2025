@@ -23,7 +23,7 @@
 	h1 {
 		font-size: 64px;
 		-webkit-text-stroke-width: thin;
-		-webkit-text-stroke-color: black;
+		-webkit-text-stroke-color: var(--pico-color);
 		/* text-shadow: 4px 6px 4px #0f3f57; */
 	}
 	/* derived with the help of https://www.youtube.com/watch?v=8_SDTuoIYwA and https://www.youtube.com/watch?v=dba1xLnU9AM */

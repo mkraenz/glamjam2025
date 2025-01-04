@@ -16,10 +16,11 @@
 
 <Header>
 	{#snippet main()}
-		<div>
-			<p>
-				$ {game.money}
-			</p>
+		<div class="header-main">
+			<img src="/icons/money.png" alt="money" class="money-icon" />
+			<div class="money-text">
+				{game.money}
+			</div>
 		</div>
 	{/snippet}
 </Header>
@@ -32,10 +33,27 @@
 		>.
 	</p>
 	<p>Wow, this Strawberry Milk Bubble Tea is amazing! You're really good at this.</p>
-	<p>Here's the <span class="inline-emphasis">$5</span> for the Bubble Tea.</p>
+	<p>Here's the <span class="inline-emphasis">$ 5</span> for the Bubble Tea.</p>
 	<NextButton
 		onclick={() => game.navigate(next)}
 		onEnterKeyPressed={() => game.navigate(next)}
 		text="Thank you!"
 	/>
 </Main>
+
+<style>
+	.money-icon {
+		padding-right: 0.5rem;
+		height: 32px;
+	}
+	.money-text {
+		line-height: 32px;
+		text-align: center;
+		vertical-align: middle;
+		font-size: x-large;
+	}
+	.header-main {
+		display: flex;
+		justify-content: center;
+	}
+</style>
