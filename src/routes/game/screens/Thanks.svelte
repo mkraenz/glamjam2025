@@ -3,7 +3,8 @@
 	import { onMount } from 'svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import Main from '../../components/layout/Main.svelte';
-	import Header from '../../components/layout/Header.svelte';
+	import DefaultAppbar from '../../components/common/DefaultAppbar.svelte';
+	import MoneyInline from '../../components/common/MoneyInline.svelte';
 
 	type Props = { next: Page };
 	let { next }: Props = $props();
@@ -14,16 +15,7 @@
 	onMount(() => (game.money += 5));
 </script>
 
-<Header>
-	{#snippet main()}
-		<div class="header-main">
-			<img src="/icons/money.png" alt="money" class="money-icon" />
-			<div class="money-text">
-				{game.money}
-			</div>
-		</div>
-	{/snippet}
-</Header>
+<DefaultAppbar />
 
 <Main>
 	<h2>Thanks a lot!</h2>
@@ -33,27 +25,10 @@
 		>.
 	</p>
 	<p>Wow, this Strawberry Milk Bubble Tea is amazing! You're really good at this.</p>
-	<p>Here's the <span class="inline-emphasis">$ 5</span> for the Bubble Tea.</p>
+	<p>Here's the <MoneyInline amount={5} /> for the Bubble Tea.</p>
 	<NextButton
 		onclick={() => game.navigate(next)}
 		onEnterKeyPressed={() => game.navigate(next)}
 		text="Thank you!"
 	/>
 </Main>
-
-<style>
-	.money-icon {
-		padding-right: 0.5rem;
-		height: 32px;
-	}
-	.money-text {
-		line-height: 32px;
-		text-align: center;
-		vertical-align: middle;
-		font-size: x-large;
-	}
-	.header-main {
-		display: flex;
-		justify-content: center;
-	}
-</style>

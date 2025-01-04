@@ -148,8 +148,8 @@ button:has(svg) {
 	grid-area: main;
 }
 
-.area-header {
-	grid-area: header;
+.area-appbar {
+	grid-area: appbar;
 }
 
 .hstack {

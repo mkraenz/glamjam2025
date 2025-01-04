@@ -14,7 +14,7 @@
 <style>
 	.layout {
 		grid-template-areas:
-			'header'
+			'appbar'
 			'main';
 		grid-template-rows: min-content 1fr;
 		display: grid;

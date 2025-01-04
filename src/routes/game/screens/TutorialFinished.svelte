@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
+	import DefaultAppbar from '../../components/common/DefaultAppbar.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import Main from '../../components/layout/Main.svelte';
 
@@ -8,6 +9,7 @@
 	const game = getGameStateContext();
 </script>
 
+<DefaultAppbar />
 <Main>
 	<p>Well, you obviously got this business figured out. I'll leave you to it then.</p>
 	<p>
