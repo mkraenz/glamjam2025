@@ -6,8 +6,8 @@
 			let x = (1 - i) * 75;
 			let star = document.createElement('div');
 			star.className = 'star';
-			star.style.top = e.pageY + Math.round(Math.random() * x - x / 2) + 'px';
-			star.style.left = e.pageX + Math.round(Math.random() * x - x / 2) + 'px';
+			star.style.top = e.clientY + Math.round(Math.random() * x - x / 2) + 'px';
+			star.style.left = e.clientX + Math.round(Math.random() * x - x / 2) + 'px';
 			document.body.appendChild(star);
 			window.setTimeout(
 				() => {

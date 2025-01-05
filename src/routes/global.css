@@ -32,7 +32,6 @@
 	--cursor-bear: url('/icons/cursors/bubble-tea-bear-24.png');
 	--cursor-laugh: url('/icons/cursors/bubble-tea-laugh-24.png');
 	cursor: var(--cursor-happy), auto;
-	overflow-x: hidden;
 
 	/* --pico-primary-hover-background: var(--pico-color-fuchsia-400);
 	--pico-primary-hover-background: var(--pico-color-fuchsia-400);
@@ -64,7 +63,8 @@ input {
 }
 
 .star {
-	position: absolute;
+	/* using position fixed to avoid scrollbars appearing when the particles fall or spawn outside the viewport. Use together with window.clientX/clientY to have it always spawn close to the mouse. */
+	position: fixed;
 	pointer-events: none;
 	animation: animate-star-falling 1s linear;
 }
