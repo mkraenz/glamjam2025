@@ -7,16 +7,6 @@
 	let { children }: Props = $props();
 </script>
 
-<div class="layout">
+<div class="game-layout">
 	{@render children()}
 </div>
-
-<style>
-	.layout {
-		grid-template-areas:
-			'appbar'
-			'main';
-		grid-template-rows: min-content 1fr;
-		display: grid;
-	}
-</style>

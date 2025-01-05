@@ -18,7 +18,8 @@ export const initialState = {
 	page: 'theNewOwner',
 	favTea: 'strawberry',
 	order: 'lychee',
-	tutorialCompleted: false
+	tutorialCompleted: false,
+	money: 0
 } as {
 	id: string;
 	name: string;
@@ -28,6 +29,7 @@ export const initialState = {
 	page: Page;
 	favTea: TeaType;
 	order: TeaType;
+	money: number;
 };
 
 export function randomTeaData() {
@@ -61,10 +63,9 @@ class GameState {
 	skipTutorial = $state(initialState.skipTutorial);
 	tutorialCompleted = $state(initialState.tutorialCompleted);
 	order = $state<TeaType>(initialState.order);
+	money = $state(initialState.money);
 	createdAt = new Date();
 	updatedAt = new Date();
-
-	money = $state(0);
 
 	#stopwatchStart = new SvelteDate();
 	#stopwatchEnd = new SvelteDate();
@@ -80,6 +81,17 @@ class GameState {
 		this.favColor = initialState.favColor;
 		this.page = initialState.page;
 		this.skipTutorial = initialState.skipTutorial;
+		this.id = initialState.id;
+		this.name = initialState.name;
+		this.favColor = initialState.favColor;
+		this.favTea = initialState.favTea;
+		this.page = initialState.page;
+		this.skipTutorial = initialState.skipTutorial;
+		this.tutorialCompleted = initialState.tutorialCompleted;
+		this.order = initialState.order;
+		this.money = initialState.money;
+		this.createdAt = new Date();
+		this.updatedAt = new Date();
 	}
 
 	navigate(to: Page) {

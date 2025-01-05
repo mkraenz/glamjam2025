@@ -6,9 +6,13 @@
 	import ExternalLink from './components/common/ExternalLink.svelte';
 	import Footer from './Footer.svelte';
 	import HighlightedTitle from './HighlightedTitle.svelte';
+	import NewGameButton from './NewGameButton.svelte';
+	import NewGameModal from './NewGameModal.svelte';
+
+	let newGameModalVisible = $state(false);
 
 	function onkeyup(e: KeyboardEvent) {
-		if (e.key === 'Enter') {
+		if (e.key === 'Enter' && !newGameModalVisible) {
 			e.preventDefault();
 			startGame();
 		}
@@ -38,12 +42,14 @@
 				>
 			</p>
 		</div>
-		<div>
+		<group class="hstack">
+			<NewGameButton onclick={() => (newGameModalVisible = true)} />
+			<NewGameModal close={() => (newGameModalVisible = false)} open={newGameModalVisible} />
 			<button onclick={startGame} class="pyutiful animate fade transparent">
 				{m.title__cta()}
 			</button>
 			<BgmOnOff />
-		</div>
+		</group>
 	</main>
 	<Bubbles />
 	<Footer />

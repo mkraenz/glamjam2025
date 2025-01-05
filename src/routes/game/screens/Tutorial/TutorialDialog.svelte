@@ -11,15 +11,11 @@
 	<button {onclick} class="outline close-btn"><CloseIcon width="2rem" height="2rem" /></button>
 	<TutorialText />
 	<form method="dialog">
-		<button {onclick} class="ok-btn">OK</button>
+		<button {onclick} class="btn-mw">OK</button>
 	</form>
 </dialog>
 
 <style>
-	.ok-btn {
-		min-width: 180px;
-	}
-
 	.close-btn {
 		position: absolute;
 		top: 1rem;

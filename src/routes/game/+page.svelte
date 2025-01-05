@@ -1,12 +1,7 @@
 <script lang="ts">
 	import db from '$lib/db';
 	import type { DbGame } from '$lib/db/types';
-	import {
-		getGameStateContext,
-		initialState,
-		setGameStateContext
-	} from '$lib/state/GameStateContext.svelte';
-	import { onMount } from 'svelte';
+	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import BackToBusiness from './screens/BackToBusiness.svelte';
 	import BarCounter from './screens/BarCounter/BarCounter.svelte';
 	import CustomerLeaves from './screens/CustomerLeaves.svelte';

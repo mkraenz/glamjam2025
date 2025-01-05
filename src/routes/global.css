@@ -159,3 +159,15 @@ button:has(svg) {
 	align-items: center;
 	justify-content: center;
 }
+
+.btn-mw {
+	min-width: 180px;
+}
+
+.game-layout {
+	grid-template-areas:
+		'appbar'
+		'main';
+	grid-template-rows: min-content 1fr;
+	display: grid;
+}

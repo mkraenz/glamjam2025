@@ -3,31 +3,18 @@
 	import { getBgmContext } from '$lib/state/BgmContext.svelte';
 	import VolumeOff from 'virtual:icons/feather/volume-x';
 	import VolumeOn from 'virtual:icons/feather/volume-2';
+	import TitleMenuIconButton from './TitleMenuIconButton.svelte';
 
 	const bgm = getBgmContext();
 </script>
 
-<button class="outline animate fade transparent" onclick={() => bgm.toggleAudio()}>
+<TitleMenuIconButton
+	onclick={() => bgm.toggleAudio()}
+	ariaLabel={bgm.paused ? m.bgm__aria_off() : m.bgm__aria_on()}
+>
 	{#if bgm.paused}
-		<VolumeOff width="1.5rem" height="1.5rem" aria-label={m.bgm__aria_off()} />
+		<VolumeOff width="1.5rem" height="1.5rem" />
 	{:else}
-		<VolumeOn width="1.5rem" height="1.5rem" aria-label={m.bgm__aria_on()} />
+		<VolumeOn width="1.5rem" height="1.5rem" />
 	{/if}
-</button>
-
-<style>
-	.animate.fade {
-		animation: animate-fade 0.5s forwards;
-		animation-delay: 3s; /* matching HighlightedTitle animation */
-	}
-	@keyframes animate-fade {
-		0% {
-			opacity: 0;
-			/* transform: scaleY(0); */
-		}
-		100% {
-			opacity: 1;
-			/* transform: scaleY(1); */
-		}
-	}
-</style>
+</TitleMenuIconButton>
