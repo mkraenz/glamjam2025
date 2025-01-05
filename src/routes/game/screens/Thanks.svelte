@@ -22,7 +22,7 @@
 
 <Main>
 	<h2>Thanks a lot!</h2>
-	{#if game.name}<p>You're the best, {game.name}</p>{/if}
+	{#if game.name}<p>You're the best, {game.name}.</p>{/if}
 	<p>
 		And it took you only <span class="inline-emphasis">{formatSecs(game.stopwatchMs)} seconds</span
 		>.
