@@ -61,9 +61,20 @@ input {
 }
 
 .star {
-	position: fixed;
+	position: absolute;
 	pointer-events: none;
+	animation: animate-star-falling 1s linear;
 }
+
+@keyframes animate-star-falling {
+	from {
+		transform: translateY(0px);
+	}
+	to {
+		transform: translateY(100px);
+	}
+}
+
 .star:before,
 .star:after {
 	position: absolute;

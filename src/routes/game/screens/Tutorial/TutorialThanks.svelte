@@ -32,7 +32,7 @@
 		And it took you only <span class="inline-emphasis">{formatSecs(game.stopwatchMs)} seconds</span
 		>.
 	</p>
-	<p>Wow, this {m[teaDataMap[game.order].tKey]()} is amazing! You're really good at this.</p>
+	<p>Wow, this Bubble Tea is amazing! You're really good at this.</p>
 	<p>Here's the <MoneyInline amount={price} /> for the Bubble Tea.</p>
 	<NextButton
 		onclick={() => game.navigate(next)}

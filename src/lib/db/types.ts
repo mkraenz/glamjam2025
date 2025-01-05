@@ -1,4 +1,5 @@
 import type { Page } from '$lib/state/GameStateContext.svelte';
+import type { ShopItemId } from '$lib/state/shop-items.data';
 import type { TeaType } from '$lib/state/types';
 import type Dexie from 'dexie';
 import type { EntityTable } from 'dexie';
@@ -17,7 +18,7 @@ export type DbGame = {
 	money: number;
 	updatedAt: Date;
 	createdAt: Date;
-	boughtShopItems?: string[];
+	boughtShopItems?: ShopItemId[];
 };
 
 export type MyDexie = Dexie & {

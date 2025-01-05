@@ -4,6 +4,7 @@ export const teaDataMap: Record<TeaType, TeaData> = {
 	classic: {
 		fluid: 'classic',
 		id: 'classic',
+		price: 5,
 		tKey: 'teas__classic',
 		tKeyShort: 'teas__classic_short',
 		fluidColor: '#e08d31aa'
@@ -11,6 +12,7 @@ export const teaDataMap: Record<TeaType, TeaData> = {
 	strawberry: {
 		fluid: 'strawberry',
 		id: 'strawberry',
+		price: 5,
 		tKey: 'teas__strawberry',
 		tKeyShort: 'teas__strawberry_short',
 		fluidColor: '#ffd9e7aa'
@@ -18,6 +20,7 @@ export const teaDataMap: Record<TeaType, TeaData> = {
 	mango: {
 		fluid: 'mango',
 		id: 'mango',
+		price: 7,
 		tKey: 'teas__mango',
 		tKeyShort: 'teas__mango_short',
 		fluidColor: '#FFBF34aa'
@@ -25,6 +28,7 @@ export const teaDataMap: Record<TeaType, TeaData> = {
 	lychee: {
 		fluid: 'lychee',
 		id: 'lychee',
+		price: 9,
 		tKey: 'teas__lychee',
 		tKeyShort: 'teas__lychee_short',
 		fluidColor: '#DB434Daa'
@@ -32,6 +36,7 @@ export const teaDataMap: Record<TeaType, TeaData> = {
 	matcha: {
 		fluid: 'matcha',
 		id: 'matcha',
+		price: 7,
 		tKey: 'teas__matcha',
 		tKeyShort: 'teas__matcha_short',
 		fluidColor: '#8ac583aa'
@@ -39,6 +44,7 @@ export const teaDataMap: Record<TeaType, TeaData> = {
 	taro: {
 		fluid: 'taro',
 		id: 'taro',
+		price: 9,
 		tKey: 'teas__taro',
 		tKeyShort: 'teas__taro_short',
 		fluidColor: '#9C6BA9aa'

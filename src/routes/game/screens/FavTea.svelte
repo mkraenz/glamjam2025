@@ -12,6 +12,7 @@
 	function select(type: TeaType) {
 		game.favTea = type;
 		game.order = type;
+		game.buy(`tea_${type}`, 0);
 		game.navigate(next);
 	}
 </script>

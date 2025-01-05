@@ -7,6 +7,12 @@
 	type Props = { next: Page; skip: Page };
 	let { next, skip }: Props = $props();
 	const game = getGameStateContext();
+
+	function skipIntro() {
+		game.skipTutorial = true;
+		game.buy(`tea_${game.order}`, 0);
+		game.navigate(skip);
+	}
 </script>
 
 <Main>
@@ -15,14 +21,7 @@
 	<p>Glad to get to know you. I'm <span class="character-name">Brandon<span>.</span></span></p>
 	<group class="hstack">
 		<NextButton onEnterKeyPressed={() => game.navigate(next)} onclick={() => game.navigate(next)} />
-		<NextButton
-			onclick={() => {
-				game.skipTutorial = true;
-				game.navigate(skip);
-			}}
-			text="Your order?"
-			classes="outline"
-		/>
+		<NextButton onclick={skipIntro} text="Your order?" classes="outline" />
 	</group>
 	<!-- <Brandon /> -->
 </Main>

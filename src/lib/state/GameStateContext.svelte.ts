@@ -2,6 +2,7 @@ import type { DbGame } from '$lib/db/types';
 import { sample } from '$lib/utils/random';
 import { getContext, setContext } from 'svelte';
 import { SvelteDate } from 'svelte/reactivity';
+import { shopItemsTeaMap, type ShopItemId } from './shop-items.data';
 import { teaDataArray } from './teas.data';
 import type { TeaType } from './types';
 
@@ -66,7 +67,7 @@ class GameState {
 	tutorialCompleted = $state(initialState.tutorialCompleted);
 	order = $state<TeaType>(initialState.order);
 	money = $state(initialState.money);
-	boughtShopItems = $state<string[]>([]);
+	boughtShopItems = $state<ShopItemId[]>([]);
 	createdAt = new Date();
 	updatedAt = new Date();
 
@@ -144,15 +145,23 @@ class GameState {
 		this.boughtShopItems = savefile.boughtShopItems ?? [];
 	}
 
-	buy(item: { id: string; price: number }) {
-		if (this.money < item.price) return false;
-		if (this.hasBought(item.id)) return false;
-		this.money -= item.price;
-		this.boughtShopItems.push(item.id);
+	buy(id: ShopItemId, price: number) {
+		if (this.money < price) return false;
+		if (this.hasBought(id)) return false;
+		this.money -= price;
+		this.boughtShopItems.push(id);
 	}
 
 	hasBought(shopItemId: string) {
-		return this.boughtShopItems.includes(shopItemId);
+		return (this.boughtShopItems as string[]).includes(shopItemId);
+	}
+
+	get boughtTeaIds() {
+		// we're checking existence. TS is a bit too strict here so we silence it with as keyof... even though it's definitely incorrect.
+		const boughtShopItemIds = this.boughtShopItems.filter(
+			(i) => !!shopItemsTeaMap[i as keyof typeof shopItemsTeaMap]
+		) as (keyof typeof shopItemsTeaMap)[];
+		return boughtShopItemIds.map((x) => x.split('tea_')[1] as TeaType);
 	}
 }
 

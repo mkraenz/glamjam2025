@@ -5,6 +5,7 @@ export type TeaData = {
 	fluid: TeaType;
 	tKey: `teas__${TeaType}`;
 	tKeyShort: `teas__${TeaType}_short`;
+	price: number;
 } & TeaRenderData;
 
 export type TeaRenderData = {
@@ -12,6 +13,12 @@ export type TeaRenderData = {
 };
 
 export type ShopItem = {
-	type: 'simple';
-	value: boolean;
+	id: string;
+	type: 'tea' | 'modifier' | 'stickers';
+	// TODO instead use labelTKey, descriptionTKey, imgAltTKey
+	label: string;
+	description: string;
+	imgSrc: string;
+	imgAlt: string;
+	price: number;
 };

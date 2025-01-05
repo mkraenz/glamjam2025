@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
+	import { shopItemDataArray, type ShopItemId } from '$lib/state/shop-items.data';
 	import DefaultAppbar from '../../../components/common/DefaultAppbar.svelte';
 	import NextButton from '../../../components/common/NextButton.svelte';
 	import Main from '../../../components/layout/Main.svelte';
@@ -9,48 +10,23 @@
 	let { next }: Props = $props();
 	const game = getGameStateContext();
 	const products: Product[] = $derived(
-		[
-			{
-				id: 'elephant-stickers',
-				imgAlt: 'Elephant stickers',
-				imgSrc: 'icons/laugh-256x256.png',
-				label: 'Elephant Stickers',
-				description: 'Stickers with Elephant motive to decorate your Bubble Tea cups.',
-				price: 10
-			},
-			{
-				id: 'name-stickers',
-				imgAlt: 'Name stickers',
-				imgSrc: 'icons/laugh-256x256.png',
-				label: 'Name Stickers',
-				description: 'Stickers with your name to decorate your Bubble Tea cups.',
-				price: 15
-			},
-			{
-				id: 'perfectionist',
-				imgAlt: 'Perfectionist product icon',
-				imgSrc: 'icons/laugh-256x256.png',
-				label: 'Perfectionist',
-				description: 'Challenge yourself by disallowing any mistakes when making Bubble Tea.',
-				price: 5
-			}
-		].map((item) => ({
+		shopItemDataArray.map((item) => ({
 			...item,
+			id: item.id as ShopItemId,
 			soldOut: game.hasBought(item.id)
 		}))
 	);
-	$inspect(game.boughtShopItems);
-	function onBuy(id: string) {
+	function onBuy(id: ShopItemId) {
 		const item = products.find((product) => product.id === id);
 		if (!item) return;
 		if (game.money < item.price) return;
-		game.buy(item);
+		game.buy(item.id, item.price);
 	}
 </script>
 
 <DefaultAppbar />
 
-<Main>
+<Main gap={'2rem'}>
 	<h1>Welcome, take a good look around.</h1>
 	<ProductGrid items={products} {onBuy} />
 

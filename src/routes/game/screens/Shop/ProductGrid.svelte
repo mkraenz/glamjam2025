@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { ShopItemId } from '$lib/state/shop-items.data';
 	import MoneyInline from '../../../components/common/MoneyInline.svelte';
 
 	export type Product = {
-		id: string;
+		id: ShopItemId;
 		label: string;
 		description: string;
 		imgSrc: string;
@@ -10,7 +11,7 @@
 		soldOut?: boolean;
 		price: number;
 	};
-	type Props = { items: Product[]; onBuy: (id: string) => void };
+	type Props = { items: Product[]; onBuy: (id: ShopItemId) => void };
 	let { items, onBuy }: Props = $props();
 </script>
 
@@ -86,8 +87,8 @@
 		.product-grid {
 			grid-template-columns: repeat(3, 1fr);
 			grid-template-rows: repeat(4, min-content);
-			grid-column-gap: 1rem;
-			grid-row-gap: 1rem;
+			grid-column-gap: 2rem;
+			grid-row-gap: 4rem;
 		}
 	}
 </style>
