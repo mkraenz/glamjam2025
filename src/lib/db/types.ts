@@ -17,6 +17,7 @@ export type DbGame = {
 	money: number;
 	updatedAt: Date;
 	createdAt: Date;
+	boughtShopItems?: string[];
 };
 
 export type MyDexie = Dexie & {

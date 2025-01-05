@@ -19,6 +19,7 @@
 </script>
 
 <Main>
+	<h1>A New Customer</h1>
 	<p>Hi, I'd like a cup of</p>
 	<h2 class="h2-emphasis">{m[orderedItem.tKey]()}</h2>
 	<NextButton onEnterKeyPressed={onclick} {onclick} text="Coming right up!" />

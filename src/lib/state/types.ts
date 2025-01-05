@@ -10,3 +10,8 @@ export type TeaData = {
 export type TeaRenderData = {
 	fluidColor: string;
 };
+
+export type ShopItem = {
+	type: 'simple';
+	value: boolean;
+};

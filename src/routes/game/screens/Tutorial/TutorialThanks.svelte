@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
 	import { onMount } from 'svelte';
-	import NextButton from '../../components/common/NextButton.svelte';
-	import Main from '../../components/layout/Main.svelte';
-	import DefaultAppbar from '../../components/common/DefaultAppbar.svelte';
-	import MoneyInline from '../../components/common/MoneyInline.svelte';
+	import NextButton from '../../../components/common/NextButton.svelte';
+	import Main from '../../../components/layout/Main.svelte';
+	import MoneyInline from '../../../components/common/MoneyInline.svelte';
 	import * as m from '$lib/paraglide/messages';
 	import { teaDataMap } from '$lib/state/teas.data';
+	import Appbar from '../../../components/layout/Appbar.svelte';
+	import Money from '../../../components/common/Money.svelte';
 
 	type Props = { next: Page };
 	let { next }: Props = $props();
@@ -18,7 +19,11 @@
 	onMount(() => (game.money += price));
 </script>
 
-<DefaultAppbar animateIn />
+<Appbar animateIn>
+	{#snippet main()}
+		<Money animateJiggle />
+	{/snippet}
+</Appbar>
 
 <Main>
 	<h2>Thanks a lot!</h2>
@@ -32,6 +37,6 @@
 	<NextButton
 		onclick={() => game.navigate(next)}
 		onEnterKeyPressed={() => game.navigate(next)}
-		text="Thank you!"
+		text="Thank you, Brandon!"
 	/>
 </Main>

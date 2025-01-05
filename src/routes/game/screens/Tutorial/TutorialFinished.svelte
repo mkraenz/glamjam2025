@@ -17,8 +17,8 @@
 <Main>
 	<p>Well, you obviously got this business figured out. I'll leave you to it then.</p>
 	<p>
-		I've gotta go now. I will be <span class="inline-emphasis">back tomorrow</span> for more
-		delicious Bubble Tea. Thanks{#if game.name}, {game.name}{/if}!
+		I gotta go now. I will be <span class="inline-emphasis">back tomorrow</span> for more delicious
+		Bubble Tea. Thanks{#if game.name}, {game.name}{/if}!
 	</p>
 	<NextButton {onclick} onEnterKeyPressed={onclick} text="Bye, Brandon!" />
 </Main>

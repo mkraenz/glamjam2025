@@ -1,3 +1,4 @@
+import { browser } from '$app/environment';
 import Dexie from 'dexie';
 import { DexieORM } from './dexie-orm';
 import type { MyDexie } from './types';
@@ -10,4 +11,5 @@ dexie.version(1).stores({
 });
 
 const db = new DexieORM(dexie);
+if (browser) (window as any).db = db;
 export default db;

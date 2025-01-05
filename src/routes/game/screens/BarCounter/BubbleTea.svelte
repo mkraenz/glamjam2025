@@ -13,6 +13,12 @@
 		teaData: TeaRenderData;
 	};
 	let { lid, cup, straw, tapioca, tea, strawColor, teaData }: Props = $props();
+	let wobbling = $state(false);
+	let readyToServe = $derived(lid && cup && straw && tapioca && tea);
+	$effect(() => {
+		// css doesn't provide a way to delay an animation and also start at a specific point in the replay timeline, hence solving the delay in js, while the 'search' is in css
+		if (readyToServe) setTimeout(() => (wobbling = true), 500);
+	});
 	// const {
 	// 	lid = true,
 	// 	cup = true,
@@ -24,7 +30,7 @@
 	// } = {} as Props;
 </script>
 
-<div style:--fluid-color={teaData.fluidColor}>
+<div style:--fluid-color={teaData.fluidColor} class="wobble" class:animated={wobbling}>
 	<div class="lid" class:transparent={!lid} class:lid-falling={lid}>
 		<div
 			class="straw"
@@ -193,6 +199,26 @@
 		}
 		100% {
 			transform: translateX(0vw) perspective(10px) rotateX(-1deg);
+		}
+	}
+	@media (min-width: 640px) {
+		.animated.wobble {
+			--duration: 3s;
+			transform-origin: bottom center;
+			animation: animate-wobble var(--duration) infinite ease-in-out;
+			animation-delay: calc(-1 * var(--duration) * 0.25);
+		}
+	}
+
+	@keyframes animate-wobble {
+		0% {
+			transform: rotate(15deg);
+		}
+		50% {
+			transform: rotate(-15deg);
+		}
+		100% {
+			transform: rotate(15deg);
 		}
 	}
 </style>

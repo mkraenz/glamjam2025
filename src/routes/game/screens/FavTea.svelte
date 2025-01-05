@@ -17,7 +17,7 @@
 </script>
 
 <Main>
-	<h2>And what's your favorite Bubble Tea?</h2>
+	<h2>And what's your favorite Bubble Tea flavor?</h2>
 	<p>The most delicious Bubble Tea is</p>
 	<group class="hstack">
 		{#each teaDataArray as tea}

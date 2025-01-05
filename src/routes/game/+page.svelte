@@ -21,6 +21,8 @@
 	import LoadingScreen from './screens/LoadingScreen.svelte';
 	import { getMetaContext } from '$lib/state/MetaContext.svelte';
 	import { onMount } from 'svelte';
+	import Shop from './screens/Shop/Shop.svelte';
+	import TutorialThanks from './screens/Tutorial/TutorialThanks.svelte';
 
 	let visited = $state(false);
 	const game = getGameStateContext();
@@ -57,18 +59,18 @@
 	{#if page === 'tutorialFailed'}<TutorialFailed next="backToBusiness" />{/if}
 	{#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
 	{#if page === 'barCounter'}<BarCounter
-			nextGood="thanks"
+			nextGood={game.tutorialCompleted ? 'thanks' : 'tutorialThanks'}
 			nextBad={game.tutorialCompleted ? 'customerLeaves' : 'tutorialFailed'}
 		/>{/if}
-	{#if page === 'thanks'}<Thanks
-			next={game.tutorialCompleted ? 'whatToDo' : 'tutorialFinished'}
-		/>{/if}
+	{#if page === 'tutorialThanks'}<TutorialThanks next={'tutorialFinished'} />{/if}
+	{#if page === 'thanks'}<Thanks next={'whatToDo'} />{/if}
 	{#if page === 'tutorialFinished'}<TutorialFinished next="whatToDo" />{/if}
 	{#if page === 'whatToDo'}<WhatToDo
 			makeTea="newCustomerOrder"
 			design="backToBusiness"
-			shop="backToBusiness"
+			shop="shop"
 		/>{/if}
 	{#if page === 'newCustomerOrder'}<NewCustomerOrder next="barCounter" />{/if}
 	{#if page === 'customerLeaves'}<CustomerLeaves next="whatToDo" />{/if}
+	{#if page === 'shop'}<Shop next="whatToDo" />{/if}
 {/if}

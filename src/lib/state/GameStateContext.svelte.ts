@@ -50,8 +50,10 @@ export type Page =
 	| 'customerLeaves'
 	| 'thanks'
 	| 'tutorialFinished'
+	| 'tutorialThanks'
 	| 'tutorialFailed'
 	| 'newCustomerOrder'
+	| 'shop'
 	| 'iAmBusy';
 
 class GameState {
@@ -64,6 +66,7 @@ class GameState {
 	tutorialCompleted = $state(initialState.tutorialCompleted);
 	order = $state<TeaType>(initialState.order);
 	money = $state(initialState.money);
+	boughtShopItems = $state<string[]>([]);
 	createdAt = new Date();
 	updatedAt = new Date();
 
@@ -92,6 +95,7 @@ class GameState {
 		this.money = initialState.money;
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
+		this.boughtShopItems = [];
 	}
 
 	navigate(to: Page) {
@@ -120,7 +124,8 @@ class GameState {
 			tutorialCompleted: this.tutorialCompleted,
 			createdAt: this.createdAt,
 			updatedAt: this.updatedAt,
-			money: this.money
+			money: this.money,
+			boughtShopItems: $state.snapshot(this.boughtShopItems)
 		};
 	}
 
@@ -136,6 +141,18 @@ class GameState {
 		this.createdAt = savefile.createdAt;
 		this.updatedAt = savefile.updatedAt;
 		this.money = savefile.money;
+		this.boughtShopItems = savefile.boughtShopItems ?? [];
+	}
+
+	buy(item: { id: string; price: number }) {
+		if (this.money < item.price) return false;
+		if (this.hasBought(item.id)) return false;
+		this.money -= item.price;
+		this.boughtShopItems.push(item.id);
+	}
+
+	hasBought(shopItemId: string) {
+		return this.boughtShopItems.includes(shopItemId);
 	}
 }
 
