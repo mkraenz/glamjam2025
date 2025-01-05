@@ -1,9 +1,10 @@
+import { browser } from '$app/environment';
 import type { DbGame } from '$lib/db/types';
 import { sample } from '$lib/utils/random';
 import { getContext, setContext } from 'svelte';
 import { SvelteDate } from 'svelte/reactivity';
 import { shopItemsTeaMap, type ShopItemId } from './shop-items.data';
-import { teaDataArray } from './teas.data';
+import { teaDataArray, teaDataMap } from './teas.data';
 import type { TeaType } from './types';
 
 export const fallback = {
@@ -18,7 +19,7 @@ export const initialState = {
 	skipTutorial: false,
 	page: 'theNewOwner',
 	favTea: 'strawberry',
-	order: 'lychee',
+	order: 'strawberry',
 	tutorialCompleted: false,
 	money: 0
 } as {
@@ -54,6 +55,7 @@ export type Page =
 	| 'tutorialThanks'
 	| 'tutorialFailed'
 	| 'newCustomerOrder'
+	| 'menuBoard'
 	| 'shop'
 	| 'iAmBusy';
 
@@ -100,6 +102,7 @@ class GameState {
 	}
 
 	navigate(to: Page) {
+		if (!to) throw new Error('Cannot navigate game to a falsy target page');
 		this.page = to;
 	}
 
@@ -163,11 +166,17 @@ class GameState {
 		) as (keyof typeof shopItemsTeaMap)[];
 		return boughtShopItemIds.map((x) => x.split('tea_')[1] as TeaType);
 	}
+
+	get boughtTeas() {
+		return this.boughtTeaIds.map((id) => teaDataMap[id]);
+	}
 }
 
 const key = Symbol('GameState');
 export function setGameStateContext(initialPage: Page = initialState.page, initialOrder?: TeaType) {
-	return setContext(key, new GameState(initialPage, initialOrder));
+	const game = new GameState(initialPage, initialOrder);
+	if (browser) (window as any).game = game;
+	return setContext(key, game);
 }
 export function getGameStateContext() {
 	return getContext(key) as ReturnType<typeof setGameStateContext>;

@@ -16,6 +16,7 @@
 <style>
 	.money-icon-sm {
 		height: 2ch;
+		padding-right: 0.25rem;
 	}
 	.money-icon-lg {
 		height: 4ch;

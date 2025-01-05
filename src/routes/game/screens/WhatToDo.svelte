@@ -5,13 +5,13 @@
 	import NextButton from '../../components/common/NextButton.svelte';
 	import Main from '../../components/layout/Main.svelte';
 
-	type Props = { makeTea: Page; design: Page; shop: Page };
-	let { makeTea, design, shop }: Props = $props();
+	type Props = { makeTea: Page; design: Page; shop: Page; menuBoard: Page };
+	let { makeTea, design, shop, menuBoard }: Props = $props();
 	const game = getGameStateContext();
 </script>
 
 <DefaultAppbar animateOut />
-<Main>
+<Main justifyContent="space-around">
 	<h2 class="lonely-heading">What would you like to do?</h2>
 	<group class="hstack">
 		<NextButton
@@ -24,17 +24,9 @@
 			onEnterKeyPressed={() => game.navigate(design)}
 			text="Design"
 		/> -->
-		<NextButton
-			onclick={() => game.navigate(shop)}
-			onEnterKeyPressed={() => game.navigate(shop)}
-			text="Shopping"
-		/>
-		<NextButton
-			classes="outline"
-			onclick={() => goto('/')}
-			onEnterKeyPressed={() => goto('/')}
-			text="Call it a day"
-		/>
+		<NextButton onclick={() => game.navigate(shop)} text="Shopping" />
+		<NextButton onclick={() => game.navigate(menuBoard)} text="Menu Board" />
+		<NextButton classes="outline" onclick={() => goto('/')} text="Call it a day" />
 	</group>
 </Main>
 

@@ -23,6 +23,7 @@
 	import { onMount } from 'svelte';
 	import Shop from './screens/Shop/Shop.svelte';
 	import TutorialThanks from './screens/Tutorial/TutorialThanks.svelte';
+	import MenuBoard from './screens/MenuBoard.svelte';
 
 	let visited = $state(false);
 	const game = getGameStateContext();
@@ -69,7 +70,9 @@
 			makeTea="newCustomerOrder"
 			design="backToBusiness"
 			shop="shop"
+			menuBoard="menuBoard"
 		/>{/if}
+	{#if page === 'menuBoard'}<MenuBoard next="whatToDo" />{/if}
 	{#if page === 'newCustomerOrder'}<NewCustomerOrder next="barCounter" />{/if}
 	{#if page === 'customerLeaves'}<CustomerLeaves next="whatToDo" />{/if}
 	{#if page === 'shop'}<Shop next="whatToDo" />{/if}

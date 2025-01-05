@@ -132,7 +132,8 @@ h6,
 p,
 button,
 li,
-a {
+a,
+div {
 	user-select: none;
 }
 

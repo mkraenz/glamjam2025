@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
+	import { fallback, getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
 	import Brandon from '../../components/chars/Brandon.svelte';
 	import NextButton from '../../components/common/NextButton.svelte';
 	import Main from '../../components/layout/Main.svelte';
@@ -10,6 +10,7 @@
 
 	function skipIntro() {
 		game.skipTutorial = true;
+		game.name = fallback.name;
 		game.buy(`tea_${game.order}`, 0);
 		game.navigate(skip);
 	}
