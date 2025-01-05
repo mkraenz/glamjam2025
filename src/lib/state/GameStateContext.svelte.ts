@@ -7,7 +7,8 @@ import {
 	shopItemDataMap,
 	shopItemsTeaMap,
 	type MenuBoardLogoShopItemId,
-	type ShopItemId
+	type ShopItemId,
+	type StickerShopItemId
 } from './shop-items.data';
 import { teaDataArray, teaDataMap } from './teas.data';
 import type { TeaType } from './types';
@@ -78,6 +79,7 @@ class GameState {
 	createdAt = new Date();
 	updatedAt = new Date();
 	activeMenuBoardLogo = $state<MenuBoardLogoShopItemId>();
+	activeSticker = $state<StickerShopItemId>();
 
 	#stopwatchStart = new SvelteDate();
 	#stopwatchEnd = new SvelteDate();
@@ -137,7 +139,8 @@ class GameState {
 			updatedAt: this.updatedAt,
 			money: this.money,
 			boughtShopItems: $state.snapshot(this.boughtShopItems),
-			activeMenuBoardLogo: this.activeMenuBoardLogo
+			activeMenuBoardLogo: this.activeMenuBoardLogo,
+			activeSticker: this.activeSticker
 		};
 	}
 
@@ -155,6 +158,7 @@ class GameState {
 		this.money = savefile.money;
 		this.boughtShopItems = savefile.boughtShopItems ?? [];
 		this.activeMenuBoardLogo = savefile.activeMenuBoardLogo;
+		this.activeSticker = savefile.activeSticker;
 	}
 
 	buy(id: ShopItemId, price?: number) {
@@ -168,6 +172,8 @@ class GameState {
 		switch (data.type) {
 			case 'menuBoardLogo':
 				this.activeMenuBoardLogo = id as MenuBoardLogoShopItemId;
+			case 'stickers':
+				this.activeSticker = id as StickerShopItemId;
 		}
 	}
 
@@ -195,6 +201,16 @@ class GameState {
 		if (item.type === 'menuBoardLogo') {
 			this.activeMenuBoardLogo = item.id as MenuBoardLogoShopItemId;
 		}
+	}
+
+	get activeMenuBoardLogoShopItem() {
+		if (!this.activeMenuBoardLogo) return undefined;
+		return this.getBoughtItem(this.activeMenuBoardLogo);
+	}
+
+	get activeStickerShopItem() {
+		if (!this.activeSticker) return undefined;
+		return this.getBoughtItem(this.activeSticker);
 	}
 
 	get boughtTeaIds() {

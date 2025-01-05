@@ -11,8 +11,9 @@
 		lid: boolean;
 		strawColor?: string;
 		teaData: TeaRenderData;
+		logoSrc?: string;
 	};
-	let { lid, cup, straw, tapioca, tea, strawColor, teaData }: Props = $props();
+	let { lid, cup, straw, tapioca, tea, strawColor, teaData, logoSrc }: Props = $props();
 	let wobbling = $state(false);
 	let readyToServe = $derived(lid && cup && straw && tapioca && tea);
 	$effect(() => {
@@ -26,7 +27,8 @@
 	// 	tapioca = true,
 	// 	strawColor = 'pink',
 	// 	tea = 'taro',
-	// 	teaData = teaDataMap[tea || 'classic']
+	// 	teaData = teaDataMap[tea || 'classic'],
+	//  logoSrc = '/icons/laugh-256x256.png'
 	// } = {} as Props;
 </script>
 
@@ -40,6 +42,9 @@
 		></div>
 	</div>
 	<div class="cup" class:transparent={!cup} class:cup-appearing={cup}>
+		{#if logoSrc}
+			<img src={logoSrc} class="logo" alt="logo" style:--favorite-color={'pink'} />
+		{/if}
 		<div class="milk-tea tapioca-pearls" class:transparent={!tapioca}>
 			{#each range(32)}
 				<div class="tapioca" class:tapioca-falling={tapioca}></div>
@@ -56,6 +61,13 @@
 
 <style lang="scss">
 	@use 'sass:math';
+	.logo {
+		scale: 0.5;
+		background-color: var(--favorite-color);
+		border-radius: 50%;
+		padding: 1rem;
+		opacity: 0.8;
+	}
 
 	.milk-tea.tapioca-pearls {
 		--tea-fill: 1;

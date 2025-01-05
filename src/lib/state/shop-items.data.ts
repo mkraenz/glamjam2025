@@ -60,15 +60,15 @@ export const shopItemsTeaMap: Record<`tea_${keyof typeof teaDataMap}`, ShopItem>
 };
 export const shopItemDataMap = {
 	...shopItemsTeaMap,
-	// elephant_stickers: {
-	// 	id: 'elephant_stickers',
-	// 	type: 'stickers',
-	// 	imgAlt: 'Elephant stickers',
-	// 	imgSrc: LaughTea,
-	// 	label: 'Elephant Stickers',
-	// 	description: 'Stickers with Elephant motive to decorate your Bubble Tea cups.',
-	// 	price: 10
-	// },
+	elephant_stickers: {
+		id: 'elephant_stickers',
+		type: 'stickers',
+		imgAlt: 'Elephant stickers',
+		imgSrc: 'icons/laugh-256x256.png',
+		label: 'Elephant Stickers',
+		description: 'Stickers with Elephant motive to decorate your Bubble Tea cups.',
+		price: 10
+	},
 	// name_stickers: {
 	// 	id: 'name_stickers',
 	// 	type: 'stickers',
@@ -122,4 +122,9 @@ export type ShopItemId = keyof typeof shopItemDataMap;
 export type MenuBoardLogoShopItemId = Extract<
 	(typeof shopItemDataMap)[keyof typeof shopItemDataMap],
 	{ type: 'menuBoardLogo' }
+>['id'];
+
+export type StickerShopItemId = Extract<
+	(typeof shopItemDataMap)[keyof typeof shopItemDataMap],
+	{ type: 'stickers' }
 >['id'];
