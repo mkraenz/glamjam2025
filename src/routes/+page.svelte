@@ -1,5 +1,6 @@
 <script lang="ts">
 	import * as m from '$lib/paraglide/messages';
+	import { goto } from '$app/navigation';
 	import { fade } from 'svelte/transition';
 	import BgmOnOff from './BgmOnOff.svelte';
 	import Bubbles from './Bubbles.svelte';
@@ -18,7 +19,7 @@
 		}
 	}
 	function startGame() {
-		window.location.href = '/game';
+		goto('/game');
 	}
 </script>
 

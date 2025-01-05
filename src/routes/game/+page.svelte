@@ -20,11 +20,16 @@
 	import YourName from './screens/YourName.svelte';
 	import LoadingScreen from './screens/LoadingScreen.svelte';
 	import { getMetaContext } from '$lib/state/MetaContext.svelte';
+	import { onMount } from 'svelte';
 
+	let visited = $state(false);
 	const game = getGameStateContext();
 	const meta = getMetaContext();
 	let page = $derived(game.page);
 
+	onMount(() => {
+		setTimeout(() => (visited = true), 1200);
+	});
 	$effect(() => {
 		async function updateSavefile(data: DbGame) {
 			if (!data.id) return;
@@ -35,7 +40,7 @@
 	});
 </script>
 
-{#if !meta.savefileExists}
+{#if !meta.savefileExists || !visited}
 	<LoadingScreen />
 {:else}
 	{#if page === 'theNewOwner'}<TheNewOwner next="yourName" skip="backToBusiness" />{/if}
