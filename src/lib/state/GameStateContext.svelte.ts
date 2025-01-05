@@ -3,7 +3,12 @@ import type { DbGame } from '$lib/db/types';
 import { sample } from '$lib/utils/random';
 import { getContext, setContext } from 'svelte';
 import { SvelteDate } from 'svelte/reactivity';
-import { shopItemsTeaMap, type ShopItemId } from './shop-items.data';
+import {
+	shopItemDataMap,
+	shopItemsTeaMap,
+	type MenuBoardLogoShopItemId,
+	type ShopItemId
+} from './shop-items.data';
 import { teaDataArray, teaDataMap } from './teas.data';
 import type { TeaType } from './types';
 
@@ -72,6 +77,7 @@ class GameState {
 	boughtShopItems = $state<ShopItemId[]>([]);
 	createdAt = new Date();
 	updatedAt = new Date();
+	activeMenuBoardLogo = $state<MenuBoardLogoShopItemId>();
 
 	#stopwatchStart = new SvelteDate();
 	#stopwatchEnd = new SvelteDate();
@@ -99,6 +105,7 @@ class GameState {
 		this.createdAt = new Date();
 		this.updatedAt = new Date();
 		this.boughtShopItems = [];
+		this.activeMenuBoardLogo = undefined;
 	}
 
 	navigate(to: Page) {
@@ -129,7 +136,8 @@ class GameState {
 			createdAt: this.createdAt,
 			updatedAt: this.updatedAt,
 			money: this.money,
-			boughtShopItems: $state.snapshot(this.boughtShopItems)
+			boughtShopItems: $state.snapshot(this.boughtShopItems),
+			activeMenuBoardLogo: this.activeMenuBoardLogo
 		};
 	}
 
@@ -146,17 +154,47 @@ class GameState {
 		this.updatedAt = savefile.updatedAt;
 		this.money = savefile.money;
 		this.boughtShopItems = savefile.boughtShopItems ?? [];
+		this.activeMenuBoardLogo = savefile.activeMenuBoardLogo;
 	}
 
-	buy(id: ShopItemId, price: number) {
-		if (this.money < price) return false;
+	buy(id: ShopItemId, price?: number) {
+		const data = shopItemDataMap[id];
+		const usedPrice = price ?? data.price;
+		if (this.money < usedPrice) return false;
 		if (this.hasBought(id)) return false;
-		this.money -= price;
+		this.money -= usedPrice;
 		this.boughtShopItems.push(id);
+
+		switch (data.type) {
+			case 'menuBoardLogo':
+				this.activeMenuBoardLogo = id as MenuBoardLogoShopItemId;
+		}
 	}
 
-	hasBought(shopItemId: string) {
+	hasBought(shopItemId: ShopItemId) {
 		return (this.boughtShopItems as string[]).includes(shopItemId);
+	}
+
+	getItemState(shopItemId: ShopItemId): 'active' | 'inactive' | 'sold' | 'for sale' {
+		if (!this.hasBought(shopItemId)) return 'for sale';
+		const item = shopItemDataMap[shopItemId];
+		if (item.type === 'menuBoardLogo')
+			return this.activeMenuBoardLogo === shopItemId ? 'active' : 'inactive';
+		return 'sold';
+	}
+
+	getBoughtItem(shopItemId: ShopItemId | undefined) {
+		if (!shopItemId || !this.hasBought(shopItemId)) return undefined;
+		const item = shopItemDataMap[shopItemId];
+		return { ...item, state: this.getItemState(shopItemId), id: shopItemId };
+	}
+
+	activate(shopItemId: ShopItemId) {
+		const item = this.getBoughtItem(shopItemId);
+		if (!item) return;
+		if (item.type === 'menuBoardLogo') {
+			this.activeMenuBoardLogo = item.id as MenuBoardLogoShopItemId;
+		}
 	}
 
 	get boughtTeaIds() {

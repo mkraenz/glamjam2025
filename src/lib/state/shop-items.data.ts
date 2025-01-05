@@ -64,7 +64,7 @@ export const shopItemDataMap = {
 	// 	id: 'elephant_stickers',
 	// 	type: 'stickers',
 	// 	imgAlt: 'Elephant stickers',
-	// 	imgSrc: 'icons/laugh-256x256.png',
+	// 	imgSrc: LaughTea,
 	// 	label: 'Elephant Stickers',
 	// 	description: 'Stickers with Elephant motive to decorate your Bubble Tea cups.',
 	// 	price: 10
@@ -73,22 +73,53 @@ export const shopItemDataMap = {
 	// 	id: 'name_stickers',
 	// 	type: 'stickers',
 	// 	imgAlt: 'Name stickers',
-	// 	imgSrc: 'icons/laugh-256x256.png',
+	// 	imgSrc: LaughTea,
 	// 	label: 'Name Stickers',
 	// 	description: 'Stickers with your name to decorate your Bubble Tea cups.',
 	// 	price: 15
 	// },
-	perfectionist: {
-		id: 'perfectionist',
-		type: 'modifier',
+	// perfectionist: {
+	// 	id: 'perfectionist',
+	// 	type: 'modifier',
+	// 	imgAlt: 'Perfectionist product icon',
+	// 	imgSrc: LaughTea,
+	// 	label: 'Perfectionist',
+	// 	description: 'Challenge yourself by disallowing any mistakes when making Bubble Tea.',
+	// 	price: 5
+	// }
+	menu_board_logo_happy: {
+		id: 'menu_board_logo_happy',
+		type: 'menuBoardLogo',
 		imgAlt: 'Perfectionist product icon',
+		imgSrc: 'icons/happy-256x256.png',
+		label: 'Happy Menu Board Logo',
+		description: 'Decorate your menu board with this cute logo.',
+		price: 10
+	},
+	menu_board_logo_bear: {
+		id: 'menu_board_logo_bear',
+		type: 'menuBoardLogo',
+		imgAlt: 'Bubble Tea in bear form icon',
+		imgSrc: 'icons/bear-256x256.png',
+		label: 'Bear Menu Board Logo',
+		description: 'Decorate your menu board with this cute logo.',
+		price: 15
+	},
+	menu_board_logo_laugh: {
+		id: 'menu_board_logo_laugh',
+		type: 'menuBoardLogo',
+		imgAlt: 'Bubble Tea with laughing face icon',
 		imgSrc: 'icons/laugh-256x256.png',
-		label: 'Perfectionist',
-		description: 'Challenge yourself by disallowing any mistakes when making Bubble Tea.',
-		price: 5
+		label: 'Laugh Menu Board Logo',
+		description: 'Decorate your menu board with this cute logo.',
+		price: 10
 	}
 } as const satisfies Record<string, ShopItem>;
 
 export const shopItemDataArray = Object.values(shopItemDataMap) as ShopItem[];
 
 export type ShopItemId = keyof typeof shopItemDataMap;
+export type MenuBoardLogoShopItemId = Extract<
+	(typeof shopItemDataMap)[keyof typeof shopItemDataMap],
+	{ type: 'menuBoardLogo' }
+>['id'];

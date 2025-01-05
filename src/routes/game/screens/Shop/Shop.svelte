@@ -10,17 +10,20 @@
 	let { next }: Props = $props();
 	const game = getGameStateContext();
 	const products: Product[] = $derived(
-		shopItemDataArray.map((item) => ({
-			...item,
-			id: item.id as ShopItemId,
-			soldOut: game.hasBought(item.id)
-		}))
+		shopItemDataArray.map(
+			(item) =>
+				game.getBoughtItem(item.id as ShopItemId) ?? {
+					...item,
+					state: 'for sale',
+					id: item.id as ShopItemId
+				}
+		)
 	);
-	function onBuy(id: ShopItemId) {
+	function onSelect(id: ShopItemId) {
 		const item = products.find((product) => product.id === id);
 		if (!item) return;
-		if (game.money < item.price) return;
-		game.buy(item.id, item.price);
+		if (game.hasBought(id)) game.activate(id);
+		else game.buy(item.id);
 	}
 </script>
 
@@ -28,7 +31,7 @@
 
 <Main gap={'2rem'}>
 	<h1>Welcome, take a good look around.</h1>
-	<ProductGrid items={products} {onBuy} />
+	<ProductGrid items={products} {onSelect} />
 
 	<NextButton
 		onclick={() => game.navigate(next)}

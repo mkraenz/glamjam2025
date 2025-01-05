@@ -10,13 +10,14 @@
 
 <Main>
 	<p>Wow, really!?</p>
-	<input class="bg-default" type="color" value={game.favColor} disabled />
+	<input type="color" value={game.favColor} disabled />
 	<p>is my favorite color, too! You're amazing. We should hang out together one of these days.</p>
 
 	<NextButton onclick={() => game.navigate(next)} onEnterKeyPressed={() => game.navigate(next)} />
 
 	<style>
-		input:disabled {
+		/* need really high specificity to overwrite picos disabled style */
+		input[type='color'][disabled] {
 			opacity: 1;
 		}
 	</style>

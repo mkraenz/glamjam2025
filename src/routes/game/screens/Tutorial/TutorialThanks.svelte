@@ -15,7 +15,7 @@
 	function formatSecs(ms: number) {
 		return (ms / 1000).toFixed(2);
 	}
-	const price = 5;
+	const price = teaDataMap[game.order].price;
 	onMount(() => (game.money += price));
 </script>
 
@@ -27,13 +27,13 @@
 
 <Main>
 	<h2>Thanks a lot!</h2>
-	{#if game.name}<p>You're the best, {game.name}</p>{/if}
+	{#if game.name}<p>You're the best, {game.name}.</p>{/if}
 	<p>
 		And it took you only <span class="inline-emphasis">{formatSecs(game.stopwatchMs)} seconds</span
 		>.
 	</p>
 	<p>Wow, this Bubble Tea is amazing! You're really good at this.</p>
-	<p>Here's the <MoneyInline amount={price} /> for the Bubble Tea.</p>
+	<p>Here's the <MoneyInline amount={price} /> for the {m[teaDataMap[game.order].tKey]()}..</p>
 	<NextButton
 		onclick={() => game.navigate(next)}
 		onEnterKeyPressed={() => game.navigate(next)}

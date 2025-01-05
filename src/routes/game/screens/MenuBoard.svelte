@@ -4,8 +4,6 @@
 	import Main from '../../components/layout/Main.svelte';
 	import MoneyInline from '../../components/common/MoneyInline.svelte';
 	import * as m from '$lib/paraglide/messages';
-	import Money from '../../components/common/Money.svelte';
-	import Appbar from '../../components/layout/Appbar.svelte';
 
 	type Props = { next: Page };
 	let { next }: Props = $props();
@@ -13,6 +11,7 @@
 	let menuItems = $derived(game.boughtTeas);
 
 	let shopName = $derived(`${game.name}'s Bubble Tea Paradise`);
+	let logo = $derived(game.getBoughtItem(game.activeMenuBoardLogo));
 </script>
 
 <Main justifyContent="space-between">
@@ -30,12 +29,14 @@
 				</div>
 			{/each}
 		</div>
-		<img
-			src="/icons/laugh-256x256.png"
-			class="menu-logo"
-			alt={`company logo of ${shopName}`}
-			style:--favorite-color={game.favColor}
-		/>
+		{#if game.activeMenuBoardLogo}
+			<img
+				src={logo?.imgSrc}
+				class="menu-logo"
+				alt={`logo of ${shopName}`}
+				style:--favorite-color={game.favColor}
+			/>
+		{/if}
 	</div>
 	<NextButton onEnterKeyPressed={() => game.navigate(next)} onclick={() => game.navigate(next)} />
 </Main>
@@ -46,6 +47,7 @@
 		border: 4px solid var(--pico-color);
 		border-radius: 20px;
 		margin-bottom: 2rem;
+		box-shadow: 4px 4px 16px #00000088;
 	}
 	.menu-item {
 		border-radius: 20px;
@@ -62,6 +64,6 @@
 		padding: 1rem;
 		border: 3px solid var(--pico-color);
 		border-radius: 50%;
-		width: 50%;
+		width: 30%;
 	}
 </style>

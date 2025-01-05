@@ -32,6 +32,7 @@
 	--cursor-bear: url('/icons/cursors/bubble-tea-bear-24.png');
 	--cursor-laugh: url('/icons/cursors/bubble-tea-laugh-24.png');
 	cursor: var(--cursor-happy), auto;
+	overflow-x: hidden;
 
 	/* --pico-primary-hover-background: var(--pico-color-fuchsia-400);
 	--pico-primary-hover-background: var(--pico-color-fuchsia-400);
@@ -46,6 +47,8 @@
 button {
 	cursor: var(--cursor-bear), pointer;
 	/* background-color: var(--pico-color-fuchsia-300); */
+	/* unsure why but var(--pico-color) or pico-color-h2 don't work in this case */
+	--pico-button-box-shadow: 1px 1px 2px #373c44;
 }
 
 :where(a:not([role='button'])),
@@ -172,7 +175,7 @@ button:has(svg) {
 	justify-content: center;
 }
 
-.btw-miw {
+.btn-miw {
 	min-width: 180px;
 }
 

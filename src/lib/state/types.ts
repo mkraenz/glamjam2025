@@ -14,7 +14,7 @@ export type TeaRenderData = {
 
 export type ShopItem = {
 	id: string;
-	type: 'tea' | 'modifier' | 'stickers';
+	type: 'tea' | 'modifier' | 'stickers' | 'menuBoardLogo';
 	// TODO instead use labelTKey, descriptionTKey, imgAltTKey
 	label: string;
 	description: string;

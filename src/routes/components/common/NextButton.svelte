@@ -17,4 +17,4 @@
 
 <svelte:window {onkeyup} />
 
-<button {onclick} class={`btw-miw ${classes}`}>{text}</button>
+<button {onclick} class={`btn-miw ${classes}`}>{text}</button>

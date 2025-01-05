@@ -18,7 +18,7 @@
 <Main>
 	<h2>{m.gameover__heading()}</h2>
 	<p>{m.gameover__description()}</p>
-	<button class="btw-miw" {onclick}>
+	<button class="btn-miw" {onclick}>
 		{m.gameover__cta()}
 	</button>
 </Main>

@@ -1,6 +1,8 @@
 <script lang="ts">
-	type Props = { amount: number; size?: 'sm' | 'lg' };
-	let { amount, size = 'sm' }: Props = $props();
+	import * as m from '$lib/paraglide/messages';
+
+	type Props = { amount: number; size?: 'sm' | 'lg'; free?: boolean };
+	let { amount, size = 'sm', free = false }: Props = $props();
 </script>
 
 <span class="money-container">
@@ -10,7 +12,13 @@
 		class:money-icon-sm={size === 'sm'}
 		class:money-icon-lg={size === 'lg'}
 	/>
-	<span class:money-label-lg={size === 'lg'}> {new Intl.NumberFormat().format(amount)}.00</span>
+	<span class:money-label-lg={size === 'lg'}>
+		{#if free}
+			{m.common__free()}
+		{:else}
+			{new Intl.NumberFormat().format(amount)}.00
+		{/if}
+	</span>
 </span>
 
 <style>

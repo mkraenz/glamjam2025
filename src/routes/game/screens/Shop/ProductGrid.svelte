@@ -8,27 +8,37 @@
 		description: string;
 		imgSrc: string;
 		imgAlt: string;
-		soldOut?: boolean;
+		state: 'active' | 'inactive' | 'sold' | 'for sale';
 		price: number;
 	};
-	type Props = { items: Product[]; onBuy: (id: ShopItemId) => void };
-	let { items, onBuy }: Props = $props();
+	type Props = { items: Product[]; onSelect: (id: ShopItemId) => void };
+	let { items, onSelect }: Props = $props();
 </script>
 
 <div class="product-grid">
 	{#each items as item (item.id)}
-		<div class="product-card">
+		<div class="product-card" class:disabled={item.state === 'sold'}>
 			<div class="product-card-top">
 				<img src={item.imgSrc} alt={item.imgAlt} class="product-img" />
 				<h3>{item.label}</h3>
 			</div>
 			<div class="product-card-bottom">
-				<p>{item.description}</p>
-				<div class="product-price"><MoneyInline amount={item.price} size="lg" /></div>
-				{#if item.soldOut}
-					<button disabled class="product-cta">Sold</button>
-				{:else}
-					<button class="product-cta" onclick={() => onBuy(item.id)}>Buy now</button>
+				<p class="product-card-description">{item.description}</p>
+				<div class="product-price greyscale">
+					<MoneyInline
+						amount={item.price}
+						free={['active', 'inactive'].includes(item.state)}
+						size="lg"
+					/>
+				</div>
+				{#if item.state === 'sold'}
+					<button disabled class="product-cta">Sold out</button>
+				{:else if item.state === 'for sale'}
+					<button class="product-cta" onclick={() => onSelect(item.id)}>Buy now</button>
+				{:else if item.state === 'active'}
+					<button disabled class="product-cta" onclick={() => onSelect(item.id)}>Active</button>
+				{:else if item.state === 'inactive'}
+					<button class="product-cta" onclick={() => onSelect(item.id)}>Choose</button>
 				{/if}
 			</div>
 		</div>
@@ -51,6 +61,10 @@
 		width: 280px;
 		padding-top: 1rem;
 		border-radius: 24px;
+		box-shadow: 2px 2px 4px var(--pico-color);
+	}
+	.product-card.disabled {
+		filter: grayscale(1);
 	}
 	.product-card-top {
 		display: flex;
@@ -61,6 +75,9 @@
 	.product-card-bottom {
 		display: flex;
 		flex-direction: column;
+	}
+	.product-card-description {
+		padding: 0.25rem;
 	}
 	.product-img {
 		width: 180px;
