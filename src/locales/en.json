@@ -9,6 +9,8 @@
 	"gameover__cta": "Back to Title",
 	"gameover__description": "Thanks for playing!",
 	"gameover__heading": "Game Over",
+	"loading__title": "Loading...",
+	"loading__alt": "Bubble Tea wobbling from left to right and back",
 	"title": "My Little Bubble Tea Shop",
 	"title__best_experience": "For best experience, play at ",
 	"title__best_experience_href": "https://glamjam.kraenz.eu",

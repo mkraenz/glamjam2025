@@ -29,6 +29,13 @@
 	import * as m from '$lib/paraglide/messages';
 	import type { MouseEventHandler } from 'svelte/elements';
 	import { getBgmContext, setBgmContext } from '$lib/state/BgmContext.svelte';
+	import {
+		getGameStateContext,
+		initialState,
+		setGameStateContext
+	} from '$lib/state/GameStateContext.svelte';
+	import db from '$lib/db';
+	import { getMetaContext, setMetaContext } from '$lib/state/MetaContext.svelte';
 	type Props = {
 		children: Snippet;
 	};
@@ -43,6 +50,21 @@
 			bgm.toggleAudio();
 		}
 	}
+
+	// reminder: i did try to use the actual sveltekit routing and it did work. basically i can ensure gamestatecontext is set in the +layout.svelte but i lose the overview of which route leads where and injecting params.
+	setGameStateContext();
+	setMetaContext();
+	const meta = getMetaContext();
+	const game = getGameStateContext();
+
+	onMount(async () => {
+		const savefile = await db.games.findOne(initialState.id);
+		if (!savefile) await db.games.create(game.toJSON());
+		else game.fromJSON(savefile);
+		window.setTimeout(() => {
+			meta.savefileExists = true;
+		}, 600);
+	});
 </script>
 
 <svelte:head>

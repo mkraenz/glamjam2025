@@ -10,7 +10,8 @@ export const fallback = {
 	favColor: '#ffc0cb'
 };
 
-const initialState = {
+export const initialState = {
+	id: 'default',
 	name: '',
 	favColor: fallback.favColor,
 	skipTutorial: false,
@@ -19,6 +20,7 @@ const initialState = {
 	order: 'lychee',
 	tutorialCompleted: false
 } as {
+	id: string;
 	name: string;
 	favColor: string;
 	skipTutorial: boolean;
@@ -51,7 +53,7 @@ export type Page =
 	| 'iAmBusy';
 
 class GameState {
-	id = $state('testtest');
+	id = $state(initialState.id);
 	name = $state(initialState.name);
 	favColor = $state(initialState.favColor);
 	favTea = $state<TeaType>(initialState.favTea);
@@ -108,6 +110,20 @@ class GameState {
 			updatedAt: this.updatedAt,
 			money: this.money
 		};
+	}
+
+	fromJSON(savefile: DbGame) {
+		this.favColor = savefile.favColor;
+		this.favTea = savefile.favTea;
+		this.id = savefile.id;
+		this.name = savefile.name;
+		this.order = savefile.order;
+		this.page = savefile.page;
+		this.skipTutorial = savefile.skipTutorial;
+		this.tutorialCompleted = savefile.tutorialCompleted;
+		this.createdAt = savefile.createdAt;
+		this.updatedAt = savefile.updatedAt;
+		this.money = savefile.money;
 	}
 }
 
