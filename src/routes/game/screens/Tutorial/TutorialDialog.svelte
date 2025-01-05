@@ -11,7 +11,7 @@
 	<button {onclick} class="outline close-btn"><CloseIcon width="2rem" height="2rem" /></button>
 	<TutorialText />
 	<form method="dialog">
-		<button {onclick} class="btn-mw">OK</button>
+		<button {onclick} class="btw-miw">OK</button>
 	</form>
 </dialog>
 

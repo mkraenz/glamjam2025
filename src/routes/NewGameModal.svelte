@@ -18,9 +18,9 @@
 				<h2>{m.title__reset_game__heading()}</h2>
 				<p>{m.title__reset_game__description1()}<br />{m.title__reset_game__description2()}</p>
 				<group class="hstack">
-					<button class="btn-mw" onclick={close}>{m.common__cancel()}</button>
+					<button class="btw-miw" onclick={close}>{m.common__cancel()}</button>
 					<button
-						class="outline btn-mw"
+						class="outline btw-miw"
 						onclick={async () => {
 							await db.games.remove(game.id);
 							game.reset();
@@ -34,7 +34,7 @@
 			<Main>
 				<h2>{m.title__reset_game__deleted__heading()}</h2>
 				<p>{m.title__reset_game__deleted__description()}</p>
-				<button onclick={close} class="btn-mw">{m.common__ok()}</button>
+				<button onclick={close} class="btw-miw">{m.common__ok()}</button>
 			</Main>
 		{/if}
 	</div>

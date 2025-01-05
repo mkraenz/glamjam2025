@@ -17,10 +17,4 @@
 
 <svelte:window {onkeyup} />
 
-<button {onclick} class={classes}>{text}</button>
-
-<style>
-	button {
-		min-width: 180px;
-	}
-</style>
+<button {onclick} class={`btw-miw ${classes}`}>{text}</button>
