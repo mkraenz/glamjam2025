@@ -9,7 +9,7 @@
 	import FavColorWow from './screens/FavColorWow.svelte';
 	import FavTea from './screens/FavTea.svelte';
 	import GameOver from './screens/GameOver.svelte';
-	import IAmBusy from './screens/IAmBusy.svelte';
+	import TutorialIAmBusy from './screens/Tutorial/TutorialIAmBusy.svelte';
 	import NewCustomerOrder from './screens/NewCustomerOrder.svelte';
 	import Thanks from './screens/Thanks.svelte';
 	import TheNewOwner from './screens/TheNewOwner.svelte';
@@ -53,12 +53,12 @@
 	{#if page === 'favTea'}<FavTea next="backToBusiness" />{/if}
 	{#if page === 'backToBusiness'}<BackToBusiness
 			nextGood={game.skipTutorial ? 'barCounter' : 'tutorial'}
-			nextBad="iAmBusy"
+			nextBad={'tutorialIAmBusy'}
 		/>{/if}
 	{#if page === 'gameover'}<GameOver />{/if}
 	{#if page === 'tutorial'}<Tutorial next="barCounter" />{/if}
 	{#if page === 'tutorialFailed'}<TutorialFailed next="backToBusiness" />{/if}
-	{#if page === 'iAmBusy'}<IAmBusy next="gameover" />{/if}
+	{#if page === 'tutorialIAmBusy'}<TutorialIAmBusy next="gameover" />{/if}
 	{#if page === 'barCounter'}<BarCounter
 			nextGood={game.tutorialCompleted ? 'thanks' : 'tutorialThanks'}
 			nextBad={game.tutorialCompleted ? 'customerLeaves' : 'tutorialFailed'}

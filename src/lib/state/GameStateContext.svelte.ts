@@ -60,10 +60,10 @@ export type Page =
 	| 'tutorialFinished'
 	| 'tutorialThanks'
 	| 'tutorialFailed'
+	| 'tutorialIAmBusy'
 	| 'newCustomerOrder'
 	| 'menuBoard'
-	| 'shop'
-	| 'iAmBusy';
+	| 'shop';
 
 class GameState {
 	id = $state(initialState.id);
