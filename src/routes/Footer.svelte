@@ -6,36 +6,26 @@
 <footer class="animate fade transparent">
 	<div class="footer-container">
 		<p>{m.title__footer__author()}</p>
-		<p>
-			<ExternalLink href={m.title__footer__github_href()}
-				>{m.title__footer__github_label()}</ExternalLink
-			>
-		</p>
-		<p>
-			<ExternalLink href={m.title__footer__itch_href()}
-				>{m.title__footer__itch_label()}</ExternalLink
-			>
-		</p>
-		<p>
-			<ExternalLink href={m.title__footer__glamjam_href()}
-				>{m.title__footer__glamjam_label()}</ExternalLink
-			>
-		</p>
+		<ExternalLink href={m.title__footer__github_href()}
+			>{m.title__footer__github_label()}</ExternalLink
+		>
+		<ExternalLink href={m.title__footer__itch_href()}>{m.title__footer__itch_label()}</ExternalLink>
+		<ExternalLink href={m.title__footer__glamjam_href()}
+			>{m.title__footer__glamjam_label()}</ExternalLink
+		>
 		<p><a href="/imprint">{m.title__footer__acknowledgement_label()}</a></p>
 	</div>
 </footer>
 
 <style>
 	footer {
-		position: absolute;
-		bottom: 0;
+		margin-top: auto;
 	}
 	.footer-container {
 		display: flex;
 		flex-wrap: wrap;
 		column-gap: 1rem;
 		justify-content: center;
-		width: 100vw;
 	}
 
 	.animate.fade {

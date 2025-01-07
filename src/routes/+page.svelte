@@ -51,9 +51,9 @@
 			</button>
 			<BgmOnOff />
 		</group>
+		<Footer />
 	</main>
 	<Bubbles />
-	<Footer />
 </div>
 
 <style>
