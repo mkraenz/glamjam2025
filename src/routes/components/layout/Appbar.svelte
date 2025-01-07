@@ -8,37 +8,50 @@
 		animated?: boolean;
 		animateIn?: boolean;
 		animateOut?: boolean;
+		backgroundHidden?: boolean;
 	};
-	let { left, main, animated = false, animateIn = false, animateOut = false }: Props = $props();
+	let {
+		left,
+		main,
+		animated = false,
+		animateIn = false,
+		animateOut = false,
+		backgroundHidden = false
+	}: Props = $props();
 </script>
 
 <div
-	class="area-appbar sidebar appbar"
+	class="area-appbar appbar-container"
 	in:fade={{ delay: 400, duration: animated || animateIn ? 200 : 0 }}
 	out:fade={{ duration: animated || animateOut ? 200 : 0 }}
+	class:transparent-background={backgroundHidden}
 >
-	<div>
-		{@render left?.()}
-	</div>
-	<div class="appbar-main">
-		{@render main?.()}
+	<div class="appbar">
+		<div>
+			{@render left?.()}
+		</div>
+		<div class="appbar-main">
+			{@render main?.()}
+		</div>
 	</div>
 </div>
 
 <style>
-	.sidebar {
-		padding-top: 0.5rem;
-		padding-right: 0.5rem;
-		padding-left: 0.5rem;
+	.appbar-container {
+		position: sticky;
+		top: 0;
+		background-color: rgb(from var(--blue-pastel) r g b / 0.5);
+		z-index: 10000;
 	}
-	@media (max-width: 700px) {
-		.sidebar {
-			display: none;
-		}
+	.appbar-container.transparent-background {
+		background-color: transparent;
 	}
 	.appbar {
 		display: grid;
 		grid-template-columns: min-content 1fr;
+		padding-top: 0.5rem;
+		padding-right: 0.5rem;
+		padding-left: 0.5rem;
 	}
 	.appbar-main {
 		display: flex;

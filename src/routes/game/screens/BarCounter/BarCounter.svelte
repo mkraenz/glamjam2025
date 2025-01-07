@@ -69,7 +69,7 @@
 	let tutorialOpen = $state(false);
 </script>
 
-<Appbar>
+<Appbar backgroundHidden>
 	{#snippet left()}
 		<HelpButton
 			onClose={() => (tutorialOpen = false)}
