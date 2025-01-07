@@ -42,9 +42,6 @@
 		></div>
 	</div>
 	<div class="cup" class:transparent={!cup} class:cup-appearing={cup}>
-		{#if logoSrc}
-			<img src={logoSrc} class="logo" alt="logo" style:--favorite-color={'pink'} />
-		{/if}
 		<div class="milk-tea tapioca-pearls" class:transparent={!tapioca}>
 			{#each range(32)}
 				<div class="tapioca" class:tapioca-falling={tapioca}></div>
@@ -56,6 +53,9 @@
 			class:fill-anim={tea}
 			class:colored-fluid={tea}
 		></div>
+		{#if logoSrc}
+			<img src={logoSrc} class="logo" alt="logo" style:--favorite-color={strawColor} />
+		{/if}
 	</div>
 </div>
 
