@@ -108,6 +108,7 @@ class GameState {
 		this.updatedAt = new Date();
 		this.boughtShopItems = [];
 		this.activeMenuBoardLogo = undefined;
+		this.activeSticker = undefined;
 	}
 
 	navigate(to: Page) {
@@ -172,8 +173,10 @@ class GameState {
 		switch (data.type) {
 			case 'menuBoardLogo':
 				this.activeMenuBoardLogo = id as MenuBoardLogoShopItemId;
+				return;
 			case 'stickers':
 				this.activeSticker = id as StickerShopItemId;
+				return;
 		}
 	}
 
@@ -186,6 +189,7 @@ class GameState {
 		const item = shopItemDataMap[shopItemId];
 		if (item.type === 'menuBoardLogo')
 			return this.activeMenuBoardLogo === shopItemId ? 'active' : 'inactive';
+		if (item.type === 'stickers') return this.activeSticker === shopItemId ? 'active' : 'inactive';
 		return 'sold';
 	}
 
@@ -200,6 +204,9 @@ class GameState {
 		if (!item) return;
 		if (item.type === 'menuBoardLogo') {
 			this.activeMenuBoardLogo = item.id as MenuBoardLogoShopItemId;
+		}
+		if (item.type === 'stickers') {
+			this.activeSticker = item.id as StickerShopItemId;
 		}
 	}
 

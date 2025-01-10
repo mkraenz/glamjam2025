@@ -71,16 +71,30 @@ export const shopItemsTeaMap: Record<`tea_${keyof typeof teaDataMap}`, ShopItem>
 };
 export const shopItemDataMap = {
 	...shopItemsTeaMap,
-	elephant_stickers: {
-		id: 'elephant_stickers',
+	corgi_stickers: {
+		id: 'corgi_stickers',
 		type: 'stickers',
 		image: {
 			type: 'img',
-			src: 'icons/laugh-256x256.png',
-			alt: 'Elephant stickers'
+			src: 'icons/corgi.svg',
+			alt: 'Corgi stickers',
+			scale: 0.85
 		},
-		label: 'Elephant Stickers',
-		description: 'Stickers with Elephant motive to decorate your Bubble Tea cups.',
+		label: 'Corgi Stickers',
+		description: 'Stickers with Corgi motive to decorate your Bubble Tea cups.',
+		price: 10
+	},
+	kittens_stickers: {
+		id: 'kittens_stickers',
+		type: 'stickers',
+		image: {
+			type: 'img',
+			src: 'icons/Cute-Kittens-Playing.svg',
+			alt: 'Kittens stickers',
+			scale: 0.95
+		},
+		label: 'Kittens Stickers',
+		description: 'Stickers with Kittens motive to decorate your Bubble Tea cups.',
 		price: 10
 	},
 	// name_stickers: {

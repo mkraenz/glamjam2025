@@ -94,6 +94,10 @@
 		logoSrc={game.activeStickerShopItem?.image.type === 'img'
 			? game.activeStickerShopItem?.image.src
 			: undefined}
+		logoScale={game.activeStickerShopItem?.type === 'stickers' &&
+		game.activeStickerShopItem?.image.type === 'img'
+			? game.activeStickerShopItem?.image.scale
+			: undefined}
 	/>
 
 	<group class="hstack">

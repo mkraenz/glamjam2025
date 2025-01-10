@@ -19,7 +19,7 @@ export type ShopItem = {
 	label: string;
 	description: string;
 	image:
-		| { type: 'img'; src: string; alt: string }
+		| { type: 'img'; src: string; alt: string; scale?: number }
 		| { type: 'coloredCircle'; color: string }
 		| { type: 'bubbleTea'; fluidColor: string };
 	price: number;

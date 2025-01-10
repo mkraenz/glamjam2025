@@ -38,10 +38,28 @@
 		},
 		{
 			type: 'a',
-			href: 'https://erika-l-o.itch.io/vn-characther',
-			title: 'Male character sprite',
-			innerHTML: 'Male character sprite by Erika_L_O'
+			href: 'https://openclipart.org/detail/260428/cute-lock-icons',
+			title: 'Cute lock icons',
+			innerHTML: 'Cute lock icons by anarres (CC0)'
+		},
+		{
+			type: 'a',
+			href: 'https://openclipart.org/detail/254920/corgi',
+			title: 'Corgy',
+			innerHTML: 'Corgy by anarres (CC0)'
+		},
+		{
+			type: 'a',
+			href: 'https://openclipart.org/detail/250877/cute-kittens-playing',
+			title: 'Cute Kittens Playing',
+			innerHTML: 'Cute Kittens Playing by GDJ (CC0)'
 		}
+		// {
+		// 	type: 'a',
+		// 	href: 'https://openclipart.org/detail/293841/pastel-unicorn',
+		// 	title: 'Pastel Unicorn',
+		// 	innerHTML: 'Pastel Unicorn by chanellelloyd1 (CC0)'
+		// }
 	] as const;
 </script>
 

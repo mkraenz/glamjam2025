@@ -12,8 +12,19 @@
 		strawColor?: string;
 		teaData: TeaRenderData;
 		logoSrc?: string;
+		logoScale?: number;
 	};
-	let { lid, cup, straw, tapioca, tea, strawColor, teaData, logoSrc }: Props = $props();
+	let {
+		lid,
+		cup,
+		straw,
+		tapioca,
+		tea,
+		strawColor,
+		teaData,
+		logoSrc,
+		logoScale = 1
+	}: Props = $props();
 	let wobbling = $state(false);
 	let readyToServe = $derived(lid && cup && straw && tapioca && tea);
 	$effect(() => {
@@ -54,19 +65,25 @@
 			class:colored-fluid={tea}
 		></div>
 		{#if logoSrc}
-			<img src={logoSrc} class="logo" alt="logo" style:--favorite-color={strawColor} />
+			<div class="logo-container" style:--favorite-color={strawColor}>
+				<img src={logoSrc} alt="logo" class="logo" style:--logo-scale={logoScale} />
+			</div>
 		{/if}
 	</div>
 </div>
 
 <style lang="scss">
 	@use 'sass:math';
-	.logo {
+	.logo-container {
 		scale: 0.5;
 		background-color: var(--favorite-color);
 		border-radius: 50%;
 		padding: 1rem;
 		opacity: 0.8;
+	}
+	.logo {
+		--logo-scale: 1;
+		scale: var(--logo-scale);
 	}
 
 	.milk-tea.tapioca-pearls {
