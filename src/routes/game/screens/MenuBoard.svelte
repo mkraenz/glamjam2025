@@ -29,9 +29,9 @@
 				</div>
 			{/each}
 		</div>
-		{#if game.activeMenuBoardLogo}
+		{#if game.activeMenuBoardLogo && logo?.image.type === 'img'}
 			<img
-				src={logo?.imgSrc}
+				src={logo.image.src}
 				class="menu-logo"
 				alt={`logo of ${shopName}`}
 				style:--favorite-color={game.favColor}

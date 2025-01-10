@@ -91,7 +91,9 @@
 		straw={tea.straw}
 		strawColor={game.favColor}
 		teaData={teaDataMap[game.order]}
-		logoSrc={game.activeStickerShopItem?.imgSrc}
+		logoSrc={game.activeStickerShopItem?.image.type === 'img'
+			? game.activeStickerShopItem?.image.src
+			: undefined}
 	/>
 
 	<group class="hstack">

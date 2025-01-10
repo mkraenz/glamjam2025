@@ -30,7 +30,7 @@
 <DefaultAppbar />
 
 <Main gap={'2rem'}>
-	<h1>Welcome, take a good look around.</h1>
+	<h1>Welcome, take a look around.</h1>
 	<ProductGrid items={products} {onSelect} />
 
 	<NextButton

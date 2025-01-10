@@ -1,13 +1,17 @@
 <script lang="ts">
 	import type { ShopItemId } from '$lib/state/shop-items.data';
+	import { teaDataMap } from '$lib/state/teas.data';
 	import MoneyInline from '../../../components/common/MoneyInline.svelte';
+	import BubbleTeaIcon from '../BarCounter/BubbleTeaIcon.svelte';
 
 	export type Product = {
 		id: ShopItemId;
 		label: string;
 		description: string;
-		imgSrc: string;
-		imgAlt: string;
+		image:
+			| { type: 'img'; src: string; alt: string }
+			| { type: 'coloredCircle'; color: string }
+			| { type: 'bubbleTea'; fluidColor: string };
 		state: 'active' | 'inactive' | 'sold' | 'for sale';
 		price: number;
 	};
@@ -19,7 +23,13 @@
 	{#each items as item (item.id)}
 		<div class="product-card" class:disabled={item.state === 'sold'}>
 			<div class="product-card-top">
-				<img src={item.imgSrc} alt={item.imgAlt} class="product-img" />
+				{#if item.image.type === 'img'}
+					<img src={item.image.src} alt={item.image.alt} class="product-img" />
+				{:else if item.image.type === 'coloredCircle'}
+					<div class="product-img colored-circle" style:--background-color={item.image.color}></div>
+				{:else if item.image.type === 'bubbleTea'}
+					<BubbleTeaIcon scale={0.4} teaData={item.image} />
+				{/if}
 				<h3>{item.label}</h3>
 			</div>
 			<div class="product-card-bottom">
@@ -84,6 +94,11 @@
 		height: 180px;
 		align-self: center;
 		margin-bottom: 1rem;
+	}
+	.colored-circle {
+		--background-color: 'white';
+		border-radius: 50%;
+		background-color: var(--background-color);
 	}
 	.product-price {
 		margin-bottom: 1rem;

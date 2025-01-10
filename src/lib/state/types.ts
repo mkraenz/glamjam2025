@@ -18,7 +18,9 @@ export type ShopItem = {
 	// TODO instead use labelTKey, descriptionTKey, imgAltTKey
 	label: string;
 	description: string;
-	imgSrc: string;
-	imgAlt: string;
+	image:
+		| { type: 'img'; src: string; alt: string }
+		| { type: 'coloredCircle'; color: string }
+		| { type: 'bubbleTea'; fluidColor: string };
 	price: number;
 };

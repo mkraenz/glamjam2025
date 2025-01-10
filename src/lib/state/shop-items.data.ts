@@ -5,9 +5,10 @@ export const shopItemsTeaMap: Record<`tea_${keyof typeof teaDataMap}`, ShopItem>
 	tea_classic: {
 		id: 'tea_classic',
 		type: 'tea',
-		imgAlt: 'Classic Milk Tea Bubble Tea',
-		// TODO how to make this dynamic to get the proper img in?
-		imgSrc: 'icons/laugh-256x256.png',
+		image: {
+			type: 'bubbleTea',
+			fluidColor: '#e08d31aa'
+		},
 		label: 'Classic Milk Tea Bubble Tea',
 		description: 'Recipe allowing you to sell a new Bubble Tea flavor.',
 		price: 2
@@ -15,8 +16,10 @@ export const shopItemsTeaMap: Record<`tea_${keyof typeof teaDataMap}`, ShopItem>
 	tea_lychee: {
 		id: 'tea_lychee',
 		type: 'tea',
-		imgAlt: 'Lychee Bubble Tea',
-		imgSrc: 'icons/laugh-256x256.png',
+		image: {
+			type: 'bubbleTea',
+			fluidColor: '#DB434Daa'
+		},
 		label: 'Lychee Bubble Tea',
 		description: 'Recipe allowing you to sell a new Bubble Tea flavor.',
 		price: 2
@@ -24,8 +27,10 @@ export const shopItemsTeaMap: Record<`tea_${keyof typeof teaDataMap}`, ShopItem>
 	tea_mango: {
 		id: 'tea_mango',
 		type: 'tea',
-		imgAlt: 'Mango Yakult Bubble Tea',
-		imgSrc: 'icons/laugh-256x256.png',
+		image: {
+			type: 'bubbleTea',
+			fluidColor: '#FFBF34aa'
+		},
 		label: 'Mango Yakult Bubble Tea',
 		description: 'Recipe allowing you to sell a new Bubble Tea flavor.',
 		price: 2
@@ -33,8 +38,10 @@ export const shopItemsTeaMap: Record<`tea_${keyof typeof teaDataMap}`, ShopItem>
 	tea_matcha: {
 		id: 'tea_matcha',
 		type: 'tea',
-		imgAlt: 'Matcha Latte Bubble Tea',
-		imgSrc: 'icons/laugh-256x256.png',
+		image: {
+			type: 'bubbleTea',
+			fluidColor: '#8ac583aa'
+		},
 		label: 'Matcha Latte Bubble Tea',
 		description: 'Recipe allowing you to sell a new Bubble Tea flavor.',
 		price: 2
@@ -42,8 +49,10 @@ export const shopItemsTeaMap: Record<`tea_${keyof typeof teaDataMap}`, ShopItem>
 	tea_taro: {
 		id: 'tea_taro',
 		type: 'tea',
-		imgAlt: 'Taro Bubble Tea',
-		imgSrc: 'icons/laugh-256x256.png',
+		image: {
+			type: 'bubbleTea',
+			fluidColor: '#9C6BA9aa'
+		},
 		label: 'Taro Bubble Tea',
 		description: 'Recipe allowing you to sell a new Bubble Tea flavor.',
 		price: 2
@@ -51,8 +60,10 @@ export const shopItemsTeaMap: Record<`tea_${keyof typeof teaDataMap}`, ShopItem>
 	tea_strawberry: {
 		id: 'tea_strawberry',
 		type: 'tea',
-		imgAlt: 'Strawberry Milk Bubble Tea',
-		imgSrc: 'icons/laugh-256x256.png',
+		image: {
+			type: 'bubbleTea',
+			fluidColor: '#ffd9e7dd'
+		},
 		label: 'Strawberry Milk Bubble Tea',
 		description: 'Recipe allowing you to sell a new Bubble Tea flavor.',
 		price: 2
@@ -63,8 +74,11 @@ export const shopItemDataMap = {
 	elephant_stickers: {
 		id: 'elephant_stickers',
 		type: 'stickers',
-		imgAlt: 'Elephant stickers',
-		imgSrc: 'icons/laugh-256x256.png',
+		image: {
+			type: 'img',
+			src: 'icons/laugh-256x256.png',
+			alt: 'Elephant stickers'
+		},
 		label: 'Elephant Stickers',
 		description: 'Stickers with Elephant motive to decorate your Bubble Tea cups.',
 		price: 10
@@ -72,8 +86,7 @@ export const shopItemDataMap = {
 	// name_stickers: {
 	// 	id: 'name_stickers',
 	// 	type: 'stickers',
-	// 	imgAlt: 'Name stickers',
-	// 	imgSrc: LaughTea,
+	//  image: {type: 'img', alt: 'Name stickers', src: '',}
 	// 	label: 'Name Stickers',
 	// 	description: 'Stickers with your name to decorate your Bubble Tea cups.',
 	// 	price: 15
@@ -81,8 +94,7 @@ export const shopItemDataMap = {
 	// perfectionist: {
 	// 	id: 'perfectionist',
 	// 	type: 'modifier',
-	// 	imgAlt: 'Perfectionist product icon',
-	// 	imgSrc: LaughTea,
+	//  image: {type: 'img', alt: 'Perfectionist product icon', src: ''}
 	// 	label: 'Perfectionist',
 	// 	description: 'Challenge yourself by disallowing any mistakes when making Bubble Tea.',
 	// 	price: 5
@@ -90,8 +102,11 @@ export const shopItemDataMap = {
 	menu_board_logo_happy: {
 		id: 'menu_board_logo_happy',
 		type: 'menuBoardLogo',
-		imgAlt: 'Perfectionist product icon',
-		imgSrc: 'icons/happy-256x256.png',
+		image: {
+			type: 'img',
+			src: 'icons/happy-256x256.png',
+			alt: 'Perfectionist product icon'
+		},
 		label: 'Happy Menu Board Logo',
 		description: 'Decorate your menu board with this cute logo.',
 		price: 10
@@ -99,8 +114,11 @@ export const shopItemDataMap = {
 	menu_board_logo_bear: {
 		id: 'menu_board_logo_bear',
 		type: 'menuBoardLogo',
-		imgAlt: 'Bubble Tea in bear form icon',
-		imgSrc: 'icons/bear-256x256.png',
+		image: {
+			type: 'img',
+			src: 'icons/bear-256x256.png',
+			alt: 'Bubble Tea in bear form icon'
+		},
 		label: 'Bear Menu Board Logo',
 		description: 'Decorate your menu board with this cute logo.',
 		price: 15
@@ -108,8 +126,11 @@ export const shopItemDataMap = {
 	menu_board_logo_laugh: {
 		id: 'menu_board_logo_laugh',
 		type: 'menuBoardLogo',
-		imgAlt: 'Bubble Tea with laughing face icon',
-		imgSrc: 'icons/laugh-256x256.png',
+		image: {
+			type: 'img',
+			alt: 'Bubble Tea with laughing face icon',
+			src: 'icons/laugh-256x256.png'
+		},
 		label: 'Laugh Menu Board Logo',
 		description: 'Decorate your menu board with this cute logo.',
 		price: 10
