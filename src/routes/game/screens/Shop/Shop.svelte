@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { getAudiobusContext } from '$lib/state/AudiobusContext.svelte';
 	import { getGameStateContext, type Page } from '$lib/state/GameStateContext.svelte';
 	import { shopItemDataArray, type ShopItemId } from '$lib/state/shop-items.data';
 	import DefaultAppbar from '../../../components/common/DefaultAppbar.svelte';
@@ -9,6 +10,7 @@
 	type Props = { next: Page };
 	let { next }: Props = $props();
 	const game = getGameStateContext();
+	const audiobus = getAudiobusContext();
 	const products: Product[] = $derived(
 		shopItemDataArray.map(
 			(item) =>
@@ -22,8 +24,14 @@
 	function onSelect(id: ShopItemId) {
 		const item = products.find((product) => product.id === id);
 		if (!item) return;
-		if (game.hasBought(id)) game.activate(id);
-		else game.buy(item.id);
+		if (game.hasBought(id)) {
+			audiobus.play('pop');
+			game.activate(id);
+		} else {
+			const success = game.buy(item.id);
+			if (success) audiobus.play('upgrade');
+			else audiobus.play('purchaseFailed');
+		}
 	}
 </script>
 

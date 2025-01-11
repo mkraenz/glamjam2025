@@ -173,10 +173,12 @@ class GameState {
 		switch (data.type) {
 			case 'menuBoardLogo':
 				this.activeMenuBoardLogo = id as MenuBoardLogoShopItemId;
-				return;
+				return true;
 			case 'stickers':
 				this.activeSticker = id as StickerShopItemId;
-				return;
+				return true;
+			default:
+				return true;
 		}
 	}
 

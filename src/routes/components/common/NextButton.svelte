@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { getAudiobusContext } from '$lib/state/AudiobusContext.svelte';
+
 	type Props = {
 		onclick: () => void;
 		text?: string;
@@ -6,6 +8,7 @@
 		onEnterKeyPressed?: () => void;
 	};
 	let { onclick, text = 'Continue', classes, onEnterKeyPressed }: Props = $props();
+	const audiobus = getAudiobusContext();
 
 	function onkeyup(e: KeyboardEvent) {
 		if (e.key === 'Enter' && onEnterKeyPressed) {
@@ -17,4 +20,10 @@
 
 <svelte:window {onkeyup} />
 
-<button {onclick} class={`btn-miw ${classes}`}>{text}</button>
+<button
+	onclick={() => {
+		audiobus.play('pop');
+		onclick();
+	}}
+	class={`btn-miw ${classes}`}>{text}</button
+>

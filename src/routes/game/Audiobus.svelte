@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { getAudiobusContext, setAudiobusContext } from '$lib/state/AudiobusContext.svelte';
+	import { getAudiobusContext } from '$lib/state/AudiobusContext.svelte';
 	import { range } from '$lib/utils/range';
 
-	setAudiobusContext();
 	const audiobus = getAudiobusContext();
 </script>
 

@@ -1,13 +1,21 @@
 import { getContext, setContext } from 'svelte';
 
 const sources = {
-	pop: {
-		src: '/audio/sfx/pop2.wav',
+	success: {
+		src: '/audio/sfx/african4.mp3',
 		volume: 1
 	},
-	bgm: {
-		src: '/audio/relax-girl.mp3',
-		volume: 0.2
+	upgrade: {
+		src: '/audio/sfx/modern13.mp3',
+		volume: 1
+	},
+	pop: {
+		src: '/audio/sfx/pop2.wav',
+		volume: 0.4
+	},
+	purchaseFailed: {
+		src: '/audio/sfx/modern11.mp3',
+		volume: 0.6
 	}
 };
 
@@ -20,7 +28,6 @@ class AudiobusContext {
 	async play(key: keyof typeof sources) {
 		for (const element of this.audioElements) {
 			if (element.paused) {
-				console.log('its paused');
 				const track = sources[key];
 				element.src = track.src;
 				element.volume = track.volume;

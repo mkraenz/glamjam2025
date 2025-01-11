@@ -9,9 +9,10 @@
 	import HighlightedTitle from './HighlightedTitle.svelte';
 	import NewGameButton from './NewGameButton.svelte';
 	import NewGameModal from './NewGameModal.svelte';
-	import Audiobus from './game/Audiobus.svelte';
+	import { getAudiobusContext } from '$lib/state/AudiobusContext.svelte';
 
 	let newGameModalVisible = $state(false);
+	const audiobus = getAudiobusContext();
 
 	function onkeyup(e: KeyboardEvent) {
 		if (e.key === 'Enter' && !newGameModalVisible) {
@@ -20,6 +21,7 @@
 		}
 	}
 	function startGame() {
+		audiobus.play('pop');
 		goto('/game');
 	}
 </script>
@@ -45,8 +47,19 @@
 			</p>
 		</div>
 		<group class="hstack">
-			<NewGameButton onclick={() => (newGameModalVisible = true)} />
-			<NewGameModal close={() => (newGameModalVisible = false)} open={newGameModalVisible} />
+			<NewGameButton
+				onclick={() => {
+					audiobus.play('pop');
+					newGameModalVisible = true;
+				}}
+			/>
+			<NewGameModal
+				close={() => {
+					audiobus.play('pop');
+					newGameModalVisible = false;
+				}}
+				open={newGameModalVisible}
+			/>
 			<button onclick={startGame} class="pyutiful animate fade transparent">
 				{m.title__cta()}
 			</button>

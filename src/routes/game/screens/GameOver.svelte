@@ -4,10 +4,13 @@
 	import db from '$lib/db';
 	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import { goto } from '$app/navigation';
+	import { getAudiobusContext } from '$lib/state/AudiobusContext.svelte';
 
 	const game = getGameStateContext();
+	const audiobus = getAudiobusContext();
 	// isn't permadeath fun? :)
 	async function onclick() {
+		audiobus.play('pop');
 		await db.games.remove(game.id);
 		game.reset();
 		await db.games.create(game.toJSON());

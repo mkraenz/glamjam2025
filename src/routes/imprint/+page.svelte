@@ -52,7 +52,7 @@
 			type: 'a',
 			href: 'https://openclipart.org/detail/250877/cute-kittens-playing',
 			title: 'Cute Kittens Playing',
-			innerHTML: 'Cute Kittens Playing by GDJ (CC0)'
+			innerHTML: 'Cute Kittens Playing by GDJ under CC0'
 		},
 		// {
 		// 	type: 'a',
@@ -64,7 +64,14 @@
 			type: 'a',
 			href: 'https://opengameart.org/content/pop-sounds-0',
 			title: 'Pop SFX',
-			innerHTML: 'Pop Sfx created by EZduzziteh from OpenGameArt.org.'
+			innerHTML: 'Pop Sfx created by EZduzziteh from OpenGameArt.org under CC-BY 3.0.'
+		},
+		{
+			type: 'a',
+			href: 'https://cyrex-studios.itch.io/universal-ui-soundpack',
+			title: 'African4, Mordern11, Modern13 click SFX',
+			innerHTML:
+				'African4 success SFX, Modern11 SFX, Modern 13 SFX created by Nathan Gibson under CC BY 4.0. No edits made.'
 		}
 	] as const;
 </script>

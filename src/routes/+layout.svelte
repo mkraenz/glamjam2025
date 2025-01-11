@@ -36,6 +36,7 @@
 	import db from '$lib/db';
 	import { getMetaContext, setMetaContext } from '$lib/state/MetaContext.svelte';
 	import Audiobus from './game/Audiobus.svelte';
+	import { setAudiobusContext } from '$lib/state/AudiobusContext.svelte';
 	type Props = {
 		children: Snippet;
 	};
@@ -43,6 +44,7 @@
 
 	onMount(detectServiceWorkerUpdate);
 	setBgmContext();
+	setAudiobusContext();
 	const bgm = getBgmContext();
 	function onkeyup(e: KeyboardEvent) {
 		if (e.key === 'm') {
@@ -64,6 +66,12 @@
 		window.setTimeout(() => {
 			meta.savefileExists = true;
 		}, 600);
+
+		document.addEventListener('click', musicPlay);
+		function musicPlay() {
+			bgm.toggleAudio();
+			document.removeEventListener('click', musicPlay);
+		}
 	});
 </script>
 
@@ -75,7 +83,7 @@
 <audio
 	src="/audio/relax-girl.mp3"
 	loop
-	volume={0.2}
+	volume={0.05}
 	bind:paused={bgm.paused}
 	bind:this={bgm.audioElement}
 ></audio>

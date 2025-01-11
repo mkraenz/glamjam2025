@@ -4,9 +4,11 @@
 	import Main from './components/layout/Main.svelte';
 	import * as m from '$lib/paraglide/messages';
 	import { scale } from 'svelte/transition';
+	import { getAudiobusContext } from '$lib/state/AudiobusContext.svelte';
 
 	let deleted = $state(false);
 	const game = getGameStateContext();
+	const audiobus = getAudiobusContext();
 	type Props = { open: boolean; close: () => void };
 	let { open, close }: Props = $props();
 </script>
@@ -22,10 +24,12 @@
 					<button
 						class="outline btn-miw"
 						onclick={async () => {
+							audiobus.play('pop');
 							await db.games.remove(game.id);
 							game.reset();
 							await db.games.create(game.toJSON());
 							deleted = true;
+							audiobus.play('success');
 						}}>{m.common__reset()}</button
 					>
 				</group>

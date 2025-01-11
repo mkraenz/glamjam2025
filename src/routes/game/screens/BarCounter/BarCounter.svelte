@@ -11,36 +11,45 @@
 	import * as m from '$lib/paraglide/messages';
 	import { teaDataMap } from '$lib/state/teas.data';
 	import type { TeaType } from '$lib/state/types';
+	import { getAudiobusContext } from '$lib/state/AudiobusContext.svelte';
 
 	type Props = { nextGood: Page; nextBad: Page };
 	let { nextGood, nextBad }: Props = $props();
 	const tea = new BubbleTeaState();
 	const game = getGameStateContext();
+	const audiobus = getAudiobusContext();
 	function checkLose() {
 		if (tea.failure) game.navigate(nextBad);
 	}
 	function addLid() {
+		audiobus.play('pop');
 		tea.addLid();
 		checkLose();
 	}
 	function addCup() {
+		audiobus.play('pop');
 		tea.cup = true;
 		checkLose();
 	}
 	function addStraw() {
+		audiobus.play('pop');
 		tea.addStraw();
 		checkLose();
 	}
 	function addFluid(type: TeaType) {
+		audiobus.play('pop');
 		tea.addFluid(type);
 		checkLose();
 	}
 	function addTapioca() {
+		audiobus.play('pop');
 		tea.addTapioca();
 		checkLose();
 	}
 	function serve() {
+		audiobus.play('pop');
 		if (tea.readyToServe) {
+			audiobus.play('success');
 			game.stopStopwatch();
 			game.navigate(nextGood);
 		} else {
@@ -72,8 +81,14 @@
 <Appbar backgroundHidden>
 	{#snippet left()}
 		<HelpButton
-			onClose={() => (tutorialOpen = false)}
-			onOpen={() => (tutorialOpen = true)}
+			onClose={() => {
+				audiobus.play('pop');
+				tutorialOpen = false;
+			}}
+			onOpen={() => {
+				audiobus.play('pop');
+				tutorialOpen = true;
+			}}
 			open={tutorialOpen}
 		/>
 	{/snippet}

@@ -4,12 +4,17 @@
 	import VolumeOff from 'virtual:icons/feather/volume-x';
 	import VolumeOn from 'virtual:icons/feather/volume-2';
 	import TitleMenuIconButton from './TitleMenuIconButton.svelte';
+	import { getAudiobusContext } from '$lib/state/AudiobusContext.svelte';
 
 	const bgm = getBgmContext();
+	const audiobus = getAudiobusContext();
 </script>
 
 <TitleMenuIconButton
-	onclick={() => bgm.toggleAudio()}
+	onclick={() => {
+		audiobus.play('pop');
+		bgm.toggleAudio();
+	}}
 	ariaLabel={bgm.paused ? m.bgm__aria_off() : m.bgm__aria_on()}
 >
 	{#if bgm.paused}
