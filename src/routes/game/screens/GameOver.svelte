@@ -5,9 +5,13 @@
 	import { getGameStateContext } from '$lib/state/GameStateContext.svelte';
 	import { goto } from '$app/navigation';
 	import { getAudiobusContext } from '$lib/state/AudiobusContext.svelte';
+	import { onMount } from 'svelte';
 
 	const game = getGameStateContext();
 	const audiobus = getAudiobusContext();
+	onMount(() => {
+		audiobus.play('fail');
+	});
 	// isn't permadeath fun? :)
 	async function onclick() {
 		audiobus.play('pop');

@@ -44,21 +44,15 @@
 		},
 		{
 			type: 'a',
-			href: 'https://openclipart.org/detail/260428/cute-lock-icons',
-			title: 'Cute lock icons',
-			innerHTML: 'Cute lock icons by anarres (CC0)'
-		},
-		{
-			type: 'a',
 			href: 'https://openclipart.org/detail/254920/corgi',
 			title: 'Corgy',
-			innerHTML: 'Corgy by anarres (CC0)'
+			innerHTML: 'Corgy by anarres under CC0 1.0'
 		},
 		{
 			type: 'a',
 			href: 'https://openclipart.org/detail/250877/cute-kittens-playing',
 			title: 'Cute Kittens Playing',
-			innerHTML: 'Cute Kittens Playing by GDJ under CC0'
+			innerHTML: 'Cute Kittens Playing by GDJ under CC0 1.0'
 		},
 		{
 			type: 'a',
@@ -71,7 +65,20 @@
 			href: 'https://cyrex-studios.itch.io/universal-ui-soundpack',
 			title: 'African4, Mordern11, Modern13 click SFX',
 			innerHTML:
-				'African4 success SFX, Modern11 SFX, Modern 13 SFX created by Nathan Gibson under CC BY 4.0. No edits made.'
+				'African4 success SFX, Modern11 SFX, Modern 13 SFX created by Nathan Gibson under CC BY 4.0. No changes made.'
+		},
+		{
+			type: 'a',
+			href: 'https://freesound.org/people/gideonstar/sounds/569027/',
+			title: 'Lotus flute up SFX',
+			innerHTML: 'Lotus flute up SFX created by gideonstar under CC0 1.0.'
+		},
+		{
+			type: 'a',
+			href: 'https://freesound.org/people/TaranP/sounds/362206/',
+			title: 'Horn Fail up SFX',
+			innerHTML:
+				'Horn Fail SFX created by TaranP under CC0 1.0. Changes: extracted part of the track.'
 		}
 	] as const;
 </script>

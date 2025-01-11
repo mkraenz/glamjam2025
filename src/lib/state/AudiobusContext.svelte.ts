@@ -16,6 +16,14 @@ const sources = {
 	purchaseFailed: {
 		src: '/audio/sfx/modern11.mp3',
 		volume: 0.6
+	},
+	filling: {
+		src: '/audio/sfx/lotus-flute-up.mp3',
+		volume: 0.7
+	},
+	fail: {
+		src: '/audio/sfx/horn-fail.mp3',
+		volume: 1
 	}
 };
 

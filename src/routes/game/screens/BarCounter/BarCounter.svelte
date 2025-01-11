@@ -19,7 +19,10 @@
 	const tea = new BubbleTeaState(game.maxMistakes);
 	const audiobus = getAudiobusContext();
 	function checkLose() {
-		if (tea.failure) game.navigate(nextBad);
+		if (tea.failure) {
+			audiobus.play('fail');
+			game.navigate(nextBad);
+		}
 	}
 	function addLid() {
 		audiobus.play('pop');
@@ -38,7 +41,8 @@
 	}
 	function addFluid(type: TeaType) {
 		audiobus.play('pop');
-		tea.addFluid(type);
+		const { success } = tea.addFluid(type);
+		if (success) audiobus.play('filling');
 		checkLose();
 	}
 	function addTapioca() {
