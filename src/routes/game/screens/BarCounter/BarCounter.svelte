@@ -15,8 +15,8 @@
 
 	type Props = { nextGood: Page; nextBad: Page };
 	let { nextGood, nextBad }: Props = $props();
-	const tea = new BubbleTeaState();
 	const game = getGameStateContext();
+	const tea = new BubbleTeaState(game.maxMistakes);
 	const audiobus = getAudiobusContext();
 	function checkLose() {
 		if (tea.failure) game.navigate(nextBad);
@@ -68,11 +68,6 @@
 			onclick: () => addFluid('strawberry'),
 			text: m[teaDataMap[game.order].tKeyShort]()
 		}
-		// {
-		// 	hideIf: () => !!tea.fluid,
-		// 	onclick: () => addFluid('matcha'),
-		// 	text: 'Matcha Latte'
-		// }
 	]);
 	game.startStopwatch();
 	let tutorialOpen = $state(false);

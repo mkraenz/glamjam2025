@@ -71,6 +71,14 @@ export const shopItemsTeaMap: Record<`tea_${keyof typeof teaDataMap}`, ShopItem>
 };
 export const shopItemDataMap = {
 	...shopItemsTeaMap,
+	perfectionist: {
+		id: 'perfectionist',
+		type: 'modifier',
+		image: { type: 'img', alt: 'Perfectionist product icon', src: 'icons/sparkling.png' },
+		label: 'Perfectionist',
+		description: 'Challenge yourself. No mistakes allowed when making Bubble Tea.',
+		price: 5
+	},
 	corgi_stickers: {
 		id: 'corgi_stickers',
 		type: 'stickers',
@@ -105,14 +113,6 @@ export const shopItemDataMap = {
 	// 	description: 'Stickers with your name to decorate your Bubble Tea cups.',
 	// 	price: 15
 	// },
-	// perfectionist: {
-	// 	id: 'perfectionist',
-	// 	type: 'modifier',
-	//  image: {type: 'img', alt: 'Perfectionist product icon', src: ''}
-	// 	label: 'Perfectionist',
-	// 	description: 'Challenge yourself by disallowing any mistakes when making Bubble Tea.',
-	// 	price: 5
-	// }
 	menu_board_logo_happy: {
 		id: 'menu_board_logo_happy',
 		type: 'menuBoardLogo',

@@ -5,7 +5,7 @@ type Order = {
 };
 
 export class BubbleTeaState {
-	private maxMistakes = 3;
+	private maxMistakes = 2;
 
 	// TODO inject in constructor + make static?
 	order: Order = $state({ fluid: 'strawberry' });
@@ -18,13 +18,17 @@ export class BubbleTeaState {
 
 	mistakes = $state(0);
 
-	failure = $derived(this.mistakes >= this.maxMistakes);
+	failure = $derived(this.mistakes > this.maxMistakes);
 
 	readyToServe = $derived.by(() => {
 		return this.lid && this.cup && this.fluid && this.straw && this.tapioca;
 	});
 
 	baseReady = $derived(this.cup && this.fluid && this.tapioca);
+
+	constructor(maxMistakes: number) {
+		this.maxMistakes = maxMistakes;
+	}
 
 	addLid() {
 		if (!this.baseReady) {

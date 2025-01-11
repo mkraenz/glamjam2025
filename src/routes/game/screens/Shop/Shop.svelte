@@ -26,7 +26,7 @@
 		if (!item) return;
 		if (game.hasBought(id)) {
 			audiobus.play('pop');
-			game.activate(id);
+			game.toggleActivation(id);
 		} else {
 			const success = game.buy(item.id);
 			if (success) audiobus.play('upgrade');

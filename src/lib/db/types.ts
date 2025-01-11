@@ -25,6 +25,7 @@ export type DbGame = {
 	boughtShopItems?: ShopItemId[];
 	activeMenuBoardLogo?: MenuBoardLogoShopItemId;
 	activeSticker?: StickerShopItemId;
+	maxMistakes?: number;
 };
 
 export type MyDexie = Dexie & {

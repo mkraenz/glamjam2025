@@ -46,7 +46,7 @@
 				{:else if item.state === 'for sale'}
 					<button class="product-cta" onclick={() => onSelect(item.id)}>Buy now</button>
 				{:else if item.state === 'active'}
-					<button disabled class="product-cta" onclick={() => onSelect(item.id)}>Active</button>
+					<button class="product-cta" onclick={() => onSelect(item.id)}>Active</button>
 				{:else if item.state === 'inactive'}
 					<button class="product-cta" onclick={() => onSelect(item.id)}>Choose</button>
 				{/if}

@@ -26,6 +26,12 @@
 		},
 		{
 			type: 'a',
+			href: 'https://www.flaticon.com/free-icon/sparkling_15893039?term=spark&page=1&position=48&origin=search&related_id=15893039',
+			title: 'Sparkling icon',
+			innerHTML: 'Sparkling tea icon created by kornkun - Flaticon'
+		},
+		{
+			type: 'a',
 			href: 'https://www.flaticon.com/free-icon/profits_733186?term=money&page=1&position=76&origin=search&related_id=733186',
 			title: 'Money icon',
 			innerHTML: 'Money icon created by Chanut-is-Industries - Flaticon'
@@ -54,12 +60,6 @@
 			title: 'Cute Kittens Playing',
 			innerHTML: 'Cute Kittens Playing by GDJ under CC0'
 		},
-		// {
-		// 	type: 'a',
-		// 	href: 'https://openclipart.org/detail/293841/pastel-unicorn',
-		// 	title: 'Pastel Unicorn',
-		// 	innerHTML: 'Pastel Unicorn by chanellelloyd1 (CC0)'
-		// }
 		{
 			type: 'a',
 			href: 'https://opengameart.org/content/pop-sounds-0',

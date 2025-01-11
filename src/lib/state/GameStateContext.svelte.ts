@@ -27,7 +27,8 @@ export const initialState = {
 	favTea: 'strawberry',
 	order: 'strawberry',
 	tutorialCompleted: false,
-	money: 0
+	money: 0,
+	maxMistakes: 2
 } as {
 	id: string;
 	name: string;
@@ -38,6 +39,7 @@ export const initialState = {
 	favTea: TeaType;
 	order: TeaType;
 	money: number;
+	maxMistakes: number;
 };
 
 export function randomTeaData() {
@@ -80,6 +82,7 @@ class GameState {
 	updatedAt = new Date();
 	activeMenuBoardLogo = $state<MenuBoardLogoShopItemId>();
 	activeSticker = $state<StickerShopItemId>();
+	maxMistakes = $state(initialState.maxMistakes);
 
 	#stopwatchStart = new SvelteDate();
 	#stopwatchEnd = new SvelteDate();
@@ -109,6 +112,7 @@ class GameState {
 		this.boughtShopItems = [];
 		this.activeMenuBoardLogo = undefined;
 		this.activeSticker = undefined;
+		this.maxMistakes = initialState.maxMistakes;
 	}
 
 	navigate(to: Page) {
@@ -141,7 +145,8 @@ class GameState {
 			money: this.money,
 			boughtShopItems: $state.snapshot(this.boughtShopItems),
 			activeMenuBoardLogo: this.activeMenuBoardLogo,
-			activeSticker: this.activeSticker
+			activeSticker: this.activeSticker,
+			maxMistakes: this.maxMistakes
 		};
 	}
 
@@ -160,6 +165,7 @@ class GameState {
 		this.boughtShopItems = savefile.boughtShopItems ?? [];
 		this.activeMenuBoardLogo = savefile.activeMenuBoardLogo;
 		this.activeSticker = savefile.activeSticker;
+		this.maxMistakes = savefile.maxMistakes ?? initialState.maxMistakes;
 	}
 
 	buy(id: ShopItemId, price?: number) {
@@ -177,6 +183,9 @@ class GameState {
 			case 'stickers':
 				this.activeSticker = id as StickerShopItemId;
 				return true;
+			case 'modifier':
+				this.maxMistakes = 0;
+				return true;
 			default:
 				return true;
 		}
@@ -192,6 +201,7 @@ class GameState {
 		if (item.type === 'menuBoardLogo')
 			return this.activeMenuBoardLogo === shopItemId ? 'active' : 'inactive';
 		if (item.type === 'stickers') return this.activeSticker === shopItemId ? 'active' : 'inactive';
+		if (item.type === 'modifier') return this.maxMistakes === 0 ? 'active' : 'inactive';
 		return 'sold';
 	}
 
@@ -201,14 +211,19 @@ class GameState {
 		return { ...item, state: this.getItemState(shopItemId), id: shopItemId };
 	}
 
-	activate(shopItemId: ShopItemId) {
+	toggleActivation(shopItemId: ShopItemId) {
 		const item = this.getBoughtItem(shopItemId);
 		if (!item) return;
 		if (item.type === 'menuBoardLogo') {
-			this.activeMenuBoardLogo = item.id as MenuBoardLogoShopItemId;
+			this.activeMenuBoardLogo =
+				this.activeMenuBoardLogo === item.id ? undefined : (item.id as MenuBoardLogoShopItemId);
 		}
 		if (item.type === 'stickers') {
-			this.activeSticker = item.id as StickerShopItemId;
+			this.activeSticker =
+				this.activeSticker === item.id ? undefined : (item.id as StickerShopItemId);
+		}
+		if (item.type === 'modifier') {
+			this.maxMistakes = this.maxMistakes === 0 ? initialState.maxMistakes : 0;
 		}
 	}
 
