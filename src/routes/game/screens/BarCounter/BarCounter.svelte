@@ -95,7 +95,7 @@
 
 <Main justifyContent="flex-start">
 	<h2 class="pb-2">
-		Let's make some <span class="h2-emphasis">{m[teaDataMap[game.order].tKey]()}</span>
+		Let's make some<br /><span class="h2-emphasis">{m[teaDataMap[game.order].tKey]()}</span>
 	</h2>
 	<BubbleTea
 		lid={tea.lid}
