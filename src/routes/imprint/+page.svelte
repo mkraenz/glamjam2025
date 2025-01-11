@@ -53,13 +53,19 @@
 			href: 'https://openclipart.org/detail/250877/cute-kittens-playing',
 			title: 'Cute Kittens Playing',
 			innerHTML: 'Cute Kittens Playing by GDJ (CC0)'
-		}
+		},
 		// {
 		// 	type: 'a',
 		// 	href: 'https://openclipart.org/detail/293841/pastel-unicorn',
 		// 	title: 'Pastel Unicorn',
 		// 	innerHTML: 'Pastel Unicorn by chanellelloyd1 (CC0)'
 		// }
+		{
+			type: 'a',
+			href: 'https://opengameart.org/content/pop-sounds-0',
+			title: 'Pop SFX',
+			innerHTML: 'Pop Sfx created by EZduzziteh from OpenGameArt.org.'
+		}
 	] as const;
 </script>
 

@@ -9,6 +9,7 @@
 	import HighlightedTitle from './HighlightedTitle.svelte';
 	import NewGameButton from './NewGameButton.svelte';
 	import NewGameModal from './NewGameModal.svelte';
+	import Audiobus from './game/Audiobus.svelte';
 
 	let newGameModalVisible = $state(false);
 

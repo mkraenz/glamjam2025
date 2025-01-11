@@ -35,6 +35,7 @@
 	} from '$lib/state/GameStateContext.svelte';
 	import db from '$lib/db';
 	import { getMetaContext, setMetaContext } from '$lib/state/MetaContext.svelte';
+	import Audiobus from './game/Audiobus.svelte';
 	type Props = {
 		children: Snippet;
 	};
@@ -69,7 +70,7 @@
 <svelte:head>
 	<title>{m.home_title()}</title>
 </svelte:head>
-<svelte:window onmousemove={sparkle} {onkeyup} />
+<svelte:window {onkeyup} />
 
 <audio
 	src="/audio/relax-girl.mp3"
@@ -78,6 +79,8 @@
 	bind:paused={bgm.paused}
 	bind:this={bgm.audioElement}
 ></audio>
+
+<Audiobus />
 
 <ParaglideJS {i18n}>
 	{@render children()}
