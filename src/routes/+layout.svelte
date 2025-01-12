@@ -78,7 +78,7 @@
 <svelte:head>
 	<title>{m.home_title()}</title>
 </svelte:head>
-<svelte:window {onkeyup} />
+<svelte:window {onkeyup} onmousemove={sparkle} />
 
 <audio
 	src="/audio/relax-girl.mp3"
