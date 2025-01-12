@@ -68,6 +68,12 @@ input {
 	pointer-events: none;
 	animation: animate-star-falling 1s linear;
 }
+.star[data-active='true'] {
+	display: block;
+}
+.star[data-active='false'] {
+	display: none;
+}
 
 @keyframes animate-star-falling {
 	from {

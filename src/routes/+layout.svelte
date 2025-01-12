@@ -1,22 +1,5 @@
 <script module lang="ts">
-	const sparkle: MouseEventHandler<EventTarget> = (e) => {
-		const maxLifetimeMs = 600;
-		const arr = [1, 0.9, 0.8, 0.5, 0.2];
-		arr.forEach(function (i) {
-			let x = (1 - i) * 75;
-			let star = document.createElement('div');
-			star.className = 'star';
-			star.style.top = e.clientY + Math.round(Math.random() * x - x / 2) + 'px';
-			star.style.left = e.clientX + Math.round(Math.random() * x - x / 2) + 'px';
-			document.body.appendChild(star);
-			window.setTimeout(
-				() => {
-					document.body.removeChild(star);
-				},
-				Math.round(Math.random() * i * maxLifetimeMs)
-			);
-		});
-	};
+	const { sparkle } = useStarParticles();
 </script>
 
 <script lang="ts">
@@ -26,7 +9,6 @@
 	import './global.css';
 	import { detectServiceWorkerUpdate } from '$lib/pwa';
 	import * as m from '$lib/paraglide/messages';
-	import type { MouseEventHandler } from 'svelte/elements';
 	import { getBgmContext, setBgmContext } from '$lib/state/BgmContext.svelte';
 	import {
 		getGameStateContext,
@@ -37,6 +19,7 @@
 	import { getMetaContext, setMetaContext } from '$lib/state/MetaContext.svelte';
 	import Audiobus from './game/Audiobus.svelte';
 	import { setAudiobusContext } from '$lib/state/AudiobusContext.svelte';
+	import { useStarParticles } from './star-particle-effect';
 	type Props = {
 		children: Snippet;
 	};
